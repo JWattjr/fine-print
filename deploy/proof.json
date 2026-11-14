@@ -92,7 +92,12 @@
     "ticket:rt_challenge-rejected": "0x4e01ba94f0ef417284b8295572f35af038a53f85fa5d0f4acada5c7b9cb98c80",
     "deposit:rt_challenge-rejected": "0xe161e438480817fbcb94a710736a7a303622e4fc763bd9cbc55acb7756149895",
     "replay:challenge-rejected:prepare": "0x3a36f1b6e691e418142a3ccd0da51403c722195cbccbccc3b4ad94cfbf06e7f2",
-    "ticket:bt_rc_challenge-rejected": "0xbc94dbe804b26fd420b5c55e868d6ae5747ff784c732114670da04483585107e"
+    "ticket:bt_rc_challenge-rejected": "0xbc94dbe804b26fd420b5c55e868d6ae5747ff784c732114670da04483585107e",
+    "claim:seal:rc_x-ai-training": "0x7ca6f1cbec9da4672bc43371b657949361b588db2315267fe011df5b48ed8ae5",
+    "claim:settle:rc_x-ai-training": "0xcbc9a2a138807ddbb64b18cd83e475471787577c420875c0a092aba1c1d8abb8",
+    "credit:pull:bounty:rc_x-ai-training:1": "0xf89f6654f30a85b5fbb290c8be946ec6a5db3397bc2d022c018793a4585e8672",
+    "credit:verify:bounty:rc_x-ai-training:1:first": "0x05716fc92a91325667127ede7758b4ea5ce8dc91177991dc3bfe4cb5782e8351",
+    "watch:compile:w_a52fda731efa43a7859aa6a06299fc01": "0x66e5caad3ca3654d0093eb16f802569d28487572f7233508ebde8e97924b192e"
   },
   "receipts": {
     "deploy-ArchiveProbe": {
@@ -2259,7 +2264,7 @@
         "status": "READY",
         "finalized": true
       },
-      "readAt": "2026-11-14T18:00:44.646Z",
+      "readAt": "2026-11-14T18:24:21.591Z",
       "readError": "",
       "readback": {
         "contract": "Bounties",
@@ -2273,7 +2278,318 @@
         }
       },
       "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
-      "recordedAt": "2026-11-14T18:00:44.819Z"
+      "recordedAt": "2026-11-14T18:24:21.914Z"
+    },
+    "claim:seal:rc_x-ai-training": {
+      "key": "claim:seal:rc_x-ai-training",
+      "hash": "0x7ca6f1cbec9da4672bc43371b657949361b588db2315267fe011df5b48ed8ae5",
+      "label": "Close challenge intake",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Challenges",
+      "method": "seal_claim",
+      "args": [
+        "rc_x-ai-training"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T18:28:10.789Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xf9fb252271d54af4c9a9462d76b054e5babdf4ac833c74ad40c21e37325342ab"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "claim_id": "rc_x-ai-training",
+        "sealed": true,
+        "finalized": true,
+        "pending": 0,
+        "upheld": false,
+        "ids": [],
+        "version": 1,
+        "status": "SEALED",
+        "resolve_deadline": 1794682692,
+        "sealed_at": 1794680926
+      },
+      "readAt": "2026-11-14T18:29:24.930Z",
+      "readError": "",
+      "readback": {
+        "contract": "Challenges",
+        "method": "get_claim_summary",
+        "args": [
+          "rc_x-ai-training"
+        ],
+        "until": {
+          "field": "sealed",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T18:29:25.101Z"
+    },
+    "claim:settle:rc_x-ai-training": {
+      "key": "claim:settle:rc_x-ai-training",
+      "hash": "0xcbc9a2a138807ddbb64b18cd83e475471787577c420875c0a092aba1c1d8abb8",
+      "label": "Reserve finalized bounty and return hunter bond",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "settle",
+      "args": [
+        "rc_x-ai-training"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T18:36:06.405Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xf1cd819258608bbd8674e5c7cd890bcdee1a4ba38aeb781cb56187b030d6358e",
+        "0x26d8275e8c3b8613f06fc36ccfda0e640a307a6a03c4d4dd354e35d5b4caf3f9",
+        "0x1e4e33165fd058fcf79a22339d18d7fdd35b282360dceaf002b2f24777aea706"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "claim_id": "rc_x-ai-training",
+        "watch_id": "rw_x-ai-training",
+        "recipient": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "credit_id": "bounty:rc_x-ai-training",
+        "status": "AWAITING_PULL",
+        "credit_verified": false,
+        "finalized": false
+      },
+      "readAt": "2026-11-14T18:36:47.295Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_settlement",
+        "args": [
+          "rc_x-ai-training"
+        ],
+        "until": {
+          "field": "status",
+          "oneOf": [
+            "AWAITING_PULL",
+            "PAID",
+            "EXPIRED"
+          ]
+        }
+      },
+      "recordedAt": "2026-11-14T18:36:47.448Z"
+    },
+    "credit:pull:bounty:rc_x-ai-training:1": {
+      "key": "credit:pull:bounty:rc_x-ai-training:1",
+      "hash": "0xf89f6654f30a85b5fbb290c8be946ec6a5db3397bc2d022c018793a4585e8672",
+      "label": "Claim allocated native credit",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "claim",
+      "args": [
+        "bounty:rc_x-ai-training",
+        1
+      ],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T18:54:42.144Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x8752a2a37a842e506beb7dc0853544ec55aaf1027b2bc1150a112ff56477c352"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "bounty:rc_x-ai-training",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "purpose": "BOUNTY",
+        "claim_id": "rc_x-ai-training",
+        "refund_owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "status": "TRANSFER_PENDING",
+        "finalized": false,
+        "attempt": 1,
+        "created_at": 1794681368,
+        "claim_deadline": 1795286168,
+        "transfer_deadline": 1794686083,
+        "parent": "",
+        "child": ""
+      },
+      "readAt": "2026-11-14T18:55:27.270Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_credit",
+        "args": [
+          "bounty:rc_x-ai-training"
+        ],
+        "until": {
+          "field": "attempt",
+          "equals": 1
+        },
+        "also": [
+          {
+            "field": "status",
+            "oneOf": [
+              "TRANSFER_PENDING",
+              "VERIFYING",
+              "AVAILABLE",
+              "PAID"
+            ]
+          }
+        ]
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T18:55:27.320Z"
+    },
+    "credit:verify:bounty:rc_x-ai-training:1:first": {
+      "key": "credit:verify:bounty:rc_x-ai-training:1:first",
+      "hash": "0x05716fc92a91325667127ede7758b4ea5ce8dc91177991dc3bfe4cb5782e8351",
+      "label": "Verify exact finalized native credit",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "verify_claim",
+      "args": [
+        "bounty:rc_x-ai-training",
+        1,
+        "0xf89f6654f30a85b5fbb290c8be946ec6a5db3397bc2d022c018793a4585e8672",
+        "0x8752a2a37a842e506beb7dc0853544ec55aaf1027b2bc1150a112ff56477c352"
+      ],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T18:56:09.528Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x11601e4ca75ccd429613ccf6722aafe8aedb4cf0deff64db7b1d9b3d58ad54cc"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "bounty:rc_x-ai-training",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "purpose": "BOUNTY",
+        "claim_id": "rc_x-ai-training",
+        "refund_owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "status": "PAID",
+        "finalized": true,
+        "attempt": 1,
+        "created_at": 1794681368,
+        "claim_deadline": 1795286168,
+        "transfer_deadline": 1794686083,
+        "parent": "0xf89f6654f30a85b5fbb290c8be946ec6a5db3397bc2d022c018793a4585e8672",
+        "child": "0x8752a2a37a842e506beb7dc0853544ec55aaf1027b2bc1150a112ff56477c352",
+        "proof": {
+          "child": "0x8752a2a37a842e506beb7dc0853544ec55aaf1027b2bc1150a112ff56477c352",
+          "paid": true,
+          "parent": "0xf89f6654f30a85b5fbb290c8be946ec6a5db3397bc2d022c018793a4585e8672"
+        },
+        "verified_at": 1794682607
+      },
+      "readAt": "2026-11-14T18:57:21.799Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_credit",
+        "args": [
+          "bounty:rc_x-ai-training"
+        ],
+        "until": {
+          "field": "status",
+          "oneOf": [
+            "PAID",
+            "AVAILABLE"
+          ]
+        },
+        "also": [
+          {
+            "field": "attempt",
+            "equals": 1
+          }
+        ]
+      },
+      "recordedAt": "2026-11-14T18:57:22.031Z"
+    },
+    "watch:compile:w_a52fda731efa43a7859aa6a06299fc01": {
+      "key": "watch:compile:w_a52fda731efa43a7859aa6a06299fc01",
+      "hash": "0x66e5caad3ca3654d0093eb16f802569d28487572f7233508ebde8e97924b192e",
+      "label": "Compile policy concern",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "compile_watch",
+      "args": [
+        "w_a52fda731efa43a7859aa6a06299fc01",
+        "https://explore.zoom.us/en/terms/",
+        "Tell me if Zoom permits customer meeting audio, video, chat, or transcripts to be used to train artificial intelligence or machine learning models without customer consent.",
+        {
+          "integer": "100"
+        },
+        2592000,
+        3600,
+        ""
+      ],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T18:57:42.263Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x69534f18fb25c64e504919ddab1c5cb79f14f07dd64e630c5e92695f81530c1c"
+      ],
+      "valueCredited": false,
+      "stateVerified": false,
+      "stateReadback": {
+        "id": "w_a52fda731efa43a7859aa6a06299fc01",
+        "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "url": "https://explore.zoom.us/en/terms/",
+        "concern": "Tell me if Zoom permits customer meeting audio, video, chat, or transcripts to be used to train artificial intelligence or machine learning models without customer consent.",
+        "bounty_wei": "100",
+        "bond_wei": "1",
+        "challenge_bond_wei": "1",
+        "created_at": 1794682664,
+        "expires_at": 1797274664,
+        "funding_deadline": 1794686264,
+        "challenge_seconds": 3600,
+        "historical_replay": false,
+        "as_of": "20261114185744",
+        "status": "PENDING_FINALITY",
+        "finalized": false,
+        "baseline_digest": "02ca553148d7dcb9a161f9889f58bc7ee3c21980f84566a9c850fb3a8a065831",
+        "baseline_text_preview": "Zoom Terms of Service | Zoom\n\nSupport\n\n1.888.799.9666\n\nRequest a Demo\n\nJoin\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nSign In\n\nContact Sales\n\nRequest A Demo\n\nJoin\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nJoin\n\nJoin by Meeting ID\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nContact Sales\n\nSign Up Free\n\nJoin\n\nJoin by Meeting ID\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nWhiteboard\n\nMy Account\n\nSearch\n\nProducts\n\nZoom One\nEverything you need to work together, all in one place.\n\nExplore Zoom One’s Collaboration Tools\n\nVirtual Meetings\nConnect virtually from anywhere with Zoom Meetings\n\nTeam Chat\nCollaborate together with Zoom Team Chat\n\nVoIP Phone System\nCall the world with Zoom Phone\n\nOnline Whiteboard\nCreate and brainstorm with Zoom Whiteboard\n\nConversation Intelligence\nRich conversation analytics to improve sales\n\nEmail and Calendar\nSend and receive messages and calendar invitations\n\nVideo Recording\nCollaborate over video without scheduling a meeting\n\nAppointment Scheduler\nRemove the hassle of traditional scheduling with Zoom Scheduler\n\nWorkvivo\nSimplify communication and drive engagement with Workvivo\n\nZoom Spaces\nInnovative video solutions for every meeting space.\n\nConference Room Systems\nBring meeting spaces online with Zoom Rooms\n\nConnected Conference Rooms\nConference Room Connector links existing rooms to Zoom\n\nWorkspace\nInnovative solutions for every space\n\nZoom Events\nSolutions to host impactful virtual and hybrid experiences.\n\nFind a solution for every event\n\nEvent Platform\nHost hybrid and virtual events with Zoom Events\n\nSingle-Session Events\nElevate your brand with single-session events powered by Zoom Sessions\n\nOnline Webinars\nBroadcast at scale with Zoom Webinars\n\nCommunity Events\nHost and attend classes, group events, and more OnZoom\n\nZoom Contact Center\nAn omnichannel cloud solution optimized for video.\n\nCloud Contact Center\nEngage customers with Zoom Contact Center\n\nVirtual Agent\nDeliver intelligent support with conversational AI\n\nWorkforce Engagement Management\nOptimize contact center agent performance and engagement\n\nSolutions\n\nIndustries\nZoom solutions elevate collaboration across vertical use cases.\n\nDiscover Zoom Industry Solutions\n\nEducation\nEnabling exciting new ways to teach, learn, and connect globally\n\nFinancial Services\nTransforming client engagement and employee experiences\n\nGovernment\nImproving collaboration between agencies, ministries, and constituents\n\nHealthcare\nConnecti",
+        "baseline_timestamp": "20240718135835",
+        "baseline_url": "https://web.archive.org/web/20240718135835id_/https://explore.zoom.us/en/terms/",
+        "criteria": [
+          "The policy permits customer meeting audio, video, chat, or transcripts to be used to train artificial intelligence or machine learning models without customer consent."
+        ],
+        "decision": "ACCEPT",
+        "reason": "The concern identifies an observable permission in the policy, scoped to specified customer meeting content and the absence of customer consent.",
+        "criteria_hash": "48c6770dbc4257d927b59ac33d2a315f14d2108ab8d7da4b8c9215223d176aa1"
+      },
+      "readAt": "2026-11-14T18:58:45.133Z",
+      "readError": "The parent is finalized; its callback state is still pending.",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_watch",
+        "args": [
+          "w_a52fda731efa43a7859aa6a06299fc01"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T18:58:45.171Z"
     }
   },
   "probeResults": {
@@ -2487,7 +2803,7 @@
           "challenge_seconds": 1800,
           "historical_replay": true,
           "as_of": "20230101004225",
-          "status": "OPEN",
+          "status": "CLOSED",
           "finalized": true,
           "baseline_digest": "d118bfd2d5894621049d781c021a22ff54bf9d8dfad5202413aafa9f6ae8d6ef",
           "baseline_text_preview": "1. Information We Collect",
@@ -2539,8 +2855,31 @@
           "resolution_deadline": 1794677661
         },
         "challenge": {},
-        "closure": {},
-        "settlement": {}
+        "closure": {
+          "claim_id": "rc_x-ai-training",
+          "sealed": true,
+          "finalized": true,
+          "pending": 0,
+          "upheld": false,
+          "ids": [],
+          "version": 1,
+          "status": "SEALED",
+          "resolve_deadline": 1794682692,
+          "sealed_at": 1794680926
+        },
+        "settlement": {
+          "claim_id": "rc_x-ai-training",
+          "watch_id": "rw_x-ai-training",
+          "recipient": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+          "amount_wei": "100",
+          "credit_id": "bounty:rc_x-ai-training",
+          "status": "PAID",
+          "credit_verified": true,
+          "finalized": true,
+          "parent": "0xf89f6654f30a85b5fbb290c8be946ec6a5db3397bc2d022c018793a4585e8672",
+          "child": "0x8752a2a37a842e506beb7dc0853544ec55aaf1027b2bc1150a112ff56477c352",
+          "finalized_at": 1794682607
+        }
       },
       "transactions": {
         "replay:x-ai-training:compile": "0x5eb6f73d84065f048d503cae0b936d7010ed53dc95dba44f67577c833f5f4ac7",
@@ -2548,11 +2887,21 @@
         "replay:x-ai-training:prepare": "0xfe35822b09a74eee43648d34f08bd265bd4ede6ae5302960b44017004174ca58",
         "ticket:bt_rc_x-ai-training": "0x3aa6f4ac912548badb375a8cd5243f8756f63494fd98eaa8365f0e8a55aa894c",
         "deposit:bt_rc_x-ai-training": "0x1c98bebf7c2ba2132bf04a11cf08e3e749b8a00130ec7e11754aa6eb8103a5fe",
-        "replay:x-ai-training:judge": "0x253fee4fc990efd38d2290203ace981ebadc956d06db36de55c06a9d3a8c275e"
+        "replay:x-ai-training:judge": "0x253fee4fc990efd38d2290203ace981ebadc956d06db36de55c06a9d3a8c275e",
+        "claim:seal:rc_x-ai-training": "0x7ca6f1cbec9da4672bc43371b657949361b588db2315267fe011df5b48ed8ae5",
+        "claim:settle:rc_x-ai-training": "0xcbc9a2a138807ddbb64b18cd83e475471787577c420875c0a092aba1c1d8abb8",
+        "credit:pull:bounty:rc_x-ai-training:1": "0xf89f6654f30a85b5fbb290c8be946ec6a5db3397bc2d022c018793a4585e8672",
+        "credit:verify:bounty:rc_x-ai-training:1:first": "0x05716fc92a91325667127ede7758b4ea5ce8dc91177991dc3bfe4cb5782e8351"
       },
       "challengeWindow": {
         "deadline": "2026-11-14T16:34:21.000Z",
-        "closed": false
+        "closed": true
+      },
+      "payout": {
+        "amountWei": "100",
+        "recipient": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "transactionHash": "0x8752a2a37a842e506beb7dc0853544ec55aaf1027b2bc1150a112ff56477c352",
+        "creditVerified": true
       }
     },
     {
@@ -2778,7 +3127,7 @@
     }
   ],
   "depositedWei": "501",
-  "recordedAt": "2026-11-14T17:28:20.212Z",
+  "recordedAt": "2026-11-14T18:57:59.281Z",
   "blockers": [
     "The 100-wei deposit finalized after its 10-minute ticket expiry and the Zoom watch funding deadline. The contract recorded valid_ticket=false and issued a refundable credit. No claim or rerun was submitted."
   ],

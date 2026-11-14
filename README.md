@@ -1,5 +1,9 @@
 # Fine Print
 
+Public app: https://fine-print-ten.vercel.app/ · Source: https://github.com/JWattjr/fine-print
+
+Launch status (14 November 2026): incomplete. X's historical AI-training claim finalized TRIGGERED, cleared its challenge window and received a verified 100-wei native bounty. The subjective concern was rejected. Adobe's claim timed out and was voided; Zoom's initial escrow became refundable after ticket expiry. Remaining replay outcomes and funded production watches are still required before submission readiness.
+
 Fine Print is an archive-backed policy change bounty desk. A sponsor freezes a specific concern against a Wayback baseline. Hunters submit a later archived passage. GenLayer validators judge whether the passage meets the frozen checks, while deterministic contract code controls funding, bonds, deadlines, refunds and payouts.
 
 The public app reads its displayed receipts from [`deploy/proof.json`](deploy/proof.json). It does not present a candidate case as a finalized catch. Each production receipt needs a finalized StudioNet transaction, contract state readback, a closed challenge window and verified native credit. Historical replays and current watches are stored separately.
