@@ -1,0 +1,2828 @@
+{
+  "project": "Fine Print",
+  "network": {
+    "name": "StudioNet",
+    "chainId": 61999,
+    "rpc": "https://studio.genlayer.com/api",
+    "explorer": "https://explorer-studio.genlayer.com"
+  },
+  "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+  "contracts": {
+    "ArchiveProbe": {
+      "address": "0x3af4ed87c46bcb30f296ab190da90f157b205694",
+      "explorer": "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694",
+      "sourceSha256": "9d7dee912612c243d093f45baebc5ddb0d12bdb75bf445905b3c148e31e35c18"
+    },
+    "Watches": {
+      "address": "0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+      "explorer": "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+      "sourceSha256": "0d4ddf3e977b559dbc3e90f4cc60f1c4697c5e8899ddb20067bf0cf963061c93",
+      "transactionHash": "0x0403386780abbe2f46291ad7611c11f82388744d7f8a78f66158a20433938340"
+    },
+    "Claims": {
+      "address": "0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+      "explorer": "https://explorer-studio.genlayer.com/address/0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+      "sourceSha256": "696bb4079b0e429ac0977da4851010285ec44b84bb4c463978c155024e2f7e04",
+      "transactionHash": "0x98fb2509fd01641027d40bf0e868f96bc13d0f6e3169ceaa270e0e9a855f02ee"
+    },
+    "Challenges": {
+      "address": "0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+      "explorer": "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+      "sourceSha256": "fa5a6e1398a64fda85cba5fd4247d142ca8517baac348cbc1ea0c59a6ab83131",
+      "transactionHash": "0xa15756d51f7c2e29515de8a1c98dd46b51433c1acd7da67cd02fd0fc1ffca19e"
+    },
+    "Bounties": {
+      "address": "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
+      "explorer": "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
+      "sourceSha256": "a5a4fdabbad566dc36d10b7c3ca7540a7e65f61202c01e2bf63934347b0a7cf0",
+      "transactionHash": "0x8ad6abbbe252e0bda184f29a5f4ed428e2013c5abc1daaf7eeec2115044b1b2c"
+    },
+    "ChangeLedger": {
+      "address": "0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d",
+      "explorer": "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d",
+      "sourceSha256": "8c9d2989a4842e9bbe094f16b420cc78bd12d2c71e3caa3101d4d083b7379afb",
+      "transactionHash": "0xa07a0a0161bbf93f68bd31a19cd4178cefdfba0c563e14f2f71ca73ac835d4dc"
+    }
+  },
+  "transactions": {
+    "deploy-ArchiveProbe": "0x34b8cd6dc2bf15416f7bbbc0c72dc7a31992dd23be50bbf21ead0cb37029fbf0",
+    "probe-zoom-baseline": "0x4d84b142f935eaf3bfa828102d62ea00b63d3a17a6182b1c581bf086b12d9155",
+    "probe-zoom-change": "0xefc51c84802b27940161d9a8d352ebcb818fa343550f450093ad0f24b48bdcb9",
+    "probe-x-baseline": "0xdb241bdf4b23a5f4d1badb9aa63c16b89c78bdf1f5c43881f816ffcfc6197818",
+    "probe-x-change": "0x10194c55ed1ce82e5c8f27d707d687eaa2f154e9483974695cfb3a2ea49ca715",
+    "probe-adobe-baseline": "0x946363ff61a30457d9eadc5ddadcec8ae8bb51d9327cf285659fe1dd2780c3e5",
+    "probe-adobe-change": "0xac873e5565da5c28d3daf95454b76d4c04119ab4b862fd7f45558e1a1f92c4ab",
+    "probe-zoom-ai-grant": "0x70c1a46837a5494de799951f6a042b0e79df2c2adffa3666b6c3860fa0343b6d",
+    "probe-adobe-june-revision": "0x1fb1ce09f0999c54c4dd6bb8a9a9855916f8485bc23e9ef326b109b44192f35e",
+    "deploy-Watches": "0x0403386780abbe2f46291ad7611c11f82388744d7f8a78f66158a20433938340",
+    "deploy-Claims": "0x98fb2509fd01641027d40bf0e868f96bc13d0f6e3169ceaa270e0e9a855f02ee",
+    "deploy-Challenges": "0xa15756d51f7c2e29515de8a1c98dd46b51433c1acd7da67cd02fd0fc1ffca19e",
+    "deploy-Bounties": "0x8ad6abbbe252e0bda184f29a5f4ed428e2013c5abc1daaf7eeec2115044b1b2c",
+    "deploy-ChangeLedger": "0xa07a0a0161bbf93f68bd31a19cd4178cefdfba0c563e14f2f71ca73ac835d4dc",
+    "configure-Watches": "0xcc253d17cfc4c5a55b15ec1b2739432f03335e40999792833c80c9c9cf01b3e2",
+    "configure-Claims": "0xd0b30033546f3ac9154c32dcd85202e64983fe6f03cce1ace8c39c824b9475a2",
+    "configure-Challenges": "0x40352c835e20b82bab23d191d929aa695519d15de16c0457b4c05cd84313dd36",
+    "configure-Bounties": "0x022933fe216c8942aab79e8fcc51c53b96c338ecf92f0a64962c7a0e7d3a68c4",
+    "configure-ChangeLedger": "0xa27fa653de01c40cb22c641a57dc74932c03154c259d0bb7cc3fb53fb21d96af",
+    "replay:zoom-ai-training:compile": "0x5518a79b976606f089cfde962a298c0959f74d7b11bf4f0e952c65e26d4e544c",
+    "ticket:rt_zoom-ai-training": "0xb0cb180b71c92b3b6968fcf4269d699b9758c40204eb7bc37c9d51c522adbb6b",
+    "deposit:rt_zoom-ai-training": "0x2da49b7fc1b9df9d47d8050832840680df5b65adc17cc59768c8abbed2bc0dae",
+    "replay:x-ai-training:compile": "0x5eb6f73d84065f048d503cae0b936d7010ed53dc95dba44f67577c833f5f4ac7",
+    "ticket:rt_x-ai-training": "0xb5e0fc2512f4479f9a839b92b7a2b5dff620778d47f6f8ab8697c5e2f2fc33da",
+    "deposit:rt_x-ai-training": "0xeb6a808e2167365fa0eeaa40cb5d8739d3772277b76be7410849015eae5211c6",
+    "replay:x-ai-training:prepare": "0xfe35822b09a74eee43648d34f08bd265bd4ede6ae5302960b44017004174ca58",
+    "ticket:bt_rc_x-ai-training": "0x3aa6f4ac912548badb375a8cd5243f8756f63494fd98eaa8365f0e8a55aa894c",
+    "deposit:bt_rc_x-ai-training": "0x1c98bebf7c2ba2132bf04a11cf08e3e749b8a00130ec7e11754aa6eb8103a5fe",
+    "replay:x-ai-training:judge": "0x253fee4fc990efd38d2290203ace981ebadc956d06db36de55c06a9d3a8c275e",
+    "replay:concern-rejected:compile": "0x1ede355bae8d9e320279f6e9e087b6d894564425d7beee09b6a3a896435c864b",
+    "replay:adobe-content-access:compile": "0x047f29148cfda1923075a98ad67f80437e20549e4d88185035d1302f19d4687a",
+    "ticket:rt_adobe-content-access": "0x2c7680452d409139649abed35fa691528aff72edc898f29ed4ea5e0b5cba6866",
+    "ticket:expire:rt_adobe-content-access": "0x16cae1ed42d2f4030c2ac5eaa55ba1b4fcfd8237f43b4cead1f7e24b38337d4d",
+    "ticket:rt_08eba489d5874be6b83a9145b52c36fb": "0x1024e374ec5275659c60744c5a0934cf9f5d627b20265eb8dd5e13e130fe372d",
+    "deposit:rt_08eba489d5874be6b83a9145b52c36fb": "0x930e9a4fb4cb842b1c92d0816c50d1031eeef37757d1f26c0c34db06fceab37b",
+    "replay:adobe-content-access:prepare": "0x2e6075b3cfa649b32fa2330a56fb603f43f8b047c62d40be5135a4c0841d0490",
+    "ticket:bt_rc_adobe-content-access": "0xf373915c5b0e3625046a449c5ed67eb3843dbac0c9174d2eb8522890bf2d6925",
+    "replay:cosmetic-date-only:compile": "0x4a63d9837b9d258435843647b3dd9bfd480c231bd496875ce160a6e7bd5c3c7c",
+    "replay:challenge-upheld:compile": "0x3bc848165e3387ce4b0f13512e4acf699f668b7cd7aa913df1e52586a5ddb135",
+    "ticket:expire:bt_rc_adobe-content-access": "0xd64a6579aa570c55bc505616917afce20ad22b5f0645e9b501acc96a5b308d4d",
+    "CLAIM:timeout:rc_adobe-content-access": "0xbb6b3990e9f27624f31c68280fc6362784c0cc16c34921b40ab0b1d8d60817f8",
+    "ticket:rt_cosmetic-date-only": "0x36cb5faa6e6a2a77d6fa19ab7090f3700cff7c4fc598fa26a089cf892507fddc",
+    "deposit:rt_cosmetic-date-only": "0x198cf33213ffb18fb8afc31aa15fa136979c050da7c07ddede7e3506c7ef53dc",
+    "replay:challenge-rejected:compile": "0x054746e0ee9cee5bab4324cd08b8c260102994605dd163f80b6bdb3319d09de0",
+    "ticket:rt_challenge-rejected": "0x4e01ba94f0ef417284b8295572f35af038a53f85fa5d0f4acada5c7b9cb98c80",
+    "deposit:rt_challenge-rejected": "0xe161e438480817fbcb94a710736a7a303622e4fc763bd9cbc55acb7756149895",
+    "replay:challenge-rejected:prepare": "0x3a36f1b6e691e418142a3ccd0da51403c722195cbccbccc3b4ad94cfbf06e7f2",
+    "ticket:bt_rc_challenge-rejected": "0xbc94dbe804b26fd420b5c55e868d6ae5747ff784c732114670da04483585107e"
+  },
+  "receipts": {
+    "deploy-ArchiveProbe": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-13T23:07:39.785Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "probe-zoom-baseline": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-13T23:35:51.369Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "probe-zoom-change": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-13T23:38:17.158Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "probe-x-baseline": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-13T23:40:08.734Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "probe-x-change": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-13T23:42:01.718Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "probe-adobe-baseline": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-13T23:43:32.146Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "probe-adobe-change": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-13T23:44:40.755Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "probe-zoom-ai-grant": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-14T07:40:40.314Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "probe-adobe-june-revision": {
+      "stage": "FINALIZED_SUCCESS",
+      "recordedAt": "2026-11-14T07:42:15.321Z",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "deploy-Watches": {
+      "key": "deploy-Watches",
+      "hash": "0x0403386780abbe2f46291ad7611c11f82388744d7f8a78f66158a20433938340",
+      "label": "Deploy Watches",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "deploy",
+      "args": [],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T07:45:39.762Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "sourceSha256": "0d4ddf3e977b559dbc3e90f4cc60f1c4697c5e8899ddb20067bf0cf963061c93",
+      "contractAddress": "0x0F8683d22bef4c4867206876b42801eb8D779F2D",
+      "recordedAt": "2026-11-14T11:23:12.765Z"
+    },
+    "deploy-Claims": {
+      "key": "deploy-Claims",
+      "hash": "0x98fb2509fd01641027d40bf0e868f96bc13d0f6e3169ceaa270e0e9a855f02ee",
+      "label": "Deploy Claims",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Claims",
+      "method": "deploy",
+      "args": [],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T07:47:47.325Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "sourceSha256": "696bb4079b0e429ac0977da4851010285ec44b84bb4c463978c155024e2f7e04",
+      "contractAddress": "0xFcE7e250ed1b8cb35F8c1aF77760c501381982a6",
+      "recordedAt": "2026-11-14T11:23:13.219Z"
+    },
+    "deploy-Challenges": {
+      "key": "deploy-Challenges",
+      "hash": "0xa15756d51f7c2e29515de8a1c98dd46b51433c1acd7da67cd02fd0fc1ffca19e",
+      "label": "Deploy Challenges",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Challenges",
+      "method": "deploy",
+      "args": [],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T07:48:31.099Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "sourceSha256": "fa5a6e1398a64fda85cba5fd4247d142ca8517baac348cbc1ea0c59a6ab83131",
+      "contractAddress": "0x1BecB223F2B6c92E89d32e28b29c70c86AAC1880",
+      "recordedAt": "2026-11-14T11:23:13.442Z"
+    },
+    "deploy-Bounties": {
+      "key": "deploy-Bounties",
+      "hash": "0x8ad6abbbe252e0bda184f29a5f4ed428e2013c5abc1daaf7eeec2115044b1b2c",
+      "label": "Deploy Bounties",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "deploy",
+      "args": [],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T07:49:21.446Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "sourceSha256": "a5a4fdabbad566dc36d10b7c3ca7540a7e65f61202c01e2bf63934347b0a7cf0",
+      "contractAddress": "0xC321Fd3Bd9D611D067F43D1dF6Fa2c814c90656c",
+      "recordedAt": "2026-11-14T11:23:13.606Z"
+    },
+    "deploy-ChangeLedger": {
+      "key": "deploy-ChangeLedger",
+      "hash": "0xa07a0a0161bbf93f68bd31a19cd4178cefdfba0c563e14f2f71ca73ac835d4dc",
+      "label": "Deploy ChangeLedger",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "ChangeLedger",
+      "method": "deploy",
+      "args": [],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T07:50:32.121Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "sourceSha256": "8c9d2989a4842e9bbe094f16b420cc78bd12d2c71e3caa3101d4d083b7379afb",
+      "contractAddress": "0x5ab754cc231a6a7F8726496FFA11ff19C8Bcc13D",
+      "recordedAt": "2026-11-14T11:23:13.767Z"
+    },
+    "configure-Watches": {
+      "key": "configure-Watches",
+      "hash": "0xcc253d17cfc4c5a55b15ec1b2739432f03335e40999792833c80c9c9cf01b3e2",
+      "label": "Configure Watches peers once",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "configure",
+      "args": [
+        "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c"
+      ],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T07:58:05.656Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "owner": "0x1eE3B827907429E5dF3DB7282446b6E065ff6199",
+        "configured": true,
+        "bounties": "0xC321Fd3Bd9D611D067F43D1dF6Fa2c814c90656c",
+        "supported_domains": [
+          "zoom.us",
+          "twitter.com",
+          "x.com",
+          "adobe.com",
+          "openai.com",
+          "github.com",
+          "spotify.com",
+          "dropbox.com",
+          "discord.com",
+          "notion.so",
+          "slack.com",
+          "google.com",
+          "microsoft.com",
+          "apple.com",
+          "amazon.com",
+          "netflix.com",
+          "reddit.com",
+          "redditinc.com"
+        ]
+      },
+      "readAt": "2026-11-14T08:00:51.627Z",
+      "readError": "",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_config",
+        "args": [],
+        "until": {
+          "field": "configured",
+          "equals": true
+        },
+        "also": [
+          {
+            "field": "bounties",
+            "equals": "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c"
+          }
+        ]
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T11:23:13.916Z"
+    },
+    "configure-Claims": {
+      "key": "configure-Claims",
+      "hash": "0xd0b30033546f3ac9154c32dcd85202e64983fe6f03cce1ace8c39c824b9475a2",
+      "label": "Configure Claims peers once",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Claims",
+      "method": "configure",
+      "args": [
+        "0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+        "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
+        "0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+        "0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+      ],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T08:01:06.121Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "configured": true,
+        "owner": "0x1eE3B827907429E5dF3DB7282446b6E065ff6199",
+        "watches": "0x0F8683d22bef4c4867206876b42801eb8D779F2D",
+        "bounties": "0xC321Fd3Bd9D611D067F43D1dF6Fa2c814c90656c",
+        "challenges": "0x1BecB223F2B6c92E89d32e28b29c70c86AAC1880",
+        "ledger": "0x5ab754cc231a6a7F8726496FFA11ff19C8Bcc13D"
+      },
+      "readAt": "2026-11-14T08:02:16.930Z",
+      "readError": "",
+      "readback": {
+        "contract": "Claims",
+        "method": "get_config",
+        "args": [],
+        "until": {
+          "field": "configured",
+          "equals": true
+        },
+        "also": [
+          {
+            "field": "watches",
+            "equals": "0x0f8683d22bef4c4867206876b42801eb8d779f2d"
+          },
+          {
+            "field": "bounties",
+            "equals": "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c"
+          },
+          {
+            "field": "challenges",
+            "equals": "0x1becb223f2b6c92e89d32e28b29c70c86aac1880"
+          },
+          {
+            "field": "ledger",
+            "equals": "0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+          }
+        ]
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T11:23:14.064Z"
+    },
+    "configure-Challenges": {
+      "key": "configure-Challenges",
+      "hash": "0x40352c835e20b82bab23d191d929aa695519d15de16c0457b4c05cd84313dd36",
+      "label": "Configure Challenges peers once",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Challenges",
+      "method": "configure",
+      "args": [
+        "0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+        "0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+        "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
+        "0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+      ],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T08:02:25.144Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "configured": true,
+        "owner": "0x1eE3B827907429E5dF3DB7282446b6E065ff6199",
+        "watches": "0x0F8683d22bef4c4867206876b42801eb8D779F2D",
+        "claims": "0xFcE7e250ed1b8cb35F8c1aF77760c501381982a6",
+        "bounties": "0xC321Fd3Bd9D611D067F43D1dF6Fa2c814c90656c",
+        "ledger": "0x5ab754cc231a6a7F8726496FFA11ff19C8Bcc13D"
+      },
+      "readAt": "2026-11-14T08:03:47.505Z",
+      "readError": "",
+      "readback": {
+        "contract": "Challenges",
+        "method": "get_config",
+        "args": [],
+        "until": {
+          "field": "configured",
+          "equals": true
+        },
+        "also": [
+          {
+            "field": "watches",
+            "equals": "0x0f8683d22bef4c4867206876b42801eb8d779f2d"
+          },
+          {
+            "field": "claims",
+            "equals": "0xfce7e250ed1b8cb35f8c1af77760c501381982a6"
+          },
+          {
+            "field": "bounties",
+            "equals": "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c"
+          },
+          {
+            "field": "ledger",
+            "equals": "0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+          }
+        ]
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T11:23:14.240Z"
+    },
+    "configure-Bounties": {
+      "key": "configure-Bounties",
+      "hash": "0x022933fe216c8942aab79e8fcc51c53b96c338ecf92f0a64962c7a0e7d3a68c4",
+      "label": "Configure Bounties peers once",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "configure",
+      "args": [
+        "0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+        "0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+        "0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+        "0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+      ],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T08:03:54.560Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "configured": true,
+        "owner": "0x1eE3B827907429E5dF3DB7282446b6E065ff6199",
+        "watches": "0x0F8683d22bef4c4867206876b42801eb8D779F2D",
+        "claims": "0xFcE7e250ed1b8cb35F8c1aF77760c501381982a6",
+        "challenges": "0x1BecB223F2B6c92E89d32e28b29c70c86AAC1880",
+        "ledger": "0x5ab754cc231a6a7F8726496FFA11ff19C8Bcc13D"
+      },
+      "readAt": "2026-11-14T08:06:48.823Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_config",
+        "args": [],
+        "until": {
+          "field": "configured",
+          "equals": true
+        },
+        "also": [
+          {
+            "field": "watches",
+            "equals": "0x0f8683d22bef4c4867206876b42801eb8d779f2d"
+          },
+          {
+            "field": "claims",
+            "equals": "0xfce7e250ed1b8cb35f8c1af77760c501381982a6"
+          },
+          {
+            "field": "challenges",
+            "equals": "0x1becb223f2b6c92e89d32e28b29c70c86aac1880"
+          },
+          {
+            "field": "ledger",
+            "equals": "0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+          }
+        ]
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T11:23:14.382Z"
+    },
+    "configure-ChangeLedger": {
+      "key": "configure-ChangeLedger",
+      "hash": "0xa27fa653de01c40cb22c641a57dc74932c03154c259d0bb7cc3fb53fb21d96af",
+      "label": "Configure ChangeLedger peers once",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "ChangeLedger",
+      "method": "configure",
+      "args": [
+        "0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+        "0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+        "0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+        "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c"
+      ],
+      "valueWei": "0",
+      "historicalReplay": false,
+      "submittedAt": "2026-11-14T08:06:56.497Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "configured": true,
+        "owner": "0x1eE3B827907429E5dF3DB7282446b6E065ff6199",
+        "watches": "0x0F8683d22bef4c4867206876b42801eb8D779F2D",
+        "claims": "0xFcE7e250ed1b8cb35F8c1aF77760c501381982a6",
+        "challenges": "0x1BecB223F2B6c92E89d32e28b29c70c86AAC1880",
+        "bounties": "0xC321Fd3Bd9D611D067F43D1dF6Fa2c814c90656c"
+      },
+      "readAt": "2026-11-14T08:12:50.019Z",
+      "readError": "",
+      "readback": {
+        "contract": "ChangeLedger",
+        "method": "get_config",
+        "args": [],
+        "until": {
+          "field": "configured",
+          "equals": true
+        },
+        "also": [
+          {
+            "field": "watches",
+            "equals": "0x0f8683d22bef4c4867206876b42801eb8d779f2d"
+          },
+          {
+            "field": "claims",
+            "equals": "0xfce7e250ed1b8cb35f8c1af77760c501381982a6"
+          },
+          {
+            "field": "challenges",
+            "equals": "0x1becb223f2b6c92e89d32e28b29c70c86aac1880"
+          },
+          {
+            "field": "bounties",
+            "equals": "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c"
+          }
+        ]
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T11:23:14.479Z"
+    },
+    "replay:zoom-ai-training:compile": {
+      "key": "replay:zoom-ai-training:compile",
+      "hash": "0x5518a79b976606f089cfde962a298c0959f74d7b11bf4f0e952c65e26d4e544c",
+      "label": "Compile historical concern · zoom-ai-training",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "compile_watch",
+      "args": [
+        "rw_zoom-ai-training",
+        "https://explore.zoom.us/en/terms/",
+        "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning.",
+        {
+          "integer": "100"
+        },
+        7200,
+        1800,
+        "20230301000542"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T08:16:37.456Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x663cb5a1e7e64fb86bb54c27d9f87ebd8362f9d1cf466bf5055191abf949c306"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rw_zoom-ai-training",
+        "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "url": "https://explore.zoom.us/en/terms/",
+        "concern": "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning.",
+        "bounty_wei": "100",
+        "bond_wei": "1",
+        "challenge_bond_wei": "1",
+        "created_at": 1794644197,
+        "expires_at": 1794651397,
+        "funding_deadline": 1794647797,
+        "challenge_seconds": 1800,
+        "historical_replay": true,
+        "as_of": "20230301000542",
+        "status": "COMPILED",
+        "finalized": true,
+        "baseline_digest": "931cbdd73c8b58d3f7161932ca07b0c15508286162a567fa579c6ae1750e2bca",
+        "baseline_text_preview": "Zoom Terms of Service | Zoom\n\nSupport\n\n1.888.799.9666\n\nRequest a Demo\n\nJoin\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nSign In\n\nContact Sales\n\nRequest A Demo\n\nJoin\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nJoin\n\nJoin by Meeting ID\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nContact Sales\n\nSign Up Free\n\nJoin\n\nJoin by Meeting ID\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nWhiteboard\n\nMy Account\n\nSearch\n\nProducts\n\nZoom One\nEverything you need to work together, all in one place.\n\nExplore Zoom One’s Collaboration Tools\n\nVirtual Meetings\nConnect virtually from anywhere with Zoom Meetings\n\nTeam Chat\nCollaborate together with Zoom Team Chat\n\nVoIP Phone System\nCall the world with Zoom Phone\n\nOnline Whiteboard\nCreate and brainstorm with Zoom Whiteboard\n\nConversation Intelligence\nRich conversation analytics to improve sales\n\nEmail and Calendar\nSend and receive messages and calendar invitations\n\nZoom Spaces\nInnovative video solutions for every meeting space.\n\nConference Room Systems\nBring meeting spaces online with Zoom Rooms\n\nConnected Conference Rooms\nConference Room Connector links existing rooms to Zoom\n\nWorkspace\nInnovative solutions for every space\n\nZoom Events\nSolutions to host impactful virtual and hybrid experiences.\n\nFind a solution for every event\n\nEvent Platform\nHost hybrid and virtual events with Zoom Events\n\nSingle-Session Events\nElevate your brand with single-session events powered by Zoom Sessions\n\nOnline Webinars\nBroadcast at scale with Zoom Webinars\n\nCommunity Events\nHost and attend classes, group events, and more OnZoom\n\nZoom Contact Center\nAn omnichannel cloud solution optimized for video.\n\nCloud Contact Center\nEngage customers with Zoom Contact Center\n\nVirtual Agent\nDeliver intelligent support with conversational AI\n\nSolutions\n\nIndustries\nZoom solutions elevate collaboration across vertical use cases.\n\nDiscover Zoom Industry Solutions\n\nEducation\nEnabling exciting new ways to teach, learn, and connect globally\n\nFinancial Services\nTransforming client engagement and employee experiences\n\nGovernment\nImproving collaboration between agencies, ministries, and constituents\n\nHealthcare\nConnecting care, collaboration, and medical innovation\n\nManufacturing\nReal-time communication, anywhere in the world\n\nRetail\nBridging the in-store and online experiences\n\nServices\nExpert support and services for all your design, strategy, implementation, event, and hardware needs.\n\nGlobal Services\nExpert consulting, tech",
+        "baseline_timestamp": "20230301000542",
+        "baseline_url": "https://web.archive.org/web/20230301000542id_/https://explore.zoom.us/en/terms/",
+        "criteria": [
+          "Zoom uses service-generated usage or telemetry data for machine learning or artificial intelligence model training or tuning."
+        ],
+        "decision": "ACCEPT",
+        "reason": "The concern asks about a specific permitted use of data for AI training under the policy, which is observable.",
+        "criteria_hash": "d6772ef2f511e7a6f4bdf642094d6a71fbb2995d39f4e3a0b78bd2274b7f6077",
+        "finalized_at": 1794644276
+      },
+      "readAt": "2026-11-14T08:18:37.994Z",
+      "readError": "",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_watch",
+        "args": [
+          "rw_zoom-ai-training"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T11:23:14.599Z"
+    },
+    "ticket:rt_zoom-ai-training": {
+      "key": "ticket:rt_zoom-ai-training",
+      "hash": "0xb0cb180b71c92b3b6968fcf4269d699b9758c40204eb7bc37c9d51c522adbb6b",
+      "label": "Prepare replay watch funding · zoom-ai-training",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "rt_zoom-ai-training",
+        "WATCH",
+        "rw_zoom-ai-training"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T08:23:14.805Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x3a59d377f4b365b18e51011310f7330a3e105902af321f4a2705a8a62063708d"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rt_zoom-ai-training",
+        "kind": "WATCH",
+        "record_id": "rw_zoom-ai-training",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "expires_at": 1794645195,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T08:24:27.885Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "rt_zoom-ai-training"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T11:23:14.792Z"
+    },
+    "deposit:rt_zoom-ai-training": {
+      "key": "deposit:rt_zoom-ai-training",
+      "hash": "0x2da49b7fc1b9df9d47d8050832840680df5b65adc17cc59768c8abbed2bc0dae",
+      "label": "Fund historical replay · zoom-ai-training",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "deposit",
+      "args": [
+        "d_rt_zoom-ai-training",
+        "rt_zoom-ai-training"
+      ],
+      "valueWei": "100",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T10:59:12.764Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xd59c5ea6864f62761a658ee04c57ec09b5be68de33555e2e77c9621ae3b9969d"
+      ],
+      "valueCredited": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "d_rt_zoom-ai-training",
+        "amount_wei": "100",
+        "valid_ticket": false,
+        "status": "REFUNDABLE",
+        "finalized": true,
+        "refund_credit": {
+          "id": "deposit-refund:d_rt_zoom-ai-training",
+          "amount_wei": "100",
+          "purpose": "REFUND",
+          "status": "AVAILABLE",
+          "finalized": true
+        },
+        "ticket": {
+          "id": "rt_zoom-ai-training",
+          "status": "READY",
+          "expires_at": 1794645195,
+          "finalized": true
+        },
+        "watch": {
+          "id": "rw_zoom-ai-training",
+          "status": "COMPILED",
+          "funding_deadline": 1794647797,
+          "finalized": true
+        }
+      },
+      "readAt": "2026-11-14T11:08:11Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_deposit",
+        "args": [
+          "d_rt_zoom-ai-training"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T11:23:14.846Z"
+    },
+    "replay:x-ai-training:compile": {
+      "key": "replay:x-ai-training:compile",
+      "hash": "0x5eb6f73d84065f048d503cae0b936d7010ed53dc95dba44f67577c833f5f4ac7",
+      "label": "Compile historical concern · x-ai-training",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "compile_watch",
+      "args": [
+        "rw_x-ai-training",
+        "https://twitter.com/en/privacy",
+        "Tell me if the policy permits information collected about users or publicly available information to train machine learning or artificial intelligence models.",
+        {
+          "integer": "100"
+        },
+        7200,
+        1800,
+        "20230101004225"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T15:45:16.772Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xebd519d6aaf121ab8f8ce73b1e5b5d52c369fb52f52de937940bc45ce263717e"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rw_x-ai-training",
+        "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "url": "https://twitter.com/en/privacy",
+        "concern": "Tell me if the policy permits information collected about users or publicly available information to train machine learning or artificial intelligence models.",
+        "bounty_wei": "100",
+        "bond_wei": "1",
+        "challenge_bond_wei": "1",
+        "created_at": 1794671118,
+        "expires_at": 1794678318,
+        "funding_deadline": 1794674718,
+        "challenge_seconds": 1800,
+        "historical_replay": true,
+        "as_of": "20230101004225",
+        "status": "COMPILED",
+        "finalized": true,
+        "baseline_digest": "d118bfd2d5894621049d781c021a22ff54bf9d8dfad5202413aafa9f6ae8d6ef",
+        "baseline_text_preview": "Twitter Privacy Policy\n\nSkip to main content\n\nPrivacy Policy\n\n<path opacity=\"0\" d=\"M0 0h24v24H0z\" />\n<path d=\"M17.207 11.293l-7.5-7.5c-.39-.39-1.023-.39-1.414 0s-.39 1.023 0 1.414L15.086 12l-6.793 6.793c-.39.39-.39 1.023 0 1.414.195.195.45.293.707.293s.512-.098.707-.293l7.5-7.5c.39-.39.39-1.023 0-1.414z\" />\n</svg>\" data-icon-arrow-left=\"<svg width=\"28px\" height=\"28px\" viewbox=\"0 0 28 28\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" aria-hidden=\"true\" focusable=\"false\" role=\"none\" class=\"twtr-icon u01b__icon-arrow-left\">\n<g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" stroke-linecap=\"round\">\n<g transform=\"translate(-1216.000000, -298.000000)\" stroke-width=\"2.25\">\n<g transform=\"translate(1200.000000, 282.000000)\">\n<g transform=\"translate(17.000000, 17.000000)\">\n<path d=\"M0.756410256,12.8589744 L25.7179487,12.8589744\"></path>\n<path d=\"M13.2371795,25.3397436 L25.7179487,12.8589744\"></path>\n<path d=\"M13.2371795,12.4807692 L25.3397436,0.378205128\" transform=\"translate(19.288462, 6.429487) rotate(-90.000000) translate(-19.288462, -6.429487) \"></path>\n</g>\n</g>\n</g>\n</g>\n</svg>\" data-icon-chevron-down=\"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\" role=\"none\" class=\"twtr-icon\">\n<path opacity=\"0\" d=\"M0 0h24v24H0z\" />\n<path d=\"M20.207 7.043c-.39-.39-1.023-.39-1.414 0L12 13.836 5.207 7.043c-.39-.39-1.023-.39-1.414 0s-.39 1.023 0 1.414l7.5 7.5c.195.195.45.293.707.293s.512-.098.707-.293l7.5-7.5c.39-.39.39-1.023 0-1.414z\" />\n</svg>\" data-icon-close=\"<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewbox=\"0 0 24 24\" style=\"enable-background:new 0 0 24 24;\" xml:space=\"preserve\" aria-hidden=\"true\" focusable=\"false\" role=\"none\" class=\"twtr-icon--md\">\n<g>\n<g>\n<defs>\n<rect id=\"SVGID_1_\" x=\"-468\" y=\"-1360\" width=\"1440\" height=\"3027\" />\n</defs>\n<clippath id=\"SVGID_2_\">\n<use xlink:href=\"#SVGID_1_\" style=\"overflow:visible;\" />\n</clippath>\n</g>\n</g>\n<rect x=\"-468\" y=\"-1360\" class=\"st0\" width=\"1440\" height=\"3027\" style=\"fill:rgb(0,0,0,0);stroke-width:3;stroke:rgb(0,0,0)\" />\n<path d=\"M13.4,12l5.8-5.8c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L12,10.6L6.2,4.8c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4\nl5.8,5.8l-5.8,5.8c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.4,0.3,0.7,0.3s0.5-0.1,0.7-0.3l5.8-5.8l5.8,5.8c0.2,0.2,0.5,0.3,0.7,0.3\ns0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L13.4,12z\" />\n</svg>\" data-icon-",
+        "baseline_timestamp": "20230101004225",
+        "baseline_url": "https://web.archive.org/web/20230101004225id_/https://twitter.com/en/privacy",
+        "criteria": [
+          "The policy permits information collected about users to train machine learning or artificial intelligence models.",
+          "The policy permits publicly available information to train machine learning or artificial intelligence models."
+        ],
+        "decision": "ACCEPT",
+        "reason": "The user concern clearly asks whether collected user data or publicly available data may be used for AI/ML model training, which translates into observable policy permissions regarding data usage.",
+        "criteria_hash": "89c5da8b17d150680410172b39b570d176d5708f79ec65e9a0b284881ac13e82",
+        "finalized_at": 1794671195
+      },
+      "readAt": "2026-11-14T15:47:18.955Z",
+      "readError": "",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_watch",
+        "args": [
+          "rw_x-ai-training"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T15:47:19.017Z"
+    },
+    "ticket:rt_x-ai-training": {
+      "key": "ticket:rt_x-ai-training",
+      "hash": "0xb5e0fc2512f4479f9a839b92b7a2b5dff620778d47f6f8ab8697c5e2f2fc33da",
+      "label": "Prepare replay watch funding · x-ai-training",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "rt_x-ai-training",
+        "WATCH",
+        "rw_x-ai-training"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T15:48:35.950Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xdeddbbd53b3cc22c2bd5ffb53b4a90d7f913503b5304cd63f4952478835a3638"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rt_x-ai-training",
+        "kind": "WATCH",
+        "record_id": "rw_x-ai-training",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "expires_at": 1794671917,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T15:49:48.474Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "rt_x-ai-training"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T15:49:48.536Z"
+    },
+    "deposit:rt_x-ai-training": {
+      "key": "deposit:rt_x-ai-training",
+      "hash": "0xeb6a808e2167365fa0eeaa40cb5d8739d3772277b76be7410849015eae5211c6",
+      "label": "Fund historical replay · x-ai-training",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "deposit",
+      "args": [
+        "d_rt_x-ai-training",
+        "rt_x-ai-training"
+      ],
+      "valueWei": "100",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T15:50:53.348Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xd87e8ce63d6ffc7fbf832fbc4fa338974e40e74c81fc8a1bbd8376313d8d8df2"
+      ],
+      "valueCredited": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "d_rt_x-ai-training",
+        "ticket_id": "rt_x-ai-training",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "valid_ticket": true,
+        "created_at": 1794671454,
+        "resolve_deadline": 1794673254,
+        "status": "ALLOCATED",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T15:52:08.451Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_deposit",
+        "args": [
+          "d_rt_x-ai-training"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T15:52:08.511Z"
+    },
+    "replay:x-ai-training:prepare": {
+      "key": "replay:x-ai-training:prepare",
+      "hash": "0xfe35822b09a74eee43648d34f08bd265bd4ede6ae5302960b44017004174ca58",
+      "label": "Check archived passage · x-ai-training",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Claims",
+      "method": "prepare_claim",
+      "args": [
+        "rc_x-ai-training",
+        "rw_x-ai-training",
+        "https://web.archive.org/web/20230929213507id_/https://twitter.com/en/privacy",
+        "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy."
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T15:54:52.814Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x7dc4aa9c7c7f23c21a4618053b3c55f1c3b357bcfe2111fc15daa7403d198e7a"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rc_x-ai-training",
+        "watch_id": "rw_x-ai-training",
+        "hunter": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "criteria_hash": "89c5da8b17d150680410172b39b570d176d5708f79ec65e9a0b284881ac13e82",
+        "snapshot_url": "https://web.archive.org/web/20230929213507id_/https://twitter.com/en/privacy",
+        "snapshot_timestamp": "20230929213507",
+        "passage": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+        "created_at": 1794671694,
+        "prepare_deadline": 1794673494,
+        "status": "READY",
+        "finalized": true,
+        "version": 1,
+        "voided": false,
+        "outcome": "READY",
+        "reason": "Exact passage is present later and absent from the frozen baseline.",
+        "snapshot_digest": "d4711d37797fcec5b125b0c4f3ce34d0646a1344d5cf7c9b2f653ec629a97ff0",
+        "snapshot_text_preview": "us . Here we go: Expand dropdowns for more information: 2.1 Operate, improve, and personalize our services. We use the information we collect to provide and operate X products and services. We also use the information we collect to improve and personalize our products and services so that you have a better experience on X, including by showing you more relevant content and ads, suggesting people and topics to follow, enabling and helping you discover affiliates , third-party apps, and services. We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy. We may use the information we collect from accounts of other services that you choose to connect your X account to provide you features like cross-posting or cross-service authentication, and to operate our services. We use your contact information to help others find your account if your settings permit, including through third-party services and client applications. We use your information to provide our advertising and sponsored content services subject to your settings , which helps make ads on X more relevant to you. We also use this information to measure the effectiveness of ads and to help recognize your devices to serve you ads on and off of X. Some of our ad partners also enable us to collect similar information directly from their website or app by integrating our advertising technology. Information shared by ad partners and affiliates or collected by X from the websites and apps of ad partners and affiliates may be combined with the other information you share with X and that X receives, generates, or infers about you, as described elsewhere in our Privacy Policy. 2.2 Foster safety and security. We use information we collect to provide for the safety and security of our users, our products, services, and your account. This includes verifying your identity, authenticating your account, and defending against fraud, unauthorized use, and illegal activity. We also use the information to evaluate and affect the safety and quality of content on X - this includes investigating and enforcing our policies and and terms, as well as applicable law. 2.3 Measure, analyze and make our services better. We use the information we collect to measure and analyze the effectiveness of our products and services and to better understand how you use them in order to make them better. 2.4 Communica",
+        "finalized_at": 1794671742
+      },
+      "readAt": "2026-11-14T15:56:18.960Z",
+      "readError": "",
+      "readback": {
+        "contract": "Claims",
+        "method": "get_claim",
+        "args": [
+          "rc_x-ai-training"
+        ],
+        "until": {
+          "field": "status",
+          "oneOf": [
+            "READY",
+            "CODE_REJECTED",
+            "VOID"
+          ]
+        }
+      },
+      "recordedAt": "2026-11-14T15:56:19.032Z"
+    },
+    "ticket:bt_rc_x-ai-training": {
+      "key": "ticket:bt_rc_x-ai-training",
+      "hash": "0x3aa6f4ac912548badb375a8cd5243f8756f63494fd98eaa8365f0e8a55aa894c",
+      "label": "Prepare bond funding",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "bt_rc_x-ai-training",
+        "CLAIM",
+        "rc_x-ai-training"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T15:58:27.732Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xb4a94d85dc99dc390fbe2ee83687f114e1c2482ccd1561b56540232074efd09c"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "bt_rc_x-ai-training",
+        "kind": "CLAIM",
+        "record_id": "rc_x-ai-training",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "1",
+        "expires_at": 1794672509,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T15:59:48.673Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "bt_rc_x-ai-training"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T15:59:48.749Z"
+    },
+    "deposit:bt_rc_x-ai-training": {
+      "key": "deposit:bt_rc_x-ai-training",
+      "hash": "0x1c98bebf7c2ba2132bf04a11cf08e3e749b8a00130ec7e11754aa6eb8103a5fe",
+      "label": "Post exact bond",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "deposit",
+      "args": [
+        "d_bt_rc_x-ai-training",
+        "bt_rc_x-ai-training"
+      ],
+      "valueWei": "1",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:00:39.842Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x73b8ede36d96e1388619a5c0545b76fca0e689e2332a7565a8583d8cc8a41192"
+      ],
+      "valueCredited": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "d_bt_rc_x-ai-training",
+        "ticket_id": "bt_rc_x-ai-training",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "1",
+        "valid_ticket": true,
+        "created_at": 1794672041,
+        "resolve_deadline": 1794673841,
+        "status": "ALLOCATED",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T16:01:58.473Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_deposit",
+        "args": [
+          "d_bt_rc_x-ai-training"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T16:01:58.539Z"
+    },
+    "replay:x-ai-training:judge": {
+      "key": "replay:x-ai-training:judge",
+      "hash": "0x253fee4fc990efd38d2290203ace981ebadc956d06db36de55c06a9d3a8c275e",
+      "label": "Judge archived passage · x-ai-training",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Claims",
+      "method": "judge_claim",
+      "args": [
+        "rc_x-ai-training"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:02:55.741Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x6f4b02d07eaa34dfaefc8eb0b0c120fda727678c767160a2b311c8d27b081407"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rc_x-ai-training",
+        "watch_id": "rw_x-ai-training",
+        "hunter": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "criteria_hash": "89c5da8b17d150680410172b39b570d176d5708f79ec65e9a0b284881ac13e82",
+        "snapshot_url": "https://web.archive.org/web/20230929213507id_/https://twitter.com/en/privacy",
+        "snapshot_timestamp": "20230929213507",
+        "passage": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+        "created_at": 1794671694,
+        "prepare_deadline": 1794673494,
+        "status": "TRIGGERED",
+        "finalized": true,
+        "version": 2,
+        "voided": false,
+        "outcome": "TRIGGERED",
+        "reason": "Per-criterion validator judgment.",
+        "snapshot_digest": "d4711d37797fcec5b125b0c4f3ce34d0646a1344d5cf7c9b2f653ec629a97ff0",
+        "snapshot_text_preview": "us . Here we go: Expand dropdowns for more information: 2.1 Operate, improve, and personalize our services. We use the information we collect to provide and operate X products and services. We also use the information we collect to improve and personalize our products and services so that you have a better experience on X, including by showing you more relevant content and ads, suggesting people and topics to follow, enabling and helping you discover affiliates , third-party apps, and services. We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy. We may use the information we collect from accounts of other services that you choose to connect your X account to provide you features like cross-posting or cross-service authentication, and to operate our services. We use your contact information to help others find your account if your settings permit, including through third-party services and client applications. We use your information to provide our advertising and sponsored content services subject to your settings , which helps make ads on X more relevant to you. We also use this information to measure the effectiveness of ads and to help recognize your devices to serve you ads on and off of X. Some of our ad partners also enable us to collect similar information directly from their website or app by integrating our advertising technology. Information shared by ad partners and affiliates or collected by X from the websites and apps of ad partners and affiliates may be combined with the other information you share with X and that X receives, generates, or infers about you, as described elsewhere in our Privacy Policy. 2.2 Foster safety and security. We use information we collect to provide for the safety and security of our users, our products, services, and your account. This includes verifying your identity, authenticating your account, and defending against fraud, unauthorized use, and illegal activity. We also use the information to evaluate and affect the safety and quality of content on X - this includes investigating and enforcing our policies and and terms, as well as applicable law. 2.3 Measure, analyze and make our services better. We use the information we collect to measure and analyze the effectiveness of our products and services and to better understand how you use them in order to make them better. 2.4 Communica",
+        "finalized_at": 1794672261,
+        "results": [
+          {
+            "criterion_index": 0,
+            "quote": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+            "reason": "The passage expressly permits collected information to be used to train machine learning or AI models. The context identifies the collected information as information about users.",
+            "verdict": "TRIGGERED"
+          },
+          {
+            "criterion_index": 1,
+            "quote": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+            "reason": "The passage expressly permits publicly available information to be used to train machine learning or AI models for policy purposes.",
+            "verdict": "TRIGGERED"
+          }
+        ],
+        "challenge_deadline": 1794674061,
+        "resolution_deadline": 1794677661
+      },
+      "readAt": "2026-11-14T16:04:58.599Z",
+      "readError": "",
+      "readback": {
+        "contract": "Claims",
+        "method": "get_claim",
+        "args": [
+          "rc_x-ai-training"
+        ],
+        "until": {
+          "field": "status",
+          "oneOf": [
+            "TRIGGERED",
+            "NOT_TRIGGERED",
+            "UNCLEAR",
+            "VOID"
+          ]
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T16:04:58.678Z"
+    },
+    "replay:concern-rejected:compile": {
+      "key": "replay:concern-rejected:compile",
+      "hash": "0x1ede355bae8d9e320279f6e9e087b6d894564425d7beee09b6a3a896435c864b",
+      "label": "Compile historical concern · concern-rejected",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "compile_watch",
+      "args": [
+        "rw_concern-rejected",
+        "https://explore.zoom.us/en/terms/",
+        "Tell me if these terms get worse.",
+        {
+          "integer": "100"
+        },
+        7200,
+        1800,
+        "20230301000542"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:06:42.917Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xca321479adc34d95f7d40270e5aabb9c8d94f666d078593800e52fbb9d3d3729"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rw_concern-rejected",
+        "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "url": "https://explore.zoom.us/en/terms/",
+        "concern": "Tell me if these terms get worse.",
+        "bounty_wei": "100",
+        "bond_wei": "1",
+        "challenge_bond_wei": "1",
+        "created_at": 1794672404,
+        "expires_at": 1794679604,
+        "funding_deadline": 1794676004,
+        "challenge_seconds": 1800,
+        "historical_replay": true,
+        "as_of": "20230301000542",
+        "status": "REJECTED",
+        "finalized": true,
+        "criteria": [],
+        "decision": "REJECT",
+        "reason": "The request seeks a subjective judgement ('tell me if these terms get worse'), which is unverifiable and not an observable statement about rights, duties, or permitted uses. Such concerns must be rejected.",
+        "criteria_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "finalized_at": 1794672450
+      },
+      "readAt": "2026-11-14T16:08:08.839Z",
+      "readError": "",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_watch",
+        "args": [
+          "rw_concern-rejected"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T16:08:08.914Z"
+    },
+    "replay:adobe-content-access:compile": {
+      "key": "replay:adobe-content-access:compile",
+      "hash": "0x047f29148cfda1923075a98ad67f80437e20549e4d88185035d1302f19d4687a",
+      "label": "Compile historical concern · adobe-content-access",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "compile_watch",
+      "args": [
+        "rw_adobe-content-access",
+        "https://www.adobe.com/legal/terms.html",
+        "Tell me if Adobe permits human review of uploaded cloud content flagged as illegal or abusive even without a support request.",
+        {
+          "integer": "100"
+        },
+        7200,
+        1800,
+        "20240605152629"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:09:15.574Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x5e6447e315ed6dbc16078b5cedafd60e310b96e9be56f69f551dea52815f6fbc"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rw_adobe-content-access",
+        "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "url": "https://www.adobe.com/legal/terms.html",
+        "concern": "Tell me if Adobe permits human review of uploaded cloud content flagged as illegal or abusive even without a support request.",
+        "bounty_wei": "100",
+        "bond_wei": "1",
+        "challenge_bond_wei": "1",
+        "created_at": 1794672557,
+        "expires_at": 1794679757,
+        "funding_deadline": 1794676157,
+        "challenge_seconds": 1800,
+        "historical_replay": true,
+        "as_of": "20240605152629",
+        "status": "COMPILED",
+        "finalized": true,
+        "baseline_digest": "180e49283b84c2f6c845ca9b76a1a565d1cda4f387e29ddc8350d0bac9cf2d2c",
+        "baseline_text_preview": "Legal\n\nAdobe General Terms of Use\n\nPublished February 17th, 2024. Effective as of February 17th, 2024.\n\nThese General Terms of Use replace and supersede all prior versions.\n\nJump to section\n\nYour Agreement with Adobe\n\nPrivacy\n\nUse of Services and Software\n\nYour Content\n\nYour Account\n\nUser Conduct\n\nFees and Payment\n\n...\n\nJump to section\n\nYour Agreement with Adobe\n\nPrivacy\n\nUse of Services and Software\n\nYour Content\n\nYour Account\n\nUser Conduct\n\nFees and Payment\n\nYour Warranty and Indemnification Obligations\n\nDISCLAIMERS OF WARRANTIES\n\nLIMITATION OF LIABILITY\n\nTermination\n\nTrade Sanctions and Export Control Compliance\n\nAustralian Consumer Law\n\nDispute Resolution, Class Action Waiver, Arbitration Agreement\n\nAudit Rights\n\nUpdates to Services and Software and Availability\n\nNo Modifications, Reverse Engineering, Artificial Intelligence/Machine Learning (AI/ML)\n\nMiscellaneous\n\nDMCA\n\n...\n\nThe Mandatory Arbitration Provision and Class Action Waiver in Section 14 (Dispute Resolution, Class Action Waiver, Arbitration Agreement) below govern the resolution of disputes. Please read them carefully. If you do not agree with these terms ( as defined below ), including the Mandatory Arbitration Provision (if you have not opted as allowed herein) and class action waiver, please do not use the services or software.\n\nJump to section\n\nYour Agreement with Adobe\n\nPrivacy\n\nUse of Services and Software\n\nYour Content\n\nYour Account\n\nUser Conduct\n\nFees and Payment\n\n...\n\nJump to section\n\nYour Agreement with Adobe\n\nPrivacy\n\nUse of Services and Software\n\nYour Content\n\nYour Account\n\nUser Conduct\n\nFees and Payment\n\nYour Warranty and Indemnification Obligations\n\nDISCLAIMERS OF WARRANTIES\n\nLIMITATION OF LIABILITY\n\nTermination\n\nTrade Sanctions and Export Control Compliance\n\nAustralian Consumer Law\n\nDispute Resolution, Class Action Waiver, Arbitration Agreement\n\nAudit Rights\n\nUpdates to Services and Software and Availability\n\nNo Modifications, Reverse Engineering, Artificial Intelligence/Machine Learning (AI/ML)\n\nMiscellaneous\n\nDMCA\n\n...\n\nThese General Terms of Use (“ General Terms ”), along with any applicable Additional Terms (see section 1.2 (Additional Terms) below) (collectively, the “ Terms ”) govern your use of and access to our websites, web-based applications and products, customer support, discussion forums or other interactive areas or services, and services such as Creative Cloud (collectively, the “Services”) and your installation and use of any software that we include as part of",
+        "baseline_timestamp": "20240605152629",
+        "baseline_url": "https://web.archive.org/web/20240605152629id_/https://www.adobe.com/legal/terms.html",
+        "criteria": [
+          "Policy grants Adobe a right or permission to review user-uploaded cloud content.",
+          "Review may be triggered by content flagged as illegal or abusive without a prior support request.",
+          "Policy explicitly permits human review (not solely automated review) under those conditions."
+        ],
+        "decision": "ACCEPT",
+        "reason": "The concern asks for an observable policy statement about permitted review of flagged cloud content absent a support request, which is independently checkable in Adobe's terms.",
+        "criteria_hash": "18aefab0685aa6bc269b3b37d60fe8848c24d1419715862d5cac31f9150b978c",
+        "finalized_at": 1794672672
+      },
+      "readAt": "2026-11-14T16:11:48.743Z",
+      "readError": "",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_watch",
+        "args": [
+          "rw_adobe-content-access"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T16:11:48.812Z"
+    },
+    "ticket:rt_adobe-content-access": {
+      "key": "ticket:rt_adobe-content-access",
+      "hash": "0x2c7680452d409139649abed35fa691528aff72edc898f29ed4ea5e0b5cba6866",
+      "label": "Prepare replay watch funding · adobe-content-access",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "rt_adobe-content-access",
+        "WATCH",
+        "rw_adobe-content-access"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:15:55.870Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x49d61a027728c4f5c6aaddc91b813719fd65a2bbb07f56de229603fc4cb2dec6"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rt_adobe-content-access",
+        "kind": "WATCH",
+        "record_id": "rw_adobe-content-access",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "expires_at": 1794673557,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T16:17:08.439Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "rt_adobe-content-access"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T16:17:08.500Z"
+    },
+    "ticket:expire:rt_adobe-content-access": {
+      "key": "ticket:expire:rt_adobe-content-access",
+      "hash": "0x16cae1ed42d2f4030c2ac5eaa55ba1b4fcfd8237f43b4cead1f7e24b38337d4d",
+      "label": "Release expired replay ticket",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "expire_ticket",
+      "args": [
+        "rt_adobe-content-access"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:28:47.933Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rt_adobe-content-access",
+        "kind": "WATCH",
+        "record_id": "rw_adobe-content-access",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "expires_at": 1794673557,
+        "status": "EXPIRED",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T16:29:30.908Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "rt_adobe-content-access"
+        ],
+        "until": {
+          "field": "status",
+          "equals": "EXPIRED"
+        }
+      },
+      "recovery": true,
+      "recordedAt": "2026-11-14T16:29:30.979Z"
+    },
+    "ticket:rt_08eba489d5874be6b83a9145b52c36fb": {
+      "key": "ticket:rt_08eba489d5874be6b83a9145b52c36fb",
+      "hash": "0x1024e374ec5275659c60744c5a0934cf9f5d627b20265eb8dd5e13e130fe372d",
+      "label": "Prepare replay watch funding · adobe-content-access",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "rt_08eba489d5874be6b83a9145b52c36fb",
+        "WATCH",
+        "rw_adobe-content-access"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:35:59.733Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x3a072ad8e86f7d2cd619e5f55ca5f370eb59c2ddf8693d614b65fc23730d7336"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rt_08eba489d5874be6b83a9145b52c36fb",
+        "kind": "WATCH",
+        "record_id": "rw_adobe-content-access",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "expires_at": 1794674761,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T16:37:18.801Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "rt_08eba489d5874be6b83a9145b52c36fb"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T16:37:18.884Z"
+    },
+    "deposit:rt_08eba489d5874be6b83a9145b52c36fb": {
+      "key": "deposit:rt_08eba489d5874be6b83a9145b52c36fb",
+      "hash": "0x930e9a4fb4cb842b1c92d0816c50d1031eeef37757d1f26c0c34db06fceab37b",
+      "label": "Fund historical replay · adobe-content-access",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "deposit",
+      "args": [
+        "d_rt_08eba489d5874be6b83a9145b52c36fb",
+        "rt_08eba489d5874be6b83a9145b52c36fb"
+      ],
+      "valueWei": "100",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:41:23.416Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x4285f7b773c3a36d9ea5024ba187f70518d5dce286a2a9640b251cace956d8c0"
+      ],
+      "valueCredited": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "d_rt_08eba489d5874be6b83a9145b52c36fb",
+        "ticket_id": "rt_08eba489d5874be6b83a9145b52c36fb",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "valid_ticket": true,
+        "created_at": 1794674485,
+        "resolve_deadline": 1794676285,
+        "status": "ALLOCATED",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T16:42:35.142Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_deposit",
+        "args": [
+          "d_rt_08eba489d5874be6b83a9145b52c36fb"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T16:42:35.223Z"
+    },
+    "replay:adobe-content-access:prepare": {
+      "key": "replay:adobe-content-access:prepare",
+      "hash": "0x2e6075b3cfa649b32fa2330a56fb603f43f8b047c62d40be5135a4c0841d0490",
+      "label": "Check archived passage · adobe-content-access",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Claims",
+      "method": "prepare_claim",
+      "args": [
+        "rc_adobe-content-access",
+        "rw_adobe-content-access",
+        "https://web.archive.org/web/20240619003609id_/https://www.adobe.com/legal/terms.html",
+        "(G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us."
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:50:00.517Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x618c6535a4a4b7b3e4df38065e7c309095d9b46c762f276263758ae31544baf5"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rc_adobe-content-access",
+        "watch_id": "rw_adobe-content-access",
+        "hunter": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "criteria_hash": "18aefab0685aa6bc269b3b37d60fe8848c24d1419715862d5cac31f9150b978c",
+        "snapshot_url": "https://web.archive.org/web/20240619003609id_/https://www.adobe.com/legal/terms.html",
+        "snapshot_timestamp": "20240619003609",
+        "passage": "(G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us.",
+        "created_at": 1794675002,
+        "prepare_deadline": 1794676802,
+        "status": "READY",
+        "finalized": true,
+        "version": 1,
+        "voided": false,
+        "outcome": "READY",
+        "reason": "Exact passage is present later and absent from the frozen baseline.",
+        "snapshot_digest": "2eb5d0620f7f6d2cf6ea015ac6febc51ec4c829883550ec26288c3ae2bc9edf9",
+        "snapshot_text_preview": "rty issues and safety issues (for example, violence and nudity). If you choose to share your Cloud Content with others using our Software and Services, we may automatically review this shared Cloud Content to flag abusive behavior (such as spam or phishing). (F) Generative AI. We will not use your Local or Cloud Content to train generative AI models except for Content you choose to submit to the Adobe Stock marketplace, and this use is governed by the separate Adobe Stock Contributor Agreement. (G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us. 2.3 Data Protection Agreements In some countries, the law requires that we put a data protection agreement in place with you if we handle Personal Data (as defined in the applicable agreement) for you as part of our Services and Software. These agreements are the EU Data Processing Agreement or Data Protection Terms, found in the following locations: (A) European Union (“EU”) Data Processing Agreement (or “DPA”). The DPA terms apply where you provide Personal Data (as defined in the DPA) collected from individuals from countries in the European Economic Area (“EEA”) and the UK and where you are a “ Controller ” and Adobe is a “ Processor ” under the General Data Protection Regulation (EU) 2016/679 (“ GDPR ”) or any successor for the GDPR associated with the withdrawal of the United Kingdom from the EU. The DPA terms are available here: www.adobe.com/go/tou-dpa . (B) Data Protection Terms. The Data Protection Terms apply where you provide Personal Data (as defined in the Data Protection Terms) collected from individuals outside of the EEA and the UK and where Adobe is Processing (as defined in the Data Protection Terms) this data at your instruction and on your behalf. The Data Protection Terms are available here: https://www.adobe.com/go/dpt-ww . 2.4 Sensitive Personal Information You agree not to collect, process, or store any Sensitive Personal Information (as defined below) using the Services and Software, except as (A) directly authorized by Adobe, ",
+        "finalized_at": 1794675050
+      },
+      "readAt": "2026-11-14T16:51:40.708Z",
+      "readError": "",
+      "readback": {
+        "contract": "Claims",
+        "method": "get_claim",
+        "args": [
+          "rc_adobe-content-access"
+        ],
+        "until": {
+          "field": "status",
+          "oneOf": [
+            "READY",
+            "CODE_REJECTED",
+            "VOID"
+          ]
+        }
+      },
+      "recordedAt": "2026-11-14T16:51:40.844Z"
+    },
+    "ticket:bt_rc_adobe-content-access": {
+      "key": "ticket:bt_rc_adobe-content-access",
+      "hash": "0xf373915c5b0e3625046a449c5ed67eb3843dbac0c9174d2eb8522890bf2d6925",
+      "label": "Prepare bond funding",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "bt_rc_adobe-content-access",
+        "CLAIM",
+        "rc_adobe-content-access"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T16:51:53.095Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x4241112d6214dcd08c4546c0d1462de810c21ecd2fc14a0aa75608b1e66c4a84"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "bt_rc_adobe-content-access",
+        "kind": "CLAIM",
+        "record_id": "rc_adobe-content-access",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "1",
+        "expires_at": 1794675714,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T16:53:08.859Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "bt_rc_adobe-content-access"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T16:53:08.957Z"
+    },
+    "replay:cosmetic-date-only:compile": {
+      "key": "replay:cosmetic-date-only:compile",
+      "hash": "0x4a63d9837b9d258435843647b3dd9bfd480c231bd496875ce160a6e7bd5c3c7c",
+      "label": "Compile historical concern · cosmetic-date-only",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "compile_watch",
+      "args": [
+        "rw_cosmetic-date-only",
+        "https://explore.zoom.us/en/terms/",
+        "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning.",
+        {
+          "integer": "100"
+        },
+        7200,
+        1800,
+        "20230301000542"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:12:11.321Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xc781f0a886e839134bc71360dbee4451cdf9c08e76a8f13b694001220ec7edc4"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rw_cosmetic-date-only",
+        "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "url": "https://explore.zoom.us/en/terms/",
+        "concern": "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning.",
+        "bounty_wei": "100",
+        "bond_wei": "1",
+        "challenge_bond_wei": "1",
+        "created_at": 1794676333,
+        "expires_at": 1794683533,
+        "funding_deadline": 1794679933,
+        "challenge_seconds": 1800,
+        "historical_replay": true,
+        "as_of": "20230301000542",
+        "status": "COMPILED",
+        "finalized": true,
+        "baseline_digest": "931cbdd73c8b58d3f7161932ca07b0c15508286162a567fa579c6ae1750e2bca",
+        "baseline_text_preview": "Zoom Terms of Service | Zoom\n\nSupport\n\n1.888.799.9666\n\nRequest a Demo\n\nJoin\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nSign In\n\nContact Sales\n\nRequest A Demo\n\nJoin\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nJoin\n\nJoin by Meeting ID\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nContact Sales\n\nSign Up Free\n\nJoin\n\nJoin by Meeting ID\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nWhiteboard\n\nMy Account\n\nSearch\n\nProducts\n\nZoom One\nEverything you need to work together, all in one place.\n\nExplore Zoom One’s Collaboration Tools\n\nVirtual Meetings\nConnect virtually from anywhere with Zoom Meetings\n\nTeam Chat\nCollaborate together with Zoom Team Chat\n\nVoIP Phone System\nCall the world with Zoom Phone\n\nOnline Whiteboard\nCreate and brainstorm with Zoom Whiteboard\n\nConversation Intelligence\nRich conversation analytics to improve sales\n\nEmail and Calendar\nSend and receive messages and calendar invitations\n\nZoom Spaces\nInnovative video solutions for every meeting space.\n\nConference Room Systems\nBring meeting spaces online with Zoom Rooms\n\nConnected Conference Rooms\nConference Room Connector links existing rooms to Zoom\n\nWorkspace\nInnovative solutions for every space\n\nZoom Events\nSolutions to host impactful virtual and hybrid experiences.\n\nFind a solution for every event\n\nEvent Platform\nHost hybrid and virtual events with Zoom Events\n\nSingle-Session Events\nElevate your brand with single-session events powered by Zoom Sessions\n\nOnline Webinars\nBroadcast at scale with Zoom Webinars\n\nCommunity Events\nHost and attend classes, group events, and more OnZoom\n\nZoom Contact Center\nAn omnichannel cloud solution optimized for video.\n\nCloud Contact Center\nEngage customers with Zoom Contact Center\n\nVirtual Agent\nDeliver intelligent support with conversational AI\n\nSolutions\n\nIndustries\nZoom solutions elevate collaboration across vertical use cases.\n\nDiscover Zoom Industry Solutions\n\nEducation\nEnabling exciting new ways to teach, learn, and connect globally\n\nFinancial Services\nTransforming client engagement and employee experiences\n\nGovernment\nImproving collaboration between agencies, ministries, and constituents\n\nHealthcare\nConnecting care, collaboration, and medical innovation\n\nManufacturing\nReal-time communication, anywhere in the world\n\nRetail\nBridging the in-store and online experiences\n\nServices\nExpert support and services for all your design, strategy, implementation, event, and hardware needs.\n\nGlobal Services\nExpert consulting, tech",
+        "baseline_timestamp": "20230301000542",
+        "baseline_url": "https://web.archive.org/web/20230301000542id_/https://explore.zoom.us/en/terms/",
+        "criteria": [
+          "The policy permits service-generated usage or telemetry data to be used to train or tune machine-learning or artificial-intelligence models."
+        ],
+        "decision": "ACCEPT",
+        "reason": "The concern identifies an observable permission in the policy and specifies the data types and uses to check.",
+        "criteria_hash": "f3b82d9d34d5671d8b8c18e35f9ffb2d524b602a13befb870fe68378aa00d931",
+        "finalized_at": 1794676388
+      },
+      "readAt": "2026-11-14T17:14:37.137Z",
+      "readError": "",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_watch",
+        "args": [
+          "rw_cosmetic-date-only"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T17:14:37.249Z"
+    },
+    "replay:challenge-upheld:compile": {
+      "key": "replay:challenge-upheld:compile",
+      "hash": "0x3bc848165e3387ce4b0f13512e4acf699f668b7cd7aa913df1e52586a5ddb135",
+      "label": "Compile historical concern · challenge-upheld",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "compile_watch",
+      "args": [
+        "rw_challenge-upheld",
+        "https://www.adobe.com/legal/terms.html",
+        "Tell me if Adobe grants itself a worldwide royalty-free license to reproduce uploaded cloud content to operate the services.",
+        {
+          "integer": "100"
+        },
+        7200,
+        1800,
+        "20240605152629"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:22:37.675Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xd892375d71b523550a811e508de0b34b284fdadc46631e9558da10fec5196d80"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rw_challenge-upheld",
+        "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "url": "https://www.adobe.com/legal/terms.html",
+        "concern": "Tell me if Adobe grants itself a worldwide royalty-free license to reproduce uploaded cloud content to operate the services.",
+        "bounty_wei": "100",
+        "bond_wei": "1",
+        "challenge_bond_wei": "1",
+        "created_at": 1794676959,
+        "expires_at": 1794684159,
+        "funding_deadline": 1794680559,
+        "challenge_seconds": 1800,
+        "historical_replay": true,
+        "as_of": "20240605152629",
+        "status": "COMPILED",
+        "finalized": true,
+        "baseline_digest": "180e49283b84c2f6c845ca9b76a1a565d1cda4f387e29ddc8350d0bac9cf2d2c",
+        "baseline_text_preview": "Legal\n\nAdobe General Terms of Use\n\nPublished February 17th, 2024. Effective as of February 17th, 2024.\n\nThese General Terms of Use replace and supersede all prior versions.\n\nJump to section\n\nYour Agreement with Adobe\n\nPrivacy\n\nUse of Services and Software\n\nYour Content\n\nYour Account\n\nUser Conduct\n\nFees and Payment\n\n...\n\nJump to section\n\nYour Agreement with Adobe\n\nPrivacy\n\nUse of Services and Software\n\nYour Content\n\nYour Account\n\nUser Conduct\n\nFees and Payment\n\nYour Warranty and Indemnification Obligations\n\nDISCLAIMERS OF WARRANTIES\n\nLIMITATION OF LIABILITY\n\nTermination\n\nTrade Sanctions and Export Control Compliance\n\nAustralian Consumer Law\n\nDispute Resolution, Class Action Waiver, Arbitration Agreement\n\nAudit Rights\n\nUpdates to Services and Software and Availability\n\nNo Modifications, Reverse Engineering, Artificial Intelligence/Machine Learning (AI/ML)\n\nMiscellaneous\n\nDMCA\n\n...\n\nThe Mandatory Arbitration Provision and Class Action Waiver in Section 14 (Dispute Resolution, Class Action Waiver, Arbitration Agreement) below govern the resolution of disputes. Please read them carefully. If you do not agree with these terms ( as defined below ), including the Mandatory Arbitration Provision (if you have not opted as allowed herein) and class action waiver, please do not use the services or software.\n\nJump to section\n\nYour Agreement with Adobe\n\nPrivacy\n\nUse of Services and Software\n\nYour Content\n\nYour Account\n\nUser Conduct\n\nFees and Payment\n\n...\n\nJump to section\n\nYour Agreement with Adobe\n\nPrivacy\n\nUse of Services and Software\n\nYour Content\n\nYour Account\n\nUser Conduct\n\nFees and Payment\n\nYour Warranty and Indemnification Obligations\n\nDISCLAIMERS OF WARRANTIES\n\nLIMITATION OF LIABILITY\n\nTermination\n\nTrade Sanctions and Export Control Compliance\n\nAustralian Consumer Law\n\nDispute Resolution, Class Action Waiver, Arbitration Agreement\n\nAudit Rights\n\nUpdates to Services and Software and Availability\n\nNo Modifications, Reverse Engineering, Artificial Intelligence/Machine Learning (AI/ML)\n\nMiscellaneous\n\nDMCA\n\n...\n\nThese General Terms of Use (“ General Terms ”), along with any applicable Additional Terms (see section 1.2 (Additional Terms) below) (collectively, the “ Terms ”) govern your use of and access to our websites, web-based applications and products, customer support, discussion forums or other interactive areas or services, and services such as Creative Cloud (collectively, the “Services”) and your installation and use of any software that we include as part of",
+        "baseline_timestamp": "20240605152629",
+        "baseline_url": "https://web.archive.org/web/20240605152629id_/https://www.adobe.com/legal/terms.html",
+        "criteria": [
+          "The policy grants Adobe a worldwide, royalty-free license to reproduce user-uploaded cloud content to operate the services."
+        ],
+        "decision": "ACCEPT",
+        "reason": "The concern identifies an observable license grant with a specific scope, permitted use, and purpose.",
+        "criteria_hash": "c7a7ba8c272108a0cdf5fb47ab2049f3761aad334e022135e861e629e268ed8f",
+        "finalized_at": 1794677023
+      },
+      "readAt": "2026-11-14T17:24:19.144Z",
+      "readError": "",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_watch",
+        "args": [
+          "rw_challenge-upheld"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T17:24:19.267Z"
+    },
+    "ticket:expire:bt_rc_adobe-content-access": {
+      "key": "ticket:expire:bt_rc_adobe-content-access",
+      "hash": "0xd64a6579aa570c55bc505616917afce20ad22b5f0645e9b501acc96a5b308d4d",
+      "label": "Release unused bond ticket",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "expire_ticket",
+      "args": [
+        "bt_rc_adobe-content-access"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:25:31.710Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "bt_rc_adobe-content-access",
+        "kind": "CLAIM",
+        "record_id": "rc_adobe-content-access",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "1",
+        "expires_at": 1794675714,
+        "status": "EXPIRED",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T17:26:10.925Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "bt_rc_adobe-content-access"
+        ],
+        "until": {
+          "field": "status",
+          "equals": "EXPIRED"
+        }
+      },
+      "recovery": true,
+      "recordedAt": "2026-11-14T17:26:11.020Z"
+    },
+    "CLAIM:timeout:rc_adobe-content-access": {
+      "key": "CLAIM:timeout:rc_adobe-content-access",
+      "hash": "0xbb6b3990e9f27624f31c68280fc6362784c0cc16c34921b40ab0b1d8d60817f8",
+      "label": "Void timed-out evidence and refund bond",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Claims",
+      "method": "timeout_claim",
+      "args": [
+        "rc_adobe-content-access"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:26:41.470Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xb7449f9c371772348d44cc36626d4113f01f1a1d2a129147245c57b267b0c8e8"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rc_adobe-content-access",
+        "watch_id": "rw_adobe-content-access",
+        "hunter": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "criteria_hash": "18aefab0685aa6bc269b3b37d60fe8848c24d1419715862d5cac31f9150b978c",
+        "snapshot_url": "https://web.archive.org/web/20240619003609id_/https://www.adobe.com/legal/terms.html",
+        "snapshot_timestamp": "20240619003609",
+        "passage": "(G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us.",
+        "created_at": 1794675002,
+        "prepare_deadline": 1794676802,
+        "status": "VOID",
+        "finalized": true,
+        "version": 2,
+        "voided": false,
+        "outcome": "VOID",
+        "reason": "Unresolved claim timed out; refund any funded bond.",
+        "snapshot_digest": "2eb5d0620f7f6d2cf6ea015ac6febc51ec4c829883550ec26288c3ae2bc9edf9",
+        "snapshot_text_preview": "rty issues and safety issues (for example, violence and nudity). If you choose to share your Cloud Content with others using our Software and Services, we may automatically review this shared Cloud Content to flag abusive behavior (such as spam or phishing). (F) Generative AI. We will not use your Local or Cloud Content to train generative AI models except for Content you choose to submit to the Adobe Stock marketplace, and this use is governed by the separate Adobe Stock Contributor Agreement. (G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us. 2.3 Data Protection Agreements In some countries, the law requires that we put a data protection agreement in place with you if we handle Personal Data (as defined in the applicable agreement) for you as part of our Services and Software. These agreements are the EU Data Processing Agreement or Data Protection Terms, found in the following locations: (A) European Union (“EU”) Data Processing Agreement (or “DPA”). The DPA terms apply where you provide Personal Data (as defined in the DPA) collected from individuals from countries in the European Economic Area (“EEA”) and the UK and where you are a “ Controller ” and Adobe is a “ Processor ” under the General Data Protection Regulation (EU) 2016/679 (“ GDPR ”) or any successor for the GDPR associated with the withdrawal of the United Kingdom from the EU. The DPA terms are available here: www.adobe.com/go/tou-dpa . (B) Data Protection Terms. The Data Protection Terms apply where you provide Personal Data (as defined in the Data Protection Terms) collected from individuals outside of the EEA and the UK and where Adobe is Processing (as defined in the Data Protection Terms) this data at your instruction and on your behalf. The Data Protection Terms are available here: https://www.adobe.com/go/dpt-ww . 2.4 Sensitive Personal Information You agree not to collect, process, or store any Sensitive Personal Information (as defined below) using the Services and Software, except as (A) directly authorized by Adobe, ",
+        "finalized_at": 1794677238,
+        "results": []
+      },
+      "readAt": "2026-11-14T17:28:03.823Z",
+      "readError": "",
+      "readback": {
+        "contract": "Claims",
+        "method": "get_claim",
+        "args": [
+          "rc_adobe-content-access"
+        ],
+        "until": {
+          "field": "status",
+          "equals": "VOID"
+        }
+      },
+      "recovery": true,
+      "recordedAt": "2026-11-14T17:28:03.942Z"
+    },
+    "ticket:rt_cosmetic-date-only": {
+      "key": "ticket:rt_cosmetic-date-only",
+      "hash": "0x36cb5faa6e6a2a77d6fa19ab7090f3700cff7c4fc598fa26a089cf892507fddc",
+      "label": "Prepare replay watch funding · cosmetic-date-only",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "rt_cosmetic-date-only",
+        "WATCH",
+        "rw_cosmetic-date-only"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:30:09.677Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x1864100da03c4350280db08a4f6c1ddcfe47e588f41dc193f2aa834288e68a72"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rt_cosmetic-date-only",
+        "kind": "WATCH",
+        "record_id": "rw_cosmetic-date-only",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "expires_at": 1794678011,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T17:31:28.461Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "rt_cosmetic-date-only"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T17:31:28.564Z"
+    },
+    "deposit:rt_cosmetic-date-only": {
+      "key": "deposit:rt_cosmetic-date-only",
+      "hash": "0x198cf33213ffb18fb8afc31aa15fa136979c050da7c07ddede7e3506c7ef53dc",
+      "label": "Fund historical replay · cosmetic-date-only",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "deposit",
+      "args": [
+        "d_rt_cosmetic-date-only",
+        "rt_cosmetic-date-only"
+      ],
+      "valueWei": "100",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:32:18.866Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xc8fa00c944a98862b3e350df3d73251ec3905106a84db77600e4ecf340f923ca"
+      ],
+      "valueCredited": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "d_rt_cosmetic-date-only",
+        "ticket_id": "rt_cosmetic-date-only",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "valid_ticket": true,
+        "created_at": 1794677540,
+        "resolve_deadline": 1794679340,
+        "status": "ALLOCATED",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T17:33:38.855Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_deposit",
+        "args": [
+          "d_rt_cosmetic-date-only"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T17:33:38.936Z"
+    },
+    "replay:challenge-rejected:compile": {
+      "key": "replay:challenge-rejected:compile",
+      "hash": "0x054746e0ee9cee5bab4324cd08b8c260102994605dd163f80b6bdb3319d09de0",
+      "label": "Compile historical concern · challenge-rejected",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Watches",
+      "method": "compile_watch",
+      "args": [
+        "rw_challenge-rejected",
+        "https://explore.zoom.us/en/terms/",
+        "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning.",
+        {
+          "integer": "100"
+        },
+        7200,
+        1800,
+        "20230301000542"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:41:19.853Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xfcc7ad69bc6dc853a98127173f129a21d24f96191a1123f73c33fd1970bed9e4"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rw_challenge-rejected",
+        "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "url": "https://explore.zoom.us/en/terms/",
+        "concern": "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning.",
+        "bounty_wei": "100",
+        "bond_wei": "1",
+        "challenge_bond_wei": "1",
+        "created_at": 1794678081,
+        "expires_at": 1794685281,
+        "funding_deadline": 1794681681,
+        "challenge_seconds": 1800,
+        "historical_replay": true,
+        "as_of": "20230301000542",
+        "status": "COMPILED",
+        "finalized": true,
+        "baseline_digest": "931cbdd73c8b58d3f7161932ca07b0c15508286162a567fa579c6ae1750e2bca",
+        "baseline_text_preview": "Zoom Terms of Service | Zoom\n\nSupport\n\n1.888.799.9666\n\nRequest a Demo\n\nJoin\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nSign In\n\nContact Sales\n\nRequest A Demo\n\nJoin\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nJoin\n\nJoin by Meeting ID\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nContact Sales\n\nSign Up Free\n\nJoin\n\nJoin by Meeting ID\n\nHost\n\nWith Video On\n\nWith Video Off\n\nScreen Share Only\n\nWhiteboard\n\nMy Account\n\nSearch\n\nProducts\n\nZoom One\nEverything you need to work together, all in one place.\n\nExplore Zoom One’s Collaboration Tools\n\nVirtual Meetings\nConnect virtually from anywhere with Zoom Meetings\n\nTeam Chat\nCollaborate together with Zoom Team Chat\n\nVoIP Phone System\nCall the world with Zoom Phone\n\nOnline Whiteboard\nCreate and brainstorm with Zoom Whiteboard\n\nConversation Intelligence\nRich conversation analytics to improve sales\n\nEmail and Calendar\nSend and receive messages and calendar invitations\n\nZoom Spaces\nInnovative video solutions for every meeting space.\n\nConference Room Systems\nBring meeting spaces online with Zoom Rooms\n\nConnected Conference Rooms\nConference Room Connector links existing rooms to Zoom\n\nWorkspace\nInnovative solutions for every space\n\nZoom Events\nSolutions to host impactful virtual and hybrid experiences.\n\nFind a solution for every event\n\nEvent Platform\nHost hybrid and virtual events with Zoom Events\n\nSingle-Session Events\nElevate your brand with single-session events powered by Zoom Sessions\n\nOnline Webinars\nBroadcast at scale with Zoom Webinars\n\nCommunity Events\nHost and attend classes, group events, and more OnZoom\n\nZoom Contact Center\nAn omnichannel cloud solution optimized for video.\n\nCloud Contact Center\nEngage customers with Zoom Contact Center\n\nVirtual Agent\nDeliver intelligent support with conversational AI\n\nSolutions\n\nIndustries\nZoom solutions elevate collaboration across vertical use cases.\n\nDiscover Zoom Industry Solutions\n\nEducation\nEnabling exciting new ways to teach, learn, and connect globally\n\nFinancial Services\nTransforming client engagement and employee experiences\n\nGovernment\nImproving collaboration between agencies, ministries, and constituents\n\nHealthcare\nConnecting care, collaboration, and medical innovation\n\nManufacturing\nReal-time communication, anywhere in the world\n\nRetail\nBridging the in-store and online experiences\n\nServices\nExpert support and services for all your design, strategy, implementation, event, and hardware needs.\n\nGlobal Services\nExpert consulting, tech",
+        "baseline_timestamp": "20230301000542",
+        "baseline_url": "https://web.archive.org/web/20230301000542id_/https://explore.zoom.us/en/terms/",
+        "criteria": [
+          "Zoom uses service-generated usage or telemetry data for machine learning or artificial intelligence model training or tuning."
+        ],
+        "decision": "ACCEPT",
+        "reason": "The concern asks for an observable statement about permitted uses regarding machine learning or AI model training using telemetry data.",
+        "criteria_hash": "d6772ef2f511e7a6f4bdf642094d6a71fbb2995d39f4e3a0b78bd2274b7f6077",
+        "finalized_at": 1794678175
+      },
+      "readAt": "2026-11-14T17:44:45.452Z",
+      "readError": "",
+      "readback": {
+        "contract": "Watches",
+        "method": "get_watch",
+        "args": [
+          "rw_challenge-rejected"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "recordedAt": "2026-11-14T17:44:45.602Z"
+    },
+    "ticket:rt_challenge-rejected": {
+      "key": "ticket:rt_challenge-rejected",
+      "hash": "0x4e01ba94f0ef417284b8295572f35af038a53f85fa5d0f4acada5c7b9cb98c80",
+      "label": "Prepare replay watch funding · challenge-rejected",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "rt_challenge-rejected",
+        "WATCH",
+        "rw_challenge-rejected"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:45:02.168Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xf5ea01d9f1352ab252477a956b3d42988f0d2d3ba2482d46fa07ad9fb1aaee77"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rt_challenge-rejected",
+        "kind": "WATCH",
+        "record_id": "rw_challenge-rejected",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "expires_at": 1794678903,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T17:47:27.500Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "rt_challenge-rejected"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T17:47:27.776Z"
+    },
+    "deposit:rt_challenge-rejected": {
+      "key": "deposit:rt_challenge-rejected",
+      "hash": "0xe161e438480817fbcb94a710736a7a303622e4fc763bd9cbc55acb7756149895",
+      "label": "Fund historical replay · challenge-rejected",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "deposit",
+      "args": [
+        "d_rt_challenge-rejected",
+        "rt_challenge-rejected"
+      ],
+      "valueWei": "100",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:47:52.053Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xed6f7b1d1ee2db68a4c9a143114e4b51957911dffc2c492595d5bec1d1c5d918"
+      ],
+      "valueCredited": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "d_rt_challenge-rejected",
+        "ticket_id": "rt_challenge-rejected",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "100",
+        "valid_ticket": true,
+        "created_at": 1794678473,
+        "resolve_deadline": 1794680273,
+        "status": "ALLOCATED",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T17:49:22.390Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_deposit",
+        "args": [
+          "d_rt_challenge-rejected"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T17:49:22.618Z"
+    },
+    "replay:challenge-rejected:prepare": {
+      "key": "replay:challenge-rejected:prepare",
+      "hash": "0x3a36f1b6e691e418142a3ccd0da51403c722195cbccbccc3b4ad94cfbf06e7f2",
+      "label": "Check archived passage · challenge-rejected",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Claims",
+      "method": "prepare_claim",
+      "args": [
+        "rc_challenge-rejected",
+        "rw_challenge-rejected",
+        "https://web.archive.org/web/20230809192857id_/https://explore.zoom.us/en/terms/",
+        "You consent to Zoom&rsquo;s access, use, collection, creation, modification, distribution, processing, sharing, maintenance, and storage of Service Generated Data for any purpose, to the extent and in the manner permitted under applicable Law, including for the purpose of product and service development, marketing, analytics, quality assurance, machine learning or artificial intelligence (including for the purposes of training and tuning of algorithms and models), training, testing, improvement of the Services, Software, or Zoom&rsquo;s other products, services, and software, or any combination thereof, and as otherwise provided in this Agreement."
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:57:21.585Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0x1d520dd9b1108cff7d33c5550a877171f1793f127c3dc5ccebd5e583fd720495"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "rc_challenge-rejected",
+        "watch_id": "rw_challenge-rejected",
+        "hunter": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "criteria_hash": "d6772ef2f511e7a6f4bdf642094d6a71fbb2995d39f4e3a0b78bd2274b7f6077",
+        "snapshot_url": "https://web.archive.org/web/20230809192857id_/https://explore.zoom.us/en/terms/",
+        "snapshot_timestamp": "20230809192857",
+        "passage": "You consent to Zoom&rsquo;s access, use, collection, creation, modification, distribution, processing, sharing, maintenance, and storage of Service Generated Data for any purpose, to the extent and in the manner permitted under applicable Law, including for the purpose of product and service development, marketing, analytics, quality assurance, machine learning or artificial intelligence (including for the purposes of training and tuning of algorithms and models), training, testing, improvement of the Services, Software, or Zoom&rsquo;s other products, services, and software, or any combination thereof, and as otherwise provided in this Agreement.",
+        "created_at": 1794679043,
+        "prepare_deadline": 1794680843,
+        "status": "READY",
+        "finalized": true,
+        "version": 1,
+        "voided": false,
+        "outcome": "READY",
+        "reason": "Exact passage is present later and absent from the frozen baseline.",
+        "snapshot_digest": "bee19ed3465546693d3a9837c1c7d0b9d4e914db614b8a5cef01056a8abf68f5",
+        "snapshot_text_preview": "iagnostic data, and similar content or data that Zoom collects or generates in connection with your or your End Users&rsquo; use of the Services or Software (&ldquo; Service Generated Data &rdquo;). As between you and Zoom, all right, title, and interest in and to Service Generated Data, and all Proprietary Rights therein, belong to and are retained solely by Zoom. You agree that Zoom compiles and may compile Service Generated Data based on Customer Content and use of the Services and Software. You consent to Zoom&rsquo;s access, use, collection, creation, modification, distribution, processing, sharing, maintenance, and storage of Service Generated Data for any purpose, to the extent and in the manner permitted under applicable Law, including for the purpose of product and service development, marketing, analytics, quality assurance, machine learning or artificial intelligence (including for the purposes of training and tuning of algorithms and models), training, testing, improvement of the Services, Software, or Zoom&rsquo;s other products, services, and software, or any combination thereof, and as otherwise provided in this Agreement. In furtherance of the foregoing, if, for any reason, there are any rights in such Service Generated Data which do not accrue to Zoom under this Section 10.2 or as otherwise provided in this Agreement, you hereby unconditionally and irrevocably assign and agree to assign to Zoom on your behalf, and you shall cause your End Users to unconditionally and irrevocably assign and agree to assign to Zoom, all right, title, and interest in and to the Service Generated Data, including all Proprietary Rights relating thereto. 10.3 Permitted Use; Customer Content . Zoom may redistribute, publish, import, access, use, store, transmit, review, disclose, preserve, extract, modify, reproduce, share, use, display, copy, distribute, translate, transcribe, create derivative works, and process Customer Content: (i) in accordance with this Agreement and as required to perform our obligations under this Agreement; (ii) in accordance with our Privacy Statement ; (iii) as authorized or instructed by you; (iv) as permitted or required by Law; (v) for trust and safety purposes, including monitoring and enforcing our Acceptable Use Guidelines ; or (vi) to protect the rights, property, or security of Zoom, its end users, customers, or the public, including systems and networks. 10.4 Customer License Grant . You agree to grant and hereby grant Zoom a ",
+        "finalized_at": 1794679085
+      },
+      "readAt": "2026-11-14T17:59:08.138Z",
+      "readError": "",
+      "readback": {
+        "contract": "Claims",
+        "method": "get_claim",
+        "args": [
+          "rc_challenge-rejected"
+        ],
+        "until": {
+          "field": "status",
+          "oneOf": [
+            "READY",
+            "CODE_REJECTED",
+            "VOID"
+          ]
+        }
+      },
+      "recordedAt": "2026-11-14T17:59:08.312Z"
+    },
+    "ticket:bt_rc_challenge-rejected": {
+      "key": "ticket:bt_rc_challenge-rejected",
+      "hash": "0xbc94dbe804b26fd420b5c55e868d6ae5747ff784c732114670da04483585107e",
+      "label": "Prepare bond funding",
+      "account": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "contract": "Bounties",
+      "method": "prepare_deposit",
+      "args": [
+        "bt_rc_challenge-rejected",
+        "CLAIM",
+        "rc_challenge-rejected"
+      ],
+      "valueWei": "0",
+      "historicalReplay": true,
+      "submittedAt": "2026-11-14T17:59:29.505Z",
+      "stage": "FINALIZED_SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE",
+      "triggeredTransactions": [
+        "0xaef72198f920850bcbc35891f6efb890a1992e944656c3cf715cfbd01f5574c4"
+      ],
+      "valueCredited": false,
+      "stateVerified": true,
+      "stateReadback": {
+        "id": "bt_rc_challenge-rejected",
+        "kind": "CLAIM",
+        "record_id": "rc_challenge-rejected",
+        "owner": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+        "amount_wei": "1",
+        "expires_at": 1794679771,
+        "status": "READY",
+        "finalized": true
+      },
+      "readAt": "2026-11-14T18:00:44.646Z",
+      "readError": "",
+      "readback": {
+        "contract": "Bounties",
+        "method": "get_ticket",
+        "args": [
+          "bt_rc_challenge-rejected"
+        ],
+        "until": {
+          "field": "finalized",
+          "equals": true
+        }
+      },
+      "expectedAccount": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "recordedAt": "2026-11-14T18:00:44.819Z"
+    }
+  },
+  "probeResults": {
+    "zoom-baseline": {
+      "hash": "0x4d84b142f935eaf3bfa828102d62ea00b63d3a17a6182b1c581bf086b12d9155",
+      "stage": "FINALIZED_SUCCESS",
+      "receipt": {
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_AGREE"
+      },
+      "result": {
+        "archive_marker": true,
+        "cdx_match": true,
+        "cdx_status": 200,
+        "gzip": false,
+        "snapshot_chars": 258534,
+        "snapshot_status": 200
+      },
+      "passed": true,
+      "recordedAt": "2026-11-13T23:35:51.369Z"
+    },
+    "zoom-change": {
+      "hash": "0xefc51c84802b27940161d9a8d352ebcb818fa343550f450093ad0f24b48bdcb9",
+      "stage": "FINALIZED_SUCCESS",
+      "receipt": {
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_AGREE"
+      },
+      "result": {
+        "archive_marker": true,
+        "cdx_match": true,
+        "cdx_status": 200,
+        "gzip": false,
+        "snapshot_chars": 327043,
+        "snapshot_status": 200
+      },
+      "passed": true,
+      "recordedAt": "2026-11-13T23:38:17.158Z"
+    },
+    "x-baseline": {
+      "hash": "0xdb241bdf4b23a5f4d1badb9aa63c16b89c78bdf1f5c43881f816ffcfc6197818",
+      "stage": "FINALIZED_SUCCESS",
+      "receipt": {
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_AGREE"
+      },
+      "result": {
+        "archive_marker": true,
+        "cdx_match": true,
+        "cdx_status": 200,
+        "gzip": false,
+        "snapshot_chars": 235827,
+        "snapshot_status": 200
+      },
+      "passed": true,
+      "recordedAt": "2026-11-13T23:40:08.734Z"
+    },
+    "x-change": {
+      "hash": "0x10194c55ed1ce82e5c8f27d707d687eaa2f154e9483974695cfb3a2ea49ca715",
+      "stage": "FINALIZED_SUCCESS",
+      "receipt": {
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_AGREE"
+      },
+      "result": {
+        "archive_marker": true,
+        "cdx_match": true,
+        "cdx_status": 200,
+        "gzip": false,
+        "snapshot_chars": 235279,
+        "snapshot_status": 200
+      },
+      "passed": true,
+      "recordedAt": "2026-11-13T23:42:01.718Z"
+    },
+    "adobe-baseline": {
+      "hash": "0x946363ff61a30457d9eadc5ddadcec8ae8bb51d9327cf285659fe1dd2780c3e5",
+      "stage": "FINALIZED_SUCCESS",
+      "receipt": {
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_AGREE"
+      },
+      "result": {
+        "archive_marker": true,
+        "cdx_match": true,
+        "cdx_status": 200,
+        "gzip": false,
+        "snapshot_chars": 167748,
+        "snapshot_status": 200
+      },
+      "passed": true,
+      "recordedAt": "2026-11-13T23:43:32.146Z"
+    },
+    "adobe-change": {
+      "hash": "0xac873e5565da5c28d3daf95454b76d4c04119ab4b862fd7f45558e1a1f92c4ab",
+      "stage": "FINALIZED_SUCCESS",
+      "receipt": {
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_AGREE"
+      },
+      "result": {
+        "archive_marker": true,
+        "cdx_match": true,
+        "cdx_status": 200,
+        "gzip": false,
+        "snapshot_chars": 167735,
+        "snapshot_status": 200
+      },
+      "passed": true,
+      "recordedAt": "2026-11-13T23:44:40.755Z"
+    },
+    "zoom-ai-grant": {
+      "hash": "0x70c1a46837a5494de799951f6a042b0e79df2c2adffa3666b6c3860fa0343b6d",
+      "stage": "FINALIZED_SUCCESS",
+      "receipt": {
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_AGREE"
+      },
+      "result": {
+        "archive_marker": true,
+        "cdx_match": true,
+        "cdx_status": 200,
+        "gzip": false,
+        "snapshot_chars": 331446,
+        "snapshot_status": 200
+      },
+      "passed": true,
+      "recordedAt": "2026-11-14T07:40:40.314Z"
+    },
+    "adobe-june-revision": {
+      "hash": "0x1fb1ce09f0999c54c4dd6bb8a9a9855916f8485bc23e9ef326b109b44192f35e",
+      "stage": "FINALIZED_SUCCESS",
+      "receipt": {
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_AGREE"
+      },
+      "result": {
+        "archive_marker": true,
+        "cdx_match": true,
+        "cdx_status": 200,
+        "gzip": false,
+        "snapshot_chars": 273585,
+        "snapshot_status": 200
+      },
+      "passed": true,
+      "recordedAt": "2026-11-14T07:42:15.321Z"
+    }
+  },
+  "cases": [
+    {
+      "id": "x-ai-training",
+      "company": "X",
+      "kind": "CLAIM",
+      "policyUrl": "https://twitter.com/en/privacy",
+      "concern": "Tell me if the policy permits information collected about users or publicly available information to train machine learning or artificial intelligence models.",
+      "watchId": "rw_x-ai-training",
+      "claimId": "rc_x-ai-training",
+      "criteria": [
+        {
+          "text": "The policy permits information collected about users to train machine learning or artificial intelligence models.",
+          "verdict": "TRIGGERED",
+          "quote": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy."
+        },
+        {
+          "text": "The policy permits publicly available information to train machine learning or artificial intelligence models.",
+          "verdict": "TRIGGERED",
+          "quote": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy."
+        }
+      ],
+      "baseline": {
+        "url": "https://web.archive.org/web/20230101004225id_/https://twitter.com/en/privacy",
+        "timestamp": "20230101004225",
+        "digest": "d118bfd2d5894621049d781c021a22ff54bf9d8dfad5202413aafa9f6ae8d6ef",
+        "excerpt": "1. Information We Collect"
+      },
+      "later": {
+        "url": "https://web.archive.org/web/20230929213507id_/https://twitter.com/en/privacy",
+        "timestamp": "20230929213507",
+        "digest": "d4711d37797fcec5b125b0c4f3ce34d0646a1344d5cf7c9b2f653ec629a97ff0",
+        "excerpt": "us . Here we go: Expand dropdowns for more information: 2.1 Operate, improve, and personalize our services. We use the information we collect to provide and operate X products and services. We also use the information we collect to improve and personalize our products and services so that you have a better experience on X, including by showing you more relevant content and ads, suggesting people and topics to follow, enabling and helping you discover affiliates , third-party apps, and services. We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy. We may use the information we collect from accounts of other services that you choose to connect your X account to provide you features like cross-posting or cross-service authentication, and to operate our services. We use your contact information to help others find your account if your settings permit, including through third-party services and client applications. We use your information to provide our advertising and sponsored content services subject to your settings , which helps make ads on X more relevant to you. We also use this information to measure the effectiveness of ads and to help recognize your devices to serve you ads on and off of X. Some of our ad partners also enable us to collect similar information directly from their website or app by integrating our advertising technology. Information shared by ad partners and affiliates or collected by X from the websites and apps of ad partners and affiliates may be combined with the other information you share with X and that X receives, generates, or infers about you, as described elsewhere in our Privacy Policy. 2.2 Foster safety and security. We use information we collect to provide for the safety and security of our users, our products, services, and your account. This includes verifying your identity, authenticating your account, and defending against fraud, unauthorized use, and illegal activity. We also use the information to evaluate and affect the safety and quality of content on X - this includes investigating and enforcing our policies and and terms, as well as applicable law. 2.3 Measure, analyze and make our services better. We use the information we collect to measure and analyze the effectiveness of our products and services and to better understand how you use them in order to make them better. 2.4 Communica"
+      },
+      "passage": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+      "verdict": "TRIGGERED",
+      "explanation": "Per-criterion validator judgment.",
+      "bountyWei": "100",
+      "claimant": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "historicalReplay": true,
+      "status": "FINALIZED_SUCCESS",
+      "finalized": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "watch": {
+          "id": "rw_x-ai-training",
+          "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+          "url": "https://twitter.com/en/privacy",
+          "concern": "Tell me if the policy permits information collected about users or publicly available information to train machine learning or artificial intelligence models.",
+          "bounty_wei": "100",
+          "bond_wei": "1",
+          "challenge_bond_wei": "1",
+          "created_at": 1794671118,
+          "expires_at": 1794678318,
+          "funding_deadline": 1794674718,
+          "challenge_seconds": 1800,
+          "historical_replay": true,
+          "as_of": "20230101004225",
+          "status": "OPEN",
+          "finalized": true,
+          "baseline_digest": "d118bfd2d5894621049d781c021a22ff54bf9d8dfad5202413aafa9f6ae8d6ef",
+          "baseline_text_preview": "1. Information We Collect",
+          "baseline_timestamp": "20230101004225",
+          "baseline_url": "https://web.archive.org/web/20230101004225id_/https://twitter.com/en/privacy",
+          "criteria": [
+            "The policy permits information collected about users to train machine learning or artificial intelligence models.",
+            "The policy permits publicly available information to train machine learning or artificial intelligence models."
+          ],
+          "decision": "ACCEPT",
+          "reason": "The user concern clearly asks whether collected user data or publicly available data may be used for AI/ML model training, which translates into observable policy permissions regarding data usage.",
+          "criteria_hash": "89c5da8b17d150680410172b39b570d176d5708f79ec65e9a0b284881ac13e82",
+          "finalized_at": 1794671195
+        },
+        "claim": {
+          "id": "rc_x-ai-training",
+          "watch_id": "rw_x-ai-training",
+          "hunter": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+          "criteria_hash": "89c5da8b17d150680410172b39b570d176d5708f79ec65e9a0b284881ac13e82",
+          "snapshot_url": "https://web.archive.org/web/20230929213507id_/https://twitter.com/en/privacy",
+          "snapshot_timestamp": "20230929213507",
+          "passage": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+          "created_at": 1794671694,
+          "prepare_deadline": 1794673494,
+          "status": "TRIGGERED",
+          "finalized": true,
+          "version": 2,
+          "voided": false,
+          "outcome": "TRIGGERED",
+          "reason": "Per-criterion validator judgment.",
+          "snapshot_digest": "d4711d37797fcec5b125b0c4f3ce34d0646a1344d5cf7c9b2f653ec629a97ff0",
+          "snapshot_text_preview": "us . Here we go: Expand dropdowns for more information: 2.1 Operate, improve, and personalize our services. We use the information we collect to provide and operate X products and services. We also use the information we collect to improve and personalize our products and services so that you have a better experience on X, including by showing you more relevant content and ads, suggesting people and topics to follow, enabling and helping you discover affiliates , third-party apps, and services. We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy. We may use the information we collect from accounts of other services that you choose to connect your X account to provide you features like cross-posting or cross-service authentication, and to operate our services. We use your contact information to help others find your account if your settings permit, including through third-party services and client applications. We use your information to provide our advertising and sponsored content services subject to your settings , which helps make ads on X more relevant to you. We also use this information to measure the effectiveness of ads and to help recognize your devices to serve you ads on and off of X. Some of our ad partners also enable us to collect similar information directly from their website or app by integrating our advertising technology. Information shared by ad partners and affiliates or collected by X from the websites and apps of ad partners and affiliates may be combined with the other information you share with X and that X receives, generates, or infers about you, as described elsewhere in our Privacy Policy. 2.2 Foster safety and security. We use information we collect to provide for the safety and security of our users, our products, services, and your account. This includes verifying your identity, authenticating your account, and defending against fraud, unauthorized use, and illegal activity. We also use the information to evaluate and affect the safety and quality of content on X - this includes investigating and enforcing our policies and and terms, as well as applicable law. 2.3 Measure, analyze and make our services better. We use the information we collect to measure and analyze the effectiveness of our products and services and to better understand how you use them in order to make them better. 2.4 Communica",
+          "finalized_at": 1794672261,
+          "results": [
+            {
+              "criterion_index": 0,
+              "quote": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+              "reason": "The passage expressly permits collected information to be used to train machine learning or AI models. The context identifies the collected information as information about users.",
+              "verdict": "TRIGGERED"
+            },
+            {
+              "criterion_index": 1,
+              "quote": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+              "reason": "The passage expressly permits publicly available information to be used to train machine learning or AI models for policy purposes.",
+              "verdict": "TRIGGERED"
+            }
+          ],
+          "challenge_deadline": 1794674061,
+          "resolution_deadline": 1794677661
+        },
+        "challenge": {},
+        "closure": {},
+        "settlement": {}
+      },
+      "transactions": {
+        "replay:x-ai-training:compile": "0x5eb6f73d84065f048d503cae0b936d7010ed53dc95dba44f67577c833f5f4ac7",
+        "ticket:rt_x-ai-training": "0xb5e0fc2512f4479f9a839b92b7a2b5dff620778d47f6f8ab8697c5e2f2fc33da",
+        "replay:x-ai-training:prepare": "0xfe35822b09a74eee43648d34f08bd265bd4ede6ae5302960b44017004174ca58",
+        "ticket:bt_rc_x-ai-training": "0x3aa6f4ac912548badb375a8cd5243f8756f63494fd98eaa8365f0e8a55aa894c",
+        "deposit:bt_rc_x-ai-training": "0x1c98bebf7c2ba2132bf04a11cf08e3e749b8a00130ec7e11754aa6eb8103a5fe",
+        "replay:x-ai-training:judge": "0x253fee4fc990efd38d2290203ace981ebadc956d06db36de55c06a9d3a8c275e"
+      },
+      "challengeWindow": {
+        "deadline": "2026-11-14T16:34:21.000Z",
+        "closed": false
+      }
+    },
+    {
+      "id": "concern-rejected",
+      "company": "Zoom",
+      "kind": "COMPILE",
+      "policyUrl": "https://explore.zoom.us/en/terms/",
+      "concern": "Tell me if these terms get worse.",
+      "watchId": "rw_concern-rejected",
+      "criteria": [],
+      "baseline": {
+        "url": "",
+        "timestamp": "",
+        "digest": "",
+        "excerpt": ""
+      },
+      "later": {
+        "url": "",
+        "timestamp": "",
+        "digest": "",
+        "excerpt": ""
+      },
+      "passage": "",
+      "verdict": "REJECTED",
+      "explanation": "The request seeks a subjective judgement ('tell me if these terms get worse'), which is unverifiable and not an observable statement about rights, duties, or permitted uses. Such concerns must be rejected.",
+      "bountyWei": "100",
+      "claimant": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "historicalReplay": true,
+      "status": "FINALIZED_SUCCESS",
+      "finalized": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "watch": {
+          "id": "rw_concern-rejected",
+          "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+          "url": "https://explore.zoom.us/en/terms/",
+          "concern": "Tell me if these terms get worse.",
+          "bounty_wei": "100",
+          "bond_wei": "1",
+          "challenge_bond_wei": "1",
+          "created_at": 1794672404,
+          "expires_at": 1794679604,
+          "funding_deadline": 1794676004,
+          "challenge_seconds": 1800,
+          "historical_replay": true,
+          "as_of": "20230301000542",
+          "status": "REJECTED",
+          "finalized": true,
+          "criteria": [],
+          "decision": "REJECT",
+          "reason": "The request seeks a subjective judgement ('tell me if these terms get worse'), which is unverifiable and not an observable statement about rights, duties, or permitted uses. Such concerns must be rejected.",
+          "criteria_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "finalized_at": 1794672450
+        },
+        "claim": {},
+        "challenge": {},
+        "closure": {},
+        "settlement": {}
+      },
+      "transactions": {
+        "replay:concern-rejected:compile": "0x1ede355bae8d9e320279f6e9e087b6d894564425d7beee09b6a3a896435c864b"
+      }
+    },
+    {
+      "id": "adobe-content-access",
+      "company": "Adobe",
+      "kind": "CLAIM",
+      "policyUrl": "https://www.adobe.com/legal/terms.html",
+      "concern": "Tell me if Adobe permits human review of uploaded cloud content flagged as illegal or abusive even without a support request.",
+      "watchId": "rw_adobe-content-access",
+      "claimId": "rc_adobe-content-access",
+      "criteria": [
+        {
+          "text": "Policy grants Adobe a right or permission to review user-uploaded cloud content.",
+          "verdict": "NOT_RUN"
+        },
+        {
+          "text": "Review may be triggered by content flagged as illegal or abusive without a prior support request.",
+          "verdict": "NOT_RUN"
+        },
+        {
+          "text": "Policy explicitly permits human review (not solely automated review) under those conditions.",
+          "verdict": "NOT_RUN"
+        }
+      ],
+      "baseline": {
+        "url": "https://web.archive.org/web/20240605152629id_/https://www.adobe.com/legal/terms.html",
+        "timestamp": "20240605152629",
+        "digest": "180e49283b84c2f6c845ca9b76a1a565d1cda4f387e29ddc8350d0bac9cf2d2c",
+        "excerpt": "Adobe Stock"
+      },
+      "later": {
+        "url": "https://web.archive.org/web/20240619003609id_/https://www.adobe.com/legal/terms.html",
+        "timestamp": "20240619003609",
+        "digest": "2eb5d0620f7f6d2cf6ea015ac6febc51ec4c829883550ec26288c3ae2bc9edf9",
+        "excerpt": "rty issues and safety issues (for example, violence and nudity). If you choose to share your Cloud Content with others using our Software and Services, we may automatically review this shared Cloud Content to flag abusive behavior (such as spam or phishing). (F) Generative AI. We will not use your Local or Cloud Content to train generative AI models except for Content you choose to submit to the Adobe Stock marketplace, and this use is governed by the separate Adobe Stock Contributor Agreement. (G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us. 2.3 Data Protection Agreements In some countries, the law requires that we put a data protection agreement in place with you if we handle Personal Data (as defined in the applicable agreement) for you as part of our Services and Software. These agreements are the EU Data Processing Agreement or Data Protection Terms, found in the following locations: (A) European Union (“EU”) Data Processing Agreement (or “DPA”). The DPA terms apply where you provide Personal Data (as defined in the DPA) collected from individuals from countries in the European Economic Area (“EEA”) and the UK and where you are a “ Controller ” and Adobe is a “ Processor ” under the General Data Protection Regulation (EU) 2016/679 (“ GDPR ”) or any successor for the GDPR associated with the withdrawal of the United Kingdom from the EU. The DPA terms are available here: www.adobe.com/go/tou-dpa . (B) Data Protection Terms. The Data Protection Terms apply where you provide Personal Data (as defined in the Data Protection Terms) collected from individuals outside of the EEA and the UK and where Adobe is Processing (as defined in the Data Protection Terms) this data at your instruction and on your behalf. The Data Protection Terms are available here: https://www.adobe.com/go/dpt-ww . 2.4 Sensitive Personal Information You agree not to collect, process, or store any Sensitive Personal Information (as defined below) using the Services and Software, except as (A) directly authorized by Adobe, "
+      },
+      "passage": "(G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us.",
+      "verdict": "VOID",
+      "explanation": "Unresolved claim timed out; refund any funded bond.",
+      "bountyWei": "100",
+      "claimant": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+      "historicalReplay": true,
+      "status": "FINALIZED_SUCCESS",
+      "finalized": true,
+      "stateVerified": true,
+      "stateReadback": {
+        "watch": {
+          "id": "rw_adobe-content-access",
+          "sponsor": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+          "url": "https://www.adobe.com/legal/terms.html",
+          "concern": "Tell me if Adobe permits human review of uploaded cloud content flagged as illegal or abusive even without a support request.",
+          "bounty_wei": "100",
+          "bond_wei": "1",
+          "challenge_bond_wei": "1",
+          "created_at": 1794672557,
+          "expires_at": 1794679757,
+          "funding_deadline": 1794676157,
+          "challenge_seconds": 1800,
+          "historical_replay": true,
+          "as_of": "20240605152629",
+          "status": "OPEN",
+          "finalized": true,
+          "baseline_digest": "180e49283b84c2f6c845ca9b76a1a565d1cda4f387e29ddc8350d0bac9cf2d2c",
+          "baseline_text_preview": "Adobe Stock",
+          "baseline_timestamp": "20240605152629",
+          "baseline_url": "https://web.archive.org/web/20240605152629id_/https://www.adobe.com/legal/terms.html",
+          "criteria": [
+            "Policy grants Adobe a right or permission to review user-uploaded cloud content.",
+            "Review may be triggered by content flagged as illegal or abusive without a prior support request.",
+            "Policy explicitly permits human review (not solely automated review) under those conditions."
+          ],
+          "decision": "ACCEPT",
+          "reason": "The concern asks for an observable policy statement about permitted review of flagged cloud content absent a support request, which is independently checkable in Adobe's terms.",
+          "criteria_hash": "18aefab0685aa6bc269b3b37d60fe8848c24d1419715862d5cac31f9150b978c",
+          "finalized_at": 1794672672
+        },
+        "claim": {
+          "id": "rc_adobe-content-access",
+          "watch_id": "rw_adobe-content-access",
+          "hunter": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+          "criteria_hash": "18aefab0685aa6bc269b3b37d60fe8848c24d1419715862d5cac31f9150b978c",
+          "snapshot_url": "https://web.archive.org/web/20240619003609id_/https://www.adobe.com/legal/terms.html",
+          "snapshot_timestamp": "20240619003609",
+          "passage": "(G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us.",
+          "created_at": 1794675002,
+          "prepare_deadline": 1794676802,
+          "status": "VOID",
+          "finalized": true,
+          "version": 2,
+          "voided": false,
+          "outcome": "VOID",
+          "reason": "Unresolved claim timed out; refund any funded bond.",
+          "snapshot_digest": "2eb5d0620f7f6d2cf6ea015ac6febc51ec4c829883550ec26288c3ae2bc9edf9",
+          "snapshot_text_preview": "rty issues and safety issues (for example, violence and nudity). If you choose to share your Cloud Content with others using our Software and Services, we may automatically review this shared Cloud Content to flag abusive behavior (such as spam or phishing). (F) Generative AI. We will not use your Local or Cloud Content to train generative AI models except for Content you choose to submit to the Adobe Stock marketplace, and this use is governed by the separate Adobe Stock Contributor Agreement. (G) Human Review of Cloud Content. For Cloud Content, human review may occur in limited circumstances: when you ask us (like contacting our support team); when you make your Cloud Content publicly available (like on Adobe Stock or Behance); when your Cloud Content is flagged or reported as illegal or abusive (like Child Sexual Abuse Materials); or when you opt in to a prerelease, beta, or product improvement program (like the Adobe Photoshop Improvement Program). Learn more Your Local Content is never reviewed by us. 2.3 Data Protection Agreements In some countries, the law requires that we put a data protection agreement in place with you if we handle Personal Data (as defined in the applicable agreement) for you as part of our Services and Software. These agreements are the EU Data Processing Agreement or Data Protection Terms, found in the following locations: (A) European Union (“EU”) Data Processing Agreement (or “DPA”). The DPA terms apply where you provide Personal Data (as defined in the DPA) collected from individuals from countries in the European Economic Area (“EEA”) and the UK and where you are a “ Controller ” and Adobe is a “ Processor ” under the General Data Protection Regulation (EU) 2016/679 (“ GDPR ”) or any successor for the GDPR associated with the withdrawal of the United Kingdom from the EU. The DPA terms are available here: www.adobe.com/go/tou-dpa . (B) Data Protection Terms. The Data Protection Terms apply where you provide Personal Data (as defined in the Data Protection Terms) collected from individuals outside of the EEA and the UK and where Adobe is Processing (as defined in the Data Protection Terms) this data at your instruction and on your behalf. The Data Protection Terms are available here: https://www.adobe.com/go/dpt-ww . 2.4 Sensitive Personal Information You agree not to collect, process, or store any Sensitive Personal Information (as defined below) using the Services and Software, except as (A) directly authorized by Adobe, ",
+          "finalized_at": 1794677238,
+          "results": []
+        },
+        "challenge": {},
+        "closure": {},
+        "settlement": {}
+      },
+      "transactions": {
+        "replay:adobe-content-access:compile": "0x047f29148cfda1923075a98ad67f80437e20549e4d88185035d1302f19d4687a",
+        "ticket:rt_adobe-content-access": "0x2c7680452d409139649abed35fa691528aff72edc898f29ed4ea5e0b5cba6866",
+        "ticket:rt_08eba489d5874be6b83a9145b52c36fb": "0x1024e374ec5275659c60744c5a0934cf9f5d627b20265eb8dd5e13e130fe372d",
+        "replay:adobe-content-access:prepare": "0x2e6075b3cfa649b32fa2330a56fb603f43f8b047c62d40be5135a4c0841d0490",
+        "ticket:bt_rc_adobe-content-access": "0xf373915c5b0e3625046a449c5ed67eb3843dbac0c9174d2eb8522890bf2d6925",
+        "ticket:expire:bt_rc_adobe-content-access": "0xd64a6579aa570c55bc505616917afce20ad22b5f0645e9b501acc96a5b308d4d",
+        "CLAIM:timeout:rc_adobe-content-access": "0xbb6b3990e9f27624f31c68280fc6362784c0cc16c34921b40ab0b1d8d60817f8"
+      }
+    }
+  ],
+  "liveWatches": [],
+  "valueTransfers": [
+    {
+      "label": "deposit:rt_zoom-ai-training",
+      "hash": "0x2da49b7fc1b9df9d47d8050832840680df5b65adc17cc59768c8abbed2bc0dae",
+      "amountWei": "100",
+      "purpose": "Bounties.deposit",
+      "stage": "FINALIZED_SUCCESS",
+      "valueCredited": true
+    },
+    {
+      "label": "deposit:rt_x-ai-training",
+      "hash": "0xeb6a808e2167365fa0eeaa40cb5d8739d3772277b76be7410849015eae5211c6",
+      "amountWei": "100",
+      "purpose": "Bounties.deposit",
+      "stage": "FINALIZED_SUCCESS",
+      "valueCredited": true
+    },
+    {
+      "label": "deposit:bt_rc_x-ai-training",
+      "hash": "0x1c98bebf7c2ba2132bf04a11cf08e3e749b8a00130ec7e11754aa6eb8103a5fe",
+      "amountWei": "1",
+      "purpose": "Bounties.deposit",
+      "stage": "FINALIZED_SUCCESS",
+      "valueCredited": true
+    },
+    {
+      "label": "deposit:rt_08eba489d5874be6b83a9145b52c36fb",
+      "hash": "0x930e9a4fb4cb842b1c92d0816c50d1031eeef37757d1f26c0c34db06fceab37b",
+      "amountWei": "100",
+      "purpose": "Bounties.deposit",
+      "stage": "FINALIZED_SUCCESS",
+      "valueCredited": true
+    },
+    {
+      "label": "deposit:rt_cosmetic-date-only",
+      "hash": "0x198cf33213ffb18fb8afc31aa15fa136979c050da7c07ddede7e3506c7ef53dc",
+      "amountWei": "100",
+      "purpose": "Bounties.deposit",
+      "stage": "FINALIZED_SUCCESS",
+      "valueCredited": true
+    },
+    {
+      "label": "deposit:rt_challenge-rejected",
+      "hash": "0xe161e438480817fbcb94a710736a7a303622e4fc763bd9cbc55acb7756149895",
+      "amountWei": "100",
+      "purpose": "Bounties.deposit",
+      "stage": "FINALIZED_SUCCESS",
+      "valueCredited": true
+    }
+  ],
+  "depositedWei": "501",
+  "recordedAt": "2026-11-14T17:28:20.212Z",
+  "blockers": [
+    "The 100-wei deposit finalized after its 10-minute ticket expiry and the Zoom watch funding deadline. The contract recorded valid_ticket=false and issued a refundable credit. No claim or rerun was submitted."
+  ],
+  "probe": {
+    "hash": "0x34b8cd6dc2bf15416f7bbbc0c72dc7a31992dd23be50bbf21ead0cb37029fbf0",
+    "signer": "0x1ee3b827907429e5df3db7282446b6e065ff6199",
+    "sourceSha256": "9d7dee912612c243d093f45baebc5ddb0d12bdb75bf445905b3c148e31e35c18",
+    "submittedAt": "2026-11-13T23:06:58.875Z",
+    "stage": "FINALIZED_SUCCESS",
+    "contractAddress": "0x3af4ed87c46bcb30f296ab190da90f157b205694"
+  },
+  "depositApproval": {
+    "approved": true,
+    "capWei": "1110",
+    "approvedAt": "2026-11-14T08:27:06Z",
+    "scope": {
+      "historicalWatchEscrowsWei": "800",
+      "claimBondsWei": "7",
+      "challengeBondsWei": "3",
+      "productionWatchEscrowsWei": "300"
+    },
+    "initialReview": {
+      "caseId": "zoom-ai-training",
+      "criteriaSha256": "d6772ef2f511e7a6f4bdf642094d6a71fbb2995d39f4e3a0b78bd2274b7f6077",
+      "text": "Zoom uses service-generated usage or telemetry data for machine learning or artificial intelligence model training or tuning."
+    }
+  },
+  "caseFailures": [
+    {
+      "caseId": "zoom-ai-training",
+      "status": "FAILED_TO_FUND",
+      "reason": "The 100-wei deposit finalized after its 10-minute ticket expiry and the Zoom watch funding deadline. The contract recorded valid_ticket=false and issued a refundable credit. No claim or rerun was submitted.",
+      "depositTransactionHash": "0x2da49b7fc1b9df9d47d8050832840680df5b65adc17cc59768c8abbed2bc0dae",
+      "amountWei": "100",
+      "depositStatus": "REFUNDABLE",
+      "valueCredited": true,
+      "refundCreditId": "deposit-refund:d_rt_zoom-ai-training",
+      "refundStatus": "AVAILABLE",
+      "watchId": "rw_zoom-ai-training",
+      "watchStatus": "COMPILED",
+      "watchFundingDeadline": "2026-11-14T09:16:37Z",
+      "ticketId": "rt_zoom-ai-training",
+      "ticketExpiredAt": "2026-11-14T08:33:15Z",
+      "rerun": false
+    }
+  ]
+}

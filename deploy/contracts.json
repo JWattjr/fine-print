@@ -1,0 +1,35 @@
+{
+  "ArchiveProbe": {
+    "address": "0x3af4ed87c46bcb30f296ab190da90f157b205694"
+  },
+  "Watches": {
+    "address": "0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+    "explorer": "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+    "sourceSha256": "0d4ddf3e977b559dbc3e90f4cc60f1c4697c5e8899ddb20067bf0cf963061c93",
+    "transactionHash": "0x0403386780abbe2f46291ad7611c11f82388744d7f8a78f66158a20433938340"
+  },
+  "Claims": {
+    "address": "0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+    "explorer": "https://explorer-studio.genlayer.com/address/0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+    "sourceSha256": "696bb4079b0e429ac0977da4851010285ec44b84bb4c463978c155024e2f7e04",
+    "transactionHash": "0x98fb2509fd01641027d40bf0e868f96bc13d0f6e3169ceaa270e0e9a855f02ee"
+  },
+  "Challenges": {
+    "address": "0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+    "explorer": "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+    "sourceSha256": "fa5a6e1398a64fda85cba5fd4247d142ca8517baac348cbc1ea0c59a6ab83131",
+    "transactionHash": "0xa15756d51f7c2e29515de8a1c98dd46b51433c1acd7da67cd02fd0fc1ffca19e"
+  },
+  "Bounties": {
+    "address": "0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
+    "explorer": "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
+    "sourceSha256": "a5a4fdabbad566dc36d10b7c3ca7540a7e65f61202c01e2bf63934347b0a7cf0",
+    "transactionHash": "0x8ad6abbbe252e0bda184f29a5f4ed428e2013c5abc1daaf7eeec2115044b1b2c"
+  },
+  "ChangeLedger": {
+    "address": "0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d",
+    "explorer": "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d",
+    "sourceSha256": "8c9d2989a4842e9bbe094f16b420cc78bd12d2c71e3caa3101d4d083b7379afb",
+    "transactionHash": "0xa07a0a0161bbf93f68bd31a19cd4178cefdfba0c563e14f2f71ca73ac835d4dc"
+  }
+}

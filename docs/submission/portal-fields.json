@@ -1,0 +1,51 @@
+{
+  "contributionType": "Projects",
+  "projectName": "Fine Print",
+  "primaryTag": "Outcome Verification",
+  "tag1": "Consumer Protection",
+  "tag2": "Bounty Settlement",
+  "oneLiner": "Bounties for catching what changed in the fine print. GenLayer validators decide if it matters.",
+  "description": "Fine Print lets anyone fund a watch on a public policy page with a specific concern. Hunters submit immutable Wayback snapshots and the exact passage they believe is new. GenLayer validators compile the concern, judge whether a passage triggers frozen criteria, and resolve challenges about prior substance or the wrong document. Plain contract code owns bounties, bonds, deadlines, refunds and payouts. A public Change Ledger records only finalized results after the challenge window closes and the native credit is verified. Historical replays are marked separately from current watches, and every cited passage links to its archived snapshots and StudioNet receipts.",
+  "howTo": [
+    {
+      "heading": "Read the Change Ledger",
+      "instruction": "Open Fine Print without a wallet. Browse finalized catches, compare the old and new Wayback excerpts, and follow the criteria, verdict, challenge ruling and StudioNet transaction links. The ledger shows only results that passed finality, the challenge window and payout readback."
+    },
+    {
+      "heading": "Review open watches",
+      "instruction": "Open the watch docket to see current production policies, frozen criteria, baseline snapshot, funded bounty and expiry. Historical replays are labeled and do not appear as open production watches."
+    },
+    {
+      "heading": "Start a watch",
+      "instruction": "Connect a StudioNet wallet, enter a canonical policy URL and a checkable concern, then review the validator-compiled criteria and pinned Wayback baseline. Confirm the bounty and expiry before signing the value transfer."
+    },
+    {
+      "heading": "Submit or challenge a claim",
+      "instruction": "For a claim, provide a later id_ snapshot and a passage up to 1,200 characters. Code first checks the exact CDX row and passage presence and absence. For a challenge, choose ALREADY_EXISTED or WRONG_DOCUMENT and provide the matching archived evidence."
+    },
+    {
+      "heading": "Follow finality and settlement",
+      "instruction": "Use the transaction log to follow submitted, pending, accepted and finalized states. Open a case to see the appeal and challenge deadlines, the final ruling, the payout receipt and the contract state readback."
+    }
+  ],
+  "expectedOutcome": "A public StudioNet app with five deployed contracts and an immutable ledger. Nine one-time historical cases report their actual finalized validator outcomes, challenges, refunds or payouts. Three to four current watches remain open with expiry dates. Every contract and transaction link is canonical, verified through the StudioNet Explorer, and tied to recorded receipt and state readback. Deposits remain at or below 0.1 GEN.",
+  "contractLinks": [
+    "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694",
+    "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+    "https://explorer-studio.genlayer.com/address/0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+    "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+    "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
+    "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+  ],
+  "website": "",
+  "github": "",
+  "demoVideo": "",
+  "evidence": [
+    "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694",
+    "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d",
+    "https://explorer-studio.genlayer.com/address/0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
+    "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
+    "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
+    "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+  ]
+}
