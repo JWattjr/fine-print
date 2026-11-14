@@ -17,3 +17,4 @@ deploy/receipts/
 __pycache__/
 tmp/
 .pytest_cache/
+*.tsbuildinfo
