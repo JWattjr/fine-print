@@ -20,3 +20,7 @@ The affected failed-receipt recheck passed. The corrected **complete finalized-s
 - Contract source bytes and evidence-file hashes unchanged during this release. Git attributes preserve the deployed CRLF bytes of the two v2 source files rather than normalizing their hashes.
 
 No on-chain transaction was submitted during this release pass. The owner submits the Portal form personally.
+
+## Production
+
+Checked 2026-11-15 14:48:39 UTC. Deployment: https://fine-print-5c34ui99i-wattxs-projects.vercel.app (READY, production); public alias: https://fine-print-ten.vercel.app/. Release source commit: b0b6d25aa5b92d8f8945327c591a6d807734c62c. Public checks confirmed 8 journal records, cosmetic-date-only NOT_TRIGGERED, challenge-upheld NO_AGREEMENT with its limitation notice, 3 OPEN watches funded at 100 wei each, and all six displayed Explorer contract links matching deploy/proof.json. Desktop viewport: 1440 x 960; reset afterward. The remote Vercel production build passed.
