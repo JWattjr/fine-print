@@ -1,0 +1,2 @@
+# Preserve deployed source fingerprints across Windows checkouts.
+contracts/*.py text eol=lf

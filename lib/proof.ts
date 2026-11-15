@@ -14,6 +14,9 @@ export type TxReceipt = {
 export type CaseCriterion = { text: string; verdict: 'TRIGGERED' | 'NOT_TRIGGERED' | 'UNCLEAR' | 'NOT_RUN'; quote?: string };
 export type CaseProof = {
   id: string;
+  sourceCaseId?: string;
+  runLabel?: string;
+  observedLimitation?: string;
   company: string;
   policyUrl: string;
   concern: string;
@@ -24,7 +27,7 @@ export type CaseProof = {
   verdict: 'TRIGGERED' | 'NOT_TRIGGERED' | 'UNCLEAR' | 'REJECTED' | 'CODE_REJECTED' | 'VOID';
   watchId?: string;
   claimId?: string;
-  kind?: 'COMPILE' | 'CLAIM';
+  kind?: 'COMPILE' | 'CLAIM' | 'WATCH_TIMEOUT';
   stateVerified?: boolean;
   stateReadback?: unknown;
   explanation: string;
@@ -64,12 +67,20 @@ export type ProofDocument = {
   probeResults?: Record<string, Record<string, unknown>>;
   cases: CaseProof[];
   liveWatches: LiveWatchProof[];
+  liveWatchAttempts?: Array<{id:string;company:string;policyUrl:string;concern:string;status:string;reason:string;transactionHash:string;bountyDepositedWei:string}>;
   depositedWei: string;
   recordedAt: string | null;
   blockers: string[];
 };
 
 export const proof = proofFile as unknown as ProofDocument;
+
+export function observedLimitation(item: CaseProof): string {
+  if (item.observedLimitation) return item.observedLimitation;
+  return (item.sourceCaseId ?? item.id).startsWith('cosmetic-date-only') && item.verdict === 'TRIGGERED'
+    ? 'Observed false positive: the date-only passage triggered an extra compiler-generated absence criterion. The two permission criteria were NOT_TRIGGERED.'
+    : '';
+}
 
 export function confirmedCases(data: ProofDocument = proof): CaseProof[] {
   return data.cases.filter((item) => item.status === 'FINALIZED_SUCCESS'

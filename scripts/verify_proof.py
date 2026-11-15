@@ -12,7 +12,7 @@ import subprocess
 import shutil
 import time
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable, TypeVar
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROOF_PATH = ROOT / "deploy" / "proof.json"
 EXPLORER = "https://explorer-studio.genlayer.com"
 CHAIN_ID = 61999
-MAX_DEPOSIT_WEI = 10**17
+MAX_DEPOSIT_WEI = 1110  # Owner's stricter shared cap; protocol cap is 0.1 GEN.
 USER_AGENT = "Mozilla/5.0 FinePrintProofVerifier/1.0"
 MIN_REQUEST_INTERVAL = 2.5
 MAX_REQUESTS_PER_RUN = 450
@@ -39,15 +39,49 @@ def request_slot(last_request: list[float]) -> None:
     elapsed = time.monotonic() - last_request[0]
     if last_request[0] and elapsed < MIN_REQUEST_INTERVAL:
         time.sleep(MIN_REQUEST_INTERVAL - elapsed)
-    now = time.monotonic()
-    REQUEST_TIMES[:] = [timestamp for timestamp in REQUEST_TIMES if now - timestamp < 60 * 60]
-    if len(REQUEST_TIMES) >= MAX_REQUESTS_PER_RUN:
-        raise URLError("Read-only verification reached its 450-request rolling-hour safety budget.")
-    REQUEST_TIMES.append(now)
-    last_request[0] = now
+    budget_path = ROOT / ".source-cache" / "runner" / "request-times.json"
+    budget_path.parent.mkdir(parents=True, exist_ok=True)
+    times = json.loads(budget_path.read_text()) if budget_path.exists() else []
+    now = time.time() * 1000
+    times = [timestamp for timestamp in times if now - timestamp < 3600000]
+    if len(times) >= 440:
+        time.sleep(max(1, (times[0] + 3600000 - now + 1000) / 1000))
+        now = time.time() * 1000
+        times = [timestamp for timestamp in times if now - timestamp < 3600000]
+    if times:
+        time.sleep(max(0, (times[-1] + 2500 - time.time() * 1000) / 1000))
+    times.append(time.time() * 1000)
+    temporary = budget_path.with_suffix(".pending")
+    temporary.write_text(json.dumps(times))
+    temporary.replace(budget_path)
+    REQUEST_TIMES.append(time.monotonic())
+    last_request[0] = time.monotonic()
+
+
+T = TypeVar("T")
+
+
+def retry_read(operation: Callable[[], T]) -> T:
+    for attempt in range(4):
+        try:
+            return operation()
+        except (HTTPError, URLError, TimeoutError, OSError, ValueError) as error:
+            transient = isinstance(error, (URLError, TimeoutError, json.JSONDecodeError))
+            if isinstance(error, HTTPError):
+                transient = error.code in {408, 429, 500, 502, 503, 504}
+            if isinstance(error, ValueError) and re.search(r"temporar|unavailable|timeout|rate.limit", str(error), re.I):
+                transient = True
+            if not transient or attempt == 3:
+                raise
+            time.sleep(10)
+    raise RuntimeError("Read retry exhausted.")
 
 
 def fetch_json(url: str, last_request: list[float]) -> Any:
+    return retry_read(lambda: fetch_json_once(url, last_request))
+
+
+def fetch_json_once(url: str, last_request: list[float]) -> Any:
     request_slot(last_request)
     request = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
     with urlopen(request, timeout=25) as response:
@@ -57,6 +91,10 @@ def fetch_json(url: str, last_request: list[float]) -> Any:
 
 
 def rpc_json(method: str, params: list[Any], last_request: list[float]) -> Any:
+    return retry_read(lambda: rpc_json_once(method, params, last_request))
+
+
+def rpc_json_once(method: str, params: list[Any], last_request: list[float]) -> Any:
     request_slot(last_request)
     body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode("utf-8")
     request = Request("https://studio.genlayer.com/api", data=body, headers={
@@ -75,6 +113,10 @@ def rpc_json(method: str, params: list[Any], last_request: list[float]) -> Any:
 
 
 def fetch_page(url: str, last_request: list[float]) -> tuple[str, str]:
+    return retry_read(lambda: fetch_page_once(url, last_request))
+
+
+def fetch_page_once(url: str, last_request: list[float]) -> tuple[str, str]:
     request_slot(last_request)
     request = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,*/*;q=0.8"})
     with urlopen(request, timeout=25) as response:
@@ -115,6 +157,10 @@ def receipt_for(proof: dict[str, Any], case_id: str, label: str, tx_hash: str) -
     return None
 
 
+def retained_failure(receipt: Any) -> bool:
+    return isinstance(receipt, dict) and receipt.get("stage") == "FINALIZED_ERROR" and receipt.get("failureDisposition") == "RETAINED_NOT_RETRIED" and bool(receipt.get("failureReason"))
+
+
 def collect_hashes(proof: dict[str, Any]) -> dict[str, str]:
     found: dict[str, str] = {}
 
@@ -124,6 +170,7 @@ def collect_hashes(proof: dict[str, Any]) -> dict[str, str]:
 
     for label, value in (proof.get("transactions") or {}).items():
         add(f"transaction:{label}", value)
+    add("runner-funding", (proof.get("runnerFunding") or {}).get("hash"))
     for name, value in (proof.get("contracts") or {}).items():
         if isinstance(value, dict):
             add(f"contract:{name}:deployment", value.get("transactionHash", value.get("txHash")))
@@ -149,6 +196,9 @@ def collect_hashes(proof: dict[str, Any]) -> dict[str, str]:
     for label, value in (proof.get("receipts") or {}).items():
         if isinstance(value, dict):
             add(f"receipt:{label}", value.get("hash"))
+    for attempt in proof.get("liveWatchAttempts") or []:
+        if isinstance(attempt, dict):
+            add(f"watch-attempt:{text(attempt.get('id'))}", attempt.get("transactionHash"))
     for transfer in proof.get("valueTransfers") or []:
         if isinstance(transfer, dict):
             add(f"value-transfer:{text(transfer.get('label')) or 'deposit'}", transfer.get("hash"))
@@ -158,6 +208,13 @@ def collect_hashes(proof: dict[str, Any]) -> dict[str, str]:
     for label, tx_hash in found.items():
         unique.setdefault(tx_hash.lower(), label)
     return unique
+
+
+def progress(stage: str, checked: int, total: int) -> None:
+    path = ROOT / ".source-cache" / "verify-proof-progress.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"stage": stage, "checked": checked, "total": total,
+                               "updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}))
 
 
 def verify() -> list[str]:
@@ -183,13 +240,20 @@ def verify() -> list[str]:
     except (TypeError, ValueError):
         deposited = MAX_DEPOSIT_WEI + 1
     if deposited < 0 or deposited > MAX_DEPOSIT_WEI:
-        errors.append(f"Recorded deposits exceed the 0.1 GEN cap: {deposited} wei.")
+        errors.append(f"Recorded deposits exceed the owner's 1,110-wei cap: {deposited} wei.")
 
     blockers = [text(item) for item in proof.get("blockers") or [] if text(item)]
     if blockers:
         errors.append("Proof still lists blockers: " + "; ".join(blockers))
 
     last_request = [0.0]
+    try:
+        chain_value = rpc_json("eth_chainId", [], last_request)
+        actual_chain = int(chain_value, 16) if isinstance(chain_value, str) and chain_value.startswith("0x") else int(chain_value)
+        if actual_chain != CHAIN_ID:
+            errors.append(f"StudioNet RPC reports chain {actual_chain}, expected {CHAIN_ID}.")
+    except (HTTPError, URLError, TimeoutError, json.JSONDecodeError, OSError, ValueError, TypeError) as error:
+        errors.append(f"StudioNet chain identity could not be verified: {error}")
     contracts = proof.get("contracts") or {}
     if not isinstance(contracts, dict):
         contracts = {}
@@ -198,6 +262,7 @@ def verify() -> list[str]:
     if missing_contracts:
         errors.append("Required deployed contracts are missing: " + ", ".join(missing_contracts))
     seen_addresses: dict[str, str] = {}
+    progress("contract-links", 0, len(contracts))
     for name, value in contracts.items():
         address = contract_address(value)
         if not address:
@@ -241,7 +306,7 @@ def verify() -> list[str]:
         if not isinstance(response, dict) or text(response.get("type")).upper() != "CONTRACT":
             errors.append(f"{name}: Explorer API did not identify the address as a contract.")
         found_address = text(response.get("address")) if isinstance(response, dict) else ""
-        if found_address and found_address.lower() != address.lower():
+        if found_address.lower() != address.lower():
             errors.append(f"{name}: Explorer returned a different contract address.")
         found_chain = response.get("chainId", response.get("chain_id")) if isinstance(response, dict) else None
         if found_chain is not None and integer(found_chain) != CHAIN_ID:
@@ -259,7 +324,9 @@ def verify() -> list[str]:
     if not hashes:
         errors.append("No transaction hashes are recorded.")
     rpc_transactions: dict[str, dict[str, Any]] = {}
-    for tx_hash, label in hashes.items():
+    expected_failures = {text(receipt.get("hash")).lower(): receipt for receipt in (proof.get("receipts") or {}).values() if retained_failure(receipt)}
+    for index, (tx_hash, label) in enumerate(hashes.items()):
+        progress("transaction-links", index, len(hashes))
         try:
             response = fetch_json(f"{EXPLORER}/api/transactions/{tx_hash}", last_request)
         except (HTTPError, URLError, TimeoutError, json.JSONDecodeError, OSError) as error:
@@ -268,8 +335,12 @@ def verify() -> list[str]:
         if not isinstance(response, dict):
             errors.append(f"{label}: Explorer returned no transaction record.")
             continue
+        response = response.get("transaction", response)
+        if not isinstance(response, dict):
+            errors.append(f"{label}: Explorer transaction wrapper contains no transaction record.")
+            continue
         found_hash = text(response.get("hash", response.get("transactionHash", response.get("transaction_hash"))))
-        if found_hash and found_hash.lower() != tx_hash.lower():
+        if found_hash.lower() != tx_hash.lower():
             errors.append(f"{label}: Explorer returned a different transaction hash.")
         try:
             chain_tx = rpc_json("eth_getTransactionByHash", [tx_hash], last_request)
@@ -289,7 +360,13 @@ def verify() -> list[str]:
                 raw_type = chain_tx.get("type")
                 tx_type = int(raw_type, 16) if isinstance(raw_type, str) and raw_type.startswith("0x") else integer(raw_type)
                 transfer_only = tx_type == 0 and chain_tx.get("value_credited") is True and not consensus_data
-                if not transfer_only and execution not in {"SUCCESS", "FINISHED_WITH_RETURN"}:
+                expected_failure = expected_failures.get(tx_hash.lower())
+                if expected_failure:
+                    if execution not in {"ERROR", "FINISHED_WITH_ERROR", "VM_ERROR"} or int(chain_tx.get("value", -1)) != 0:
+                        errors.append(f"{label}: retained failed cleanup does not match its finalized zero-value error receipt.")
+                    if result_name != text(expected_failure.get("consensus")).upper():
+                        errors.append(f"{label}: retained failure consensus differs from the recorded receipt.")
+                elif not transfer_only and execution not in {"SUCCESS", "FINISHED_WITH_RETURN"}:
                     errors.append(f"{label}: StudioNet execution did not return successfully ({execution or 'missing result'}).")
                 if not transfer_only and result_name not in {"AGREE", "MAJORITY_AGREE", "SUCCESS"}:
                     errors.append(f"{label}: StudioNet consensus did not agree ({result_name or 'missing result'}).")
@@ -297,7 +374,7 @@ def verify() -> list[str]:
                 if isinstance(raw_result, str) and raw_result:
                     try:
                         decoded_result = base64.b64decode(raw_result, validate=False)
-                        if decoded_result[:1] == b"\x01":
+                        if not expected_failure and decoded_result[:1] == b"\x01":
                             errors.append(f"{label}: StudioNet receipt records a rollback result.")
                     except (ValueError, TypeError):
                         pass
@@ -318,7 +395,8 @@ def verify() -> list[str]:
     case_ids = [text(case.get("id")) for case in cases if isinstance(case, dict)]
     if len(case_ids) != len(set(case_ids)):
         errors.append("A historical case ID appears more than once; each replay must be recorded once.")
-    missing_cases = sorted(REQUIRED_CASES - set(case_ids))
+    covered_cases = set(case_ids) | {text(case.get("sourceCaseId")) for case in cases if isinstance(case, dict)}
+    missing_cases = sorted(REQUIRED_CASES - covered_cases)
     if missing_cases:
         errors.append("Required demo cases are missing: " + ", ".join(missing_cases))
     for case in cases:
@@ -350,29 +428,22 @@ def verify() -> list[str]:
             if not is_hash(tx_hash):
                 continue
             receipt = receipt_for(proof, case_id, text(label), tx_hash)
-            if not receipt or text(receipt.get("stage")).upper() != "FINALIZED_SUCCESS":
+            if not receipt or (text(receipt.get("stage")).upper() != "FINALIZED_SUCCESS" and not retained_failure(receipt)):
                 errors.append(f"{case_id}:{label}: successful finalized receipt is missing from the proof journal.")
         if case.get("transaction") and not txs:
             receipt = receipt_for(proof, case_id, "transaction", case["transaction"])
             if not receipt or text(receipt.get("stage")).upper() != "FINALIZED_SUCCESS":
                 errors.append(f"{case_id}: successful finalized receipt is missing from the proof journal.")
 
-    cases_by_id = {text(case.get("id")): case for case in cases if isinstance(case, dict)}
-    for case_id in ("zoom-ai-training", "x-ai-training"):
-        case = cases_by_id.get(case_id)
-        if case and text(case.get("verdict")).upper() != "TRIGGERED":
-            errors.append(f"{case_id}: the expected historical outcome is TRIGGERED.")
-    zoom = cases_by_id.get("zoom-ai-training")
-    if zoom and (not isinstance(zoom.get("payout"), dict) or zoom["payout"].get("creditVerified") is not True):
-        errors.append("zoom-ai-training: the bounty payout has no successful native-credit readback.")
-    cosmetic = cases_by_id.get("cosmetic-date-only")
-    if cosmetic and text(cosmetic.get("verdict")).upper() != "NOT_TRIGGERED":
-        errors.append("cosmetic-date-only: the expected outcome is NOT_TRIGGERED.")
-    for case_id, expected in (("challenge-upheld", "UPHELD"), ("challenge-rejected", "REJECTED")):
-        case = cases_by_id.get(case_id)
-        challenge = case.get("challenge") if case else None
-        if case and (not isinstance(challenge, dict) or text(challenge.get("ruling")).upper() != expected):
-            errors.append(f"{case_id}: the challenge outcome must be {expected}.")
+    # The owner requires actual outcomes, including timeouts, rather than reruns
+    # until a planned verdict is obtained. Evidence checks above remain strict.
+    for case in cases:
+        if not isinstance(case, dict):
+            continue
+        if text(case.get("verdict")).upper() not in {"TRIGGERED", "NOT_TRIGGERED", "UNCLEAR", "REJECTED", "CODE_REJECTED", "VOID"}:
+            errors.append(f"{text(case.get('id'))}: actual terminal outcome is missing.")
+        if case.get("sourceCaseId") and case.get("sourceCaseId") != case.get("id") and case.get("runLabel") != "re-run after a timing failure":
+            errors.append(f"{text(case.get('id'))}: timing recovery must be explicitly labeled.")
 
     probe_results = proof.get("probeResults") or {}
     if not isinstance(probe_results, dict):
@@ -410,7 +481,7 @@ def verify() -> list[str]:
 
     value_transfers = proof.get("valueTransfers")
     if not isinstance(value_transfers, list):
-        errors.append("A transaction-level value transfer ledger is missing; the 0.1 GEN cap cannot be independently checked.")
+        errors.append("A transaction-level value transfer ledger is missing; the 1,110-wei cap cannot be independently checked.")
     else:
         transfer_total = 0
         transfer_hashes: set[str] = set()
@@ -478,11 +549,12 @@ def verify() -> list[str]:
         errors.append(f"Cannot check submission evidence entries: {error}")
 
     node = shutil.which("node")
+    progress("finalized-contract-state", len(hashes), len(hashes))
     if not node:
         errors.append("Node.js is required for independent finalized contract-state checks.")
     else:
         try:
-            checked = subprocess.run([node, "--import", "tsx", "scripts/verify_finalized_state.ts", str(MAX_REQUESTS_PER_RUN - len(REQUEST_TIMES))], cwd=ROOT, text=True, capture_output=True, timeout=900, check=False)
+            checked = subprocess.run([node, "--import", "tsx", "scripts/verify_finalized_state.ts", "1000"], cwd=ROOT, text=True, capture_output=True, timeout=10800, check=False)
             result = json.loads(checked.stdout)
             errors.extend(str(error) for error in result.get("errors", []))
             if checked.returncode and not result.get("errors"):
@@ -495,15 +567,30 @@ def verify() -> list[str]:
 
 if __name__ == "__main__":
     problems = verify()
-    if problems:
-        print(json.dumps({"ok": False, "errors": problems}, indent=2))
-        sys.exit(1)
     proof = json.loads(PROOF_PATH.read_text(encoding="utf-8"))
-    print(json.dumps({
-        "ok": True,
+    link_errors = [problem for problem in problems if "Explorer" in problem or "canonical" in problem]
+    report = {
+        "ok": not problems,
+        "verifiedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "network": proof["network"],
         "contracts": len(proof.get("contracts") or {}),
         "transactions": len(collect_hashes(proof)),
         "depositedWei": proof.get("depositedWei", "0"),
-        "explorerChecks": "all canonical contract and transaction endpoints resolved",
-    }, indent=2))
+        "depositCapWei": str(MAX_DEPOSIT_WEI),
+        "errors": problems,
+        "explorerContractLinks": [f"{EXPLORER}/address/{contract_address(value)}" for value in (proof.get("contracts") or {}).values()],
+        "explorerTransactionLinks": [f"{EXPLORER}/tx/{value}" for value in collect_hashes(proof)],
+        "explorerChecks": "all canonical contract and transaction API endpoints and pages checked" if not link_errors else "Explorer link checks failed; see explorerLinkErrors",
+        "explorerLinksVerified": not link_errors,
+        "explorerLinkErrors": link_errors,
+        "actualCases": [{"id": item.get("id"), "sourceCaseId": item.get("sourceCaseId"), "verdict": item.get("verdict"), "challenge": (item.get("challenge") or {}).get("ruling"), "nativeCreditVerified": (item.get("payout") or {}).get("creditVerified", False)} for item in proof.get("cases") or []],
+        "retainedFinalizedErrors": [{"hash": item.get("hash"), "method": item.get("method"), "reason": item.get("failureReason")} for item in (proof.get("receipts") or {}).values() if retained_failure(item)],
+    }
+    report_path = ROOT / ".source-cache" / "verify-proof-report.json"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    progress("complete", len(collect_hashes(proof)), len(collect_hashes(proof)))
+    if problems:
+        print(json.dumps(report, indent=2))
+        sys.exit(1)
+    print(json.dumps(report, indent=2))

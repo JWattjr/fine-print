@@ -21,7 +21,10 @@ export function transactionView(value: unknown): TxView {
     '5': 'NO_MAJORITY', '6': 'MAJORITY_AGREE', '7': 'MAJORITY_DISAGREE',
   });
   const credited = tx.value_credited ?? tx.valueCredited;
-  const native = (Number(tx.type) === 0 || String(tx.type).toUpperCase() === 'NATIVE') && typeof credited === 'boolean';
+  // Accept formatters that retain typeHex; server reads preserve raw StudioNet
+  // type values because the SDK's Ethereum formatter can erase native type 0.
+  const transactionType = tx.typeHex ?? tx.type;
+  const native = (Number(transactionType) === 0 || ['NATIVE','LEGACY'].includes(String(transactionType).toUpperCase())) && typeof credited === 'boolean';
   if (native && status === 'FINALIZED') { execution = credited ? 'NATIVE_CREDITED' : 'NATIVE_NOT_CREDITED'; consensus = 'NATIVE_TRANSFER'; }
   const stage: TxStage = status !== 'FINALIZED'
     ? status === 'ACCEPTED' ? 'ACCEPTED' : status === 'UNINITIALIZED' ? 'SUBMITTED' : 'PENDING'
@@ -38,7 +41,7 @@ export function transactionView(value: unknown): TxView {
     consensus,
     stage,
     txReceipt: String(tx.txReceipt ?? tx.tx_receipt ?? '') || undefined,
-    contractAddress: decoded?.contractAddress ?? data?.contract_address ?? (Number(tx.type) === 1 ? String(tx.to_address ?? tx.recipient ?? '') || undefined : undefined),
+    contractAddress: decoded?.contractAddress ?? data?.contract_address ?? (Number(transactionType) === 1 ? String(tx.to_address ?? tx.recipient ?? '') || undefined : undefined),
     triggeredTransactions: Array.isArray(tx.triggered_transactions ?? tx.triggeredTransactions) ? (tx.triggered_transactions ?? tx.triggeredTransactions) as string[] : [],
     triggeredBy: typeof (tx.triggered_by ?? tx.triggeredBy) === 'string' ? String(tx.triggered_by ?? tx.triggeredBy) : undefined,
     valueWei: tx.value !== undefined ? String(tx.value) : undefined,

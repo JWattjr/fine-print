@@ -14,7 +14,7 @@ export function actionsSnapshot() { return typeof window === 'undefined' ? null 
 export function actions(): ActionRecord[] {
   try {
     const value: unknown = JSON.parse(actionsSnapshot() ?? '[]');
-    return Array.isArray(value) ? value.filter((item): item is ActionRecord => !!item && typeof item === 'object' && /^0x[\da-fA-F]{64}$/.test(String(item.hash ?? '')) && typeof item.key === 'string') : [];
+    return Array.isArray(value) ? value.filter((item): item is ActionRecord => !!item && typeof item === 'object' && /^0x[\da-fA-F]{64}$/.test(String(item.hash ?? '')) && typeof item.key === 'string' && !item.key.startsWith('script:')) : [];
   } catch { return []; }
 }
 export function subscribeActions(listener: () => void) {

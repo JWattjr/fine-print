@@ -39,14 +39,16 @@ export function contextExcerpt(text: string, focus?: string): string {
   const index = normalized.indexOf(needle);
   if (index >= 0) return normalized.slice(Math.max(0, index - 500), Math.max(0, index - 500) + 2500);
   const words = new Set(needle.toLowerCase().match(/[a-z]{5,}/g) ?? []);
-  let best = '';
+  let bestStart = 0;
   let bestScore = 0;
-  for (const paragraph of text.split(/\n{2,}/)) {
-    const tokens = new Set(paragraph.toLowerCase().match(/[a-z]{5,}/g) ?? []);
-    const score = [...words].filter((word) => tokens.has(word)).length / Math.sqrt(Math.max(1, tokens.size));
-    if (score > bestScore) { best = paragraph; bestScore = score; }
+  // Archived HTML is often flattened to one paragraph. Score bounded, overlapping
+  // windows so a short navigation label cannot outrank the relevant body text.
+  for (let start = 0; start < normalized.length; start += 750) {
+    const tokens = new Set(normalized.slice(start, start + 2500).toLowerCase().match(/[a-z]{5,}/g) ?? []);
+    const score = [...words].filter((word) => tokens.has(word)).length;
+    if (score > bestScore) { bestStart = start; bestScore = score; }
   }
-  return (best || text).slice(0, 2500);
+  return normalized.slice(bestStart, bestStart + 2500);
 }
 
 export function compactReadback(value: unknown, focus?: string): unknown {

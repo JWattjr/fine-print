@@ -43,3 +43,12 @@ test('the redline preview includes a caught passage located late in a document',
   assert.ok(excerpt.includes('We may train AI using service data.'));
   assert.ok(excerpt.length <= 2500);
 });
+
+test('a baseline preview finds related body text when the later passage is absent', () => {
+  const text = 'Adobe Stock\n\n' + 'Home products support pricing. '.repeat(300) +
+    'We review cloud content using automated and manual methods to detect abusive or illegal material. ' +
+    'Unrelated account and payment terms. '.repeat(150);
+  const excerpt = contextExcerpt(text, 'Human review of Cloud Content may occur when content is flagged as illegal or abusive, including Adobe Stock.');
+  assert.ok(excerpt.includes('automated and manual methods'));
+  assert.ok(excerpt.length <= 2500);
+});

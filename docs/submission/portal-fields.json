@@ -5,11 +5,11 @@
   "tag1": "Consumer Protection",
   "tag2": "Bounty Settlement",
   "oneLiner": "Bounties for catching what changed in the fine print. GenLayer validators decide if it matters.",
-  "description": "Fine Print lets anyone fund a watch on a public policy page with a specific concern. Hunters submit immutable Wayback snapshots and the exact passage they believe is new. GenLayer validators compile the concern, judge whether a passage triggers frozen criteria, and resolve challenges about prior substance or the wrong document. Plain contract code owns bounties, bonds, deadlines, refunds and payouts. A public Change Ledger records only finalized results after the challenge window closes and the native credit is verified. Historical replays are marked separately from current watches, and every cited passage links to its archived snapshots and StudioNet receipts.",
+  "description": "Fine Print is a StudioNet policy-watch bounty app with five deployed contracts. Wayback baselines and later passages feed validator judgments; code controls bonds, deadlines, refunds and verified native payouts. Actual scripted outcomes: baseline passage: CODE_REJECTED; date-only: TRIGGERED; injection: TRIGGERED, challenge REJECTED; prior substance: VOID, challenge UPHELD; genuine change: TRIGGERED, challenge REJECTED. Original timing failures remain recorded; recovery IDs are labeled. The date-only TRIGGERED result is a compiler false positive. Funded current watches show archive timestamps and expiries. Public receipts retain actual outcomes; the contracts were not edited or redeployed.",
   "howTo": [
     {
       "heading": "Read the Change Ledger",
-      "instruction": "Open Fine Print without a wallet. Browse finalized catches, compare the old and new Wayback excerpts, and follow the criteria, verdict, challenge ruling and StudioNet transaction links. The ledger shows only results that passed finality, the challenge window and payout readback."
+      "instruction": "Browse the recorded case journal and finalized ledger without a wallet. Compare archived passages, criteria, actual verdicts and challenge rulings. The date-only result is flagged as an observed false positive; original timeout and VOID paths remain visible. Follow each case receipt and direct StudioNet contract link."
     },
     {
       "heading": "Review open watches",
@@ -28,7 +28,7 @@
       "instruction": "Use the transaction log to follow submitted, pending, accepted and finalized states. Open a case to see the appeal and challenge deadlines, the final ruling, the payout receipt and the contract state readback."
     }
   ],
-  "expectedOutcome": "A public StudioNet app with five deployed contracts and an immutable ledger. Nine one-time historical cases report their actual finalized validator outcomes, challenges, refunds or payouts. Three to four current watches remain open with expiry dates. Every contract and transaction link is canonical, verified through the StudioNet Explorer, and tied to recorded receipt and state readback. Deposits remain at or below 0.1 GEN.",
+  "expectedOutcome": "Actual execution and receipts are published, including unexpected verdicts and original timing failures. 3 current watches are funded. Contract deposits total 848 wei under the owner's 1,110-wei cap. The cosmetic compiler false positive remains an explicit product limitation; no contract was edited or redeployed to hide it.",
   "contractLinks": [
     "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694",
     "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d",
@@ -47,5 +47,37 @@
     "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
     "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
     "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+  ],
+  "evidenceEntries": [
+    {
+      "type": "GenLayer Explorer Contract",
+      "title": "ArchiveProbe — StudioNet 61999",
+      "url": "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694"
+    },
+    {
+      "type": "GenLayer Explorer Contract",
+      "title": "Watches — StudioNet 61999",
+      "url": "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d"
+    },
+    {
+      "type": "GenLayer Explorer Contract",
+      "title": "Claims — StudioNet 61999",
+      "url": "https://explorer-studio.genlayer.com/address/0xfce7e250ed1b8cb35f8c1af77760c501381982a6"
+    },
+    {
+      "type": "GenLayer Explorer Contract",
+      "title": "Challenges — StudioNet 61999",
+      "url": "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880"
+    },
+    {
+      "type": "GenLayer Explorer Contract",
+      "title": "Bounties — StudioNet 61999",
+      "url": "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c"
+    },
+    {
+      "type": "GenLayer Explorer Contract",
+      "title": "ChangeLedger — StudioNet 61999",
+      "url": "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+    }
   ]
 }

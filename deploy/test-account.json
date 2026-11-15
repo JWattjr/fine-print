@@ -1,0 +1,7 @@
+{
+  "address": "0xEA73D12c4616fcEB859C4AB585113c1eAb54903B",
+  "chainId": 61999,
+  "network": "StudioNet",
+  "fundingLimitWei": "1000",
+  "contractDepositCapWei": "1110"
+}

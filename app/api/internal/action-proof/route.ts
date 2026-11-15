@@ -13,7 +13,7 @@ const stages = ['SUBMITTED', 'PENDING', 'ACCEPTED', 'FINALIZED_SUCCESS', 'FINALI
 export async function GET(request: Request) {
   if (!localJournalRequest(request)) return new NextResponse(null, { status: 404 });
   const proof = JSON.parse(await readFile(resolve(process.cwd(), 'deploy/proof.json'), 'utf8')) as { receipts?: Record<string, ActionRecord> };
-  return NextResponse.json({ ok: true, actions: Object.values(proof.receipts ?? {}).filter((record) => record.key && record.account && record.submittedAt && CONTRACT_NAMES.includes(record.contract)) });
+  return NextResponse.json({ ok: true, actions: Object.values(proof.receipts ?? {}).filter((record) => record.key && !record.key.startsWith('script:') && record.account && record.submittedAt && CONTRACT_NAMES.includes(record.contract)) });
 }
 
 export async function POST(request: Request) {
@@ -22,6 +22,7 @@ export async function POST(request: Request) {
     const body = await request.text();
     if (body.length > 100000) return NextResponse.json({ ok: false, error: 'Journal record is too large.' }, { status: 413 });
     const input = JSON.parse(body) as ActionRecord;
+    if (input.key?.startsWith('script:')) return NextResponse.json({ ok: false, error: 'Script actions are owned by the runner journal.' }, { status: 409 });
     if (!/^0x[\da-fA-F]{64}$/.test(input.hash ?? '') || !/^0x[\da-fA-F]{40}$/.test(input.account ?? '')
       || !/^[\w:-]{1,240}$/.test(input.key ?? '') || !CONTRACT_NAMES.includes(input.contract)
       || !/^[a-z_]{1,48}$/.test(input.method ?? '') || !Array.isArray(input.args) || input.args.length > 10
@@ -59,7 +60,7 @@ export async function POST(request: Request) {
         await rename(`${path}.pending`, path);
       }
       const transfers = (proof.valueTransfers ??= []) as Array<{ label: string; hash: string; amountWei: string; purpose?: string; stage?: string; valueCredited?: boolean }>;
-      if (BigInt(input.valueWei ?? '0') > 0n) {
+      if (input.contract === 'Bounties' && input.method === 'deposit' && BigInt(input.valueWei ?? '0') > 0n) {
         let transfer = transfers.find((item) => item.hash.toLowerCase() === input.hash.toLowerCase());
         if (!transfer) { transfer = { label: input.key, hash: input.hash, amountWei: input.valueWei!, purpose: `${input.contract}.${input.method}` }; transfers.push(transfer); }
         transfer.stage = input.stage;
