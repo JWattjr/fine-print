@@ -100,7 +100,12 @@ for (const candidate of Array.isArray(proof.cases) ? proof.cases : []) {
     const claim = await read('Claims', 'get_claim', [String(item.claimId)]);
     const upheld = object(item.challenge).ruling === 'UPHELD';
     check(claim.finalized === true && claim.watch_id === item.watchId && claim.passage === item.passage && same(claim.hunter, item.claimant), `${id}: finalized claim identity differs.`);
-    check(claim.status === (upheld ? 'VOID' : item.verdict), `${id}: recorded verdict does not match the current finalized claim.`);
+    if (item.verdict === 'NO_AGREEMENT') {
+      const caseHashes = new Set(Object.values(object(item.transactions)));
+      const receipt = Object.values(object(proof.receipts)).map(object).find(value => caseHashes.has(value.hash) && value.method === 'judge_claim' && value.stage === 'FINALIZED_ERROR') ?? {};
+      check(receipt.stage === 'FINALIZED_ERROR' && receipt.failureDisposition === 'RETAINED_NOT_RETRIED' && receipt.consensus === 'MAJORITY_DISAGREE' && receipt.method === 'judge_claim' && !!receipt.failureReason, `${id}: no-agreement case lacks its retained failed judgment receipt.`);
+      check(claim.status === 'READY' && !item.challenge && !object(item.payout).creditVerified, `${id}: failed judgment unexpectedly changed claim state or recorded a challenge or paid bounty.`);
+    } else check(claim.status === (upheld ? 'VOID' : item.verdict), `${id}: recorded verdict does not match the current finalized claim.`);
     check(!upheld || claim.voided === true, `${id}: upheld claim is not voided.`);
     if(claim.status==='VOID'&&!upheld&&watch.status==='CLOSED'){
       const escrow=await read('Bounties','get_watch_escrow',[String(item.watchId)]);

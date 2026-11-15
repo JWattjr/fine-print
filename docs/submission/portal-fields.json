@@ -5,11 +5,11 @@
   "tag1": "Consumer Protection",
   "tag2": "Bounty Settlement",
   "oneLiner": "Bounties for catching what changed in the fine print. GenLayer validators decide if it matters.",
-  "description": "Fine Print is a StudioNet policy-watch bounty app with five deployed contracts. Wayback baselines and later passages feed validator judgments; code controls bonds, deadlines, refunds and verified native payouts. Actual scripted outcomes: baseline passage: CODE_REJECTED; date-only: TRIGGERED; injection: TRIGGERED, challenge REJECTED; prior substance: VOID, challenge UPHELD; genuine change: TRIGGERED, challenge REJECTED. Original timing failures remain recorded; recovery IDs are labeled. The date-only TRIGGERED result is a compiler false positive. Funded current watches show archive timestamps and expiries. Public receipts retain actual outcomes; the contracts were not edited or redeployed.",
+  "description": "Fine Print is a StudioNet policy-watch bounty app with five deployed contracts. Wayback baselines and later passages feed validator judgments; code controls bonds, deadlines, refunds and verified native payouts. Actual v2 outcomes: x-ai-training TRIGGERED and paid; subjective concern REJECTED; baseline passage CODE_REJECTED; date-only NOT_TRIGGERED; injection ignored (challenge REJECTED). One challenge case and two Zoom 2023 cases did not reach their intended result and are disclosed.",
   "howTo": [
     {
       "heading": "Read the Change Ledger",
-      "instruction": "Browse the recorded case journal and finalized ledger without a wallet. Compare archived passages, criteria, actual verdicts and challenge rulings. The date-only result is flagged as an observed false positive; original timeout and VOID paths remain visible. Follow each case receipt and direct StudioNet contract link."
+      "instruction": "Browse the recorded case journal and finalized ledger without a wallet. Compare archived passages, criteria, actual verdicts and challenge rulings. Retained failures and VOID outcomes remain visible. Follow each case receipt and direct StudioNet contract link."
     },
     {
       "heading": "Review open watches",
@@ -28,56 +28,56 @@
       "instruction": "Use the transaction log to follow submitted, pending, accepted and finalized states. Open a case to see the appeal and challenge deadlines, the final ruling, the payout receipt and the contract state readback."
     }
   ],
-  "expectedOutcome": "Actual execution and receipts are published, including unexpected verdicts and original timing failures. 3 current watches are funded. Contract deposits total 848 wei under the owner's 1,110-wei cap. The cosmetic compiler false positive remains an explicit product limitation; no contract was edited or redeployed to hide it.",
+  "expectedOutcome": "Actual v2 execution and receipts are published, including a retained validator disagreement and two VOID Zoom cases. 3 current watches are funded. Contract deposits total 367 wei under the 1,000-wei cap.",
   "contractLinks": [
-    "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694",
-    "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d",
-    "https://explorer-studio.genlayer.com/address/0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
-    "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
-    "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
-    "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+    "https://explorer-studio.genlayer.com/address/0xacd153a9ce2a2a762c0a719fd34ffff468d87baa",
+    "https://explorer-studio.genlayer.com/address/0x608052285ce346ecfe5eafb8d94a3c0f4c3cb07a",
+    "https://explorer-studio.genlayer.com/address/0xb7fcf75f7462198c0f3aa4dbcb7f9067c7781838",
+    "https://explorer-studio.genlayer.com/address/0xc8fd789dccf626ccc93318987a59c160d79738d4",
+    "https://explorer-studio.genlayer.com/address/0x969c8e8094df9174e75f60b7db76c3aa23954fb3",
+    "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694"
   ],
   "website": "https://fine-print-ten.vercel.app/",
   "github": "https://github.com/JWattjr/fine-print",
   "demoVideo": "",
   "evidence": [
-    "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694",
-    "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d",
-    "https://explorer-studio.genlayer.com/address/0xfce7e250ed1b8cb35f8c1af77760c501381982a6",
-    "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880",
-    "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c",
-    "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+    "https://explorer-studio.genlayer.com/address/0xacd153a9ce2a2a762c0a719fd34ffff468d87baa",
+    "https://explorer-studio.genlayer.com/address/0x608052285ce346ecfe5eafb8d94a3c0f4c3cb07a",
+    "https://explorer-studio.genlayer.com/address/0xb7fcf75f7462198c0f3aa4dbcb7f9067c7781838",
+    "https://explorer-studio.genlayer.com/address/0xc8fd789dccf626ccc93318987a59c160d79738d4",
+    "https://explorer-studio.genlayer.com/address/0x969c8e8094df9174e75f60b7db76c3aa23954fb3",
+    "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694"
   ],
   "evidenceEntries": [
     {
       "type": "GenLayer Explorer Contract",
-      "title": "ArchiveProbe — StudioNet 61999",
-      "url": "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694"
-    },
-    {
-      "type": "GenLayer Explorer Contract",
       "title": "Watches — StudioNet 61999",
-      "url": "https://explorer-studio.genlayer.com/address/0x0f8683d22bef4c4867206876b42801eb8d779f2d"
+      "url": "https://explorer-studio.genlayer.com/address/0xacd153a9ce2a2a762c0a719fd34ffff468d87baa"
     },
     {
       "type": "GenLayer Explorer Contract",
       "title": "Claims — StudioNet 61999",
-      "url": "https://explorer-studio.genlayer.com/address/0xfce7e250ed1b8cb35f8c1af77760c501381982a6"
+      "url": "https://explorer-studio.genlayer.com/address/0x608052285ce346ecfe5eafb8d94a3c0f4c3cb07a"
     },
     {
       "type": "GenLayer Explorer Contract",
       "title": "Challenges — StudioNet 61999",
-      "url": "https://explorer-studio.genlayer.com/address/0x1becb223f2b6c92e89d32e28b29c70c86aac1880"
+      "url": "https://explorer-studio.genlayer.com/address/0xb7fcf75f7462198c0f3aa4dbcb7f9067c7781838"
     },
     {
       "type": "GenLayer Explorer Contract",
       "title": "Bounties — StudioNet 61999",
-      "url": "https://explorer-studio.genlayer.com/address/0xc321fd3bd9d611d067f43d1df6fa2c814c90656c"
+      "url": "https://explorer-studio.genlayer.com/address/0xc8fd789dccf626ccc93318987a59c160d79738d4"
     },
     {
       "type": "GenLayer Explorer Contract",
       "title": "ChangeLedger — StudioNet 61999",
-      "url": "https://explorer-studio.genlayer.com/address/0x5ab754cc231a6a7f8726496ffa11ff19c8bcc13d"
+      "url": "https://explorer-studio.genlayer.com/address/0x969c8e8094df9174e75f60b7db76c3aa23954fb3"
+    },
+    {
+      "type": "GenLayer Explorer Contract",
+      "title": "ArchiveProbe — StudioNet 61999 (original probe, not redeployed)",
+      "url": "https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694"
     }
   ]
 }

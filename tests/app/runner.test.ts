@@ -76,7 +76,7 @@ test('runner adopts an already broadcast deposit before checking funds again',as
   const original=process.cwd();const dir=await mkdtemp(join(tmpdir(),'fineprint-broadcast-'));
   try {
     process.chdir(dir);await mkdir('deploy');await mkdir('.source-cache/runner/wire',{recursive:true});
-    await writeFile('deploy/proof.json',JSON.stringify({receipts:{},transactions:{},depositedWei:'1100',valueTransfers:[{hash:'0x'+'44'.repeat(32),amountWei:'1100',stage:'FINALIZED_SUCCESS',valueCredited:true}]}));
+    await writeFile('deploy/proof.json',JSON.stringify({receipts:{},transactions:{},depositedWei:'990',valueTransfers:[{hash:'0x'+'44'.repeat(32),amountWei:'990',stage:'FINALIZED_SUCCESS',valueCredited:true}]}));
     const runner=new Runner(('0x'+'01'.repeat(32)) as `0x${string}`,{});
     const hash=('0x'+'55'.repeat(32)) as `0x${string}`;
     await writeFile(runner.wirePath('script:test:deposit'),JSON.stringify({hash,expectedHash:hash}));
@@ -85,7 +85,7 @@ test('runner adopts an already broadcast deposit before checking funds again',as
     runner.waitState=async()=>({status:'ALLOCATED',finalized:true,valid_ticket:true});
     await runner.step('script:test:deposit','Bounties','deposit',['d','t'],'get_deposit',['d'],()=>true,10n);
     const saved=JSON.parse(await readFile('deploy/proof.json','utf8'));
-    assert.equal(saved.depositedWei,'1110');assert.equal(saved.receipts['script:test:deposit'].hash,hash);
+    assert.equal(saved.depositedWei,'1000');assert.equal(saved.receipts['script:test:deposit'].hash,hash);
   } finally {process.chdir(original);await removeTestDir(dir);}
 });
 

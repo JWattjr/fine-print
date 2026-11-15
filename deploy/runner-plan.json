@@ -1,16 +1,66 @@
 {
   "account": "0xEA73D12c4616fcEB859C4AB585113c1eAb54903B",
   "chainId": 61999,
-  "depositCapWei": "1110",
+  "depositCapWei": "1000",
+  "set": "v2",
   "cases": [
+    {
+      "id": "x-ai-training",
+      "status": "PLANNED_NOT_RUN",
+      "historicalReplay": true,
+      "baseline": {
+        "timestamp": "20230101004225",
+        "original": "https://twitter.com/en/privacy",
+        "url": "https://web.archive.org/web/20230101004225id_/https://twitter.com/en/privacy",
+        "digest": "d118bfd2d5894621049d781c021a22ff54bf9d8dfad5202413aafa9f6ae8d6ef"
+      },
+      "later": {
+        "timestamp": "20230929213507",
+        "original": "https://twitter.com/en/privacy",
+        "url": "https://web.archive.org/web/20230929213507id_/https://twitter.com/en/privacy",
+        "digest": "d4711d37797fcec5b125b0c4f3ce34d0646a1344d5cf7c9b2f653ec629a97ff0"
+      },
+      "concern": "Tell me if the policy permits information collected about users or publicly available information to train machine learning or artificial intelligence models.",
+      "passage": "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy.",
+      "offlinePreflight": {
+        "laterPresence": true,
+        "baselineAbsence": true
+      },
+      "targetOutcome": "TRIGGERED",
+      "bountyWei": "10",
+      "challengeSeconds": 1800,
+      "sourceCaseId": "x-ai-training",
+      "watchId": "sw_x-ai-training",
+      "claimId": "sc_x-ai-training",
+      "challengeId": "sh_x-ai-training"
+    },
+    {
+      "id": "concern-rejected",
+      "status": "PLANNED_NOT_RUN",
+      "historicalReplay": true,
+      "baseline": {
+        "timestamp": "20230301000542",
+        "original": "https://explore.zoom.us/en/terms/",
+        "url": "https://web.archive.org/web/20230301000542id_/https://explore.zoom.us/en/terms/",
+        "digest": "931cbdd73c8b58d3f7161932ca07b0c15508286162a567fa579c6ae1750e2bca"
+      },
+      "concern": "Tell me if these terms get worse.",
+      "bountyWei": "10",
+      "targetOutcome": "REJECTED at compile; no deposit",
+      "sourceCaseId": "concern-rejected",
+      "challengeSeconds": 1800,
+      "watchId": "sw_concern-rejected",
+      "claimId": "sc_concern-rejected",
+      "challengeId": "sh_concern-rejected"
+    },
     {
       "id": "baseline-passage-rejected",
       "status": "PLANNED_NOT_RUN",
       "historicalReplay": true,
       "baseline": {
-        "url": "https://web.archive.org/web/20230301000542id_/https://explore.zoom.us/en/terms/",
         "timestamp": "20230301000542",
         "original": "https://explore.zoom.us/en/terms/",
+        "url": "https://web.archive.org/web/20230301000542id_/https://explore.zoom.us/en/terms/",
         "digest": "931cbdd73c8b58d3f7161932ca07b0c15508286162a567fa579c6ae1750e2bca"
       },
       "later": {
@@ -27,47 +77,28 @@
       },
       "targetOutcome": "CODE_REJECTED; no LLM judgment and no claim bond",
       "bountyWei": "10",
-      "challengeSeconds": 900,
+      "challengeSeconds": 1800,
       "sourceCaseId": "baseline-passage-rejected",
-      "watchId": "sw_shared_zoom_setup",
+      "watchId": "sw_shared_zoom",
       "claimId": "sc_baseline-passage-rejected",
       "challengeId": "sh_baseline-passage-rejected",
       "reuseWatch": true,
       "setup": {
-        "id": "cosmetic-date-only-timing-recovery",
-        "status": "PLANNED_NOT_RUN",
-        "historicalReplay": true,
+        "id": "shared-zoom-setup",
+        "watchId": "sw_shared_zoom",
         "baseline": {
           "timestamp": "20230301000542",
           "original": "https://explore.zoom.us/en/terms/",
           "url": "https://web.archive.org/web/20230301000542id_/https://explore.zoom.us/en/terms/",
           "digest": "931cbdd73c8b58d3f7161932ca07b0c15508286162a567fa579c6ae1750e2bca"
         },
-        "later": {
-          "timestamp": "20230812065407",
-          "original": "https://explore.zoom.us/en/terms/",
-          "url": "https://web.archive.org/web/20230812065407id_/https://explore.zoom.us/en/terms/",
-          "digest": "620f13036fc9bef4e154cf98fa11b70753d57c82ca807e2a92ba0910ecfdc7bb"
-        },
         "concern": "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning.",
-        "passage": "Effective Date: August 11, 2023",
-        "offlinePreflight": {
-          "laterPresence": true,
-          "baselineAbsence": true
-        },
-        "targetOutcome": "NOT_TRIGGERED; bond forfeited. Only the submitted passage is a date change; the full document also changed.",
         "bountyWei": "10",
-        "challengeSeconds": 900,
-        "sourceCaseId": "cosmetic-date-only",
-        "watchId": "sw_shared_zoom_setup",
-        "claimId": "sc_cosmetic-date-only-timing-recovery",
-        "challengeId": "sh_cosmetic-date-only-timing-recovery",
-        "runLabel": "re-run after a timing failure",
-        "reuseWatch": false
+        "challengeSeconds": 1800
       }
     },
     {
-      "id": "cosmetic-date-only-timing-recovery",
+      "id": "cosmetic-date-only",
       "status": "PLANNED_NOT_RUN",
       "historicalReplay": true,
       "baseline": {
@@ -88,14 +119,13 @@
         "laterPresence": true,
         "baselineAbsence": true
       },
-      "targetOutcome": "NOT_TRIGGERED; bond forfeited. Only the submitted passage is a date change; the full document also changed.",
+      "targetOutcome": "NOT_TRIGGERED; claim bond forfeited",
       "bountyWei": "10",
-      "challengeSeconds": 900,
+      "challengeSeconds": 1800,
       "sourceCaseId": "cosmetic-date-only",
-      "watchId": "sw_shared_zoom_setup",
-      "claimId": "sc_cosmetic-date-only-timing-recovery",
-      "challengeId": "sh_cosmetic-date-only-timing-recovery",
-      "runLabel": "re-run after a timing failure",
+      "watchId": "sw_shared_zoom",
+      "claimId": "sc_cosmetic-date-only",
+      "challengeId": "sh_cosmetic-date-only",
       "reuseWatch": true
     },
     {
@@ -122,7 +152,7 @@
       },
       "targetOutcome": "TRIGGERED; injected WRONG_DOCUMENT argument must not control the ruling",
       "bountyWei": "10",
-      "challengeSeconds": 900,
+      "challengeSeconds": 1800,
       "challenge": {
         "ground": "WRONG_DOCUMENT",
         "baselinePassage": "",
@@ -134,7 +164,7 @@
       "challengeId": "sh_injection-ignored"
     },
     {
-      "id": "challenge-upheld-timing-recovery",
+      "id": "challenge-upheld",
       "status": "PLANNED_NOT_RUN",
       "historicalReplay": true,
       "baseline": {
@@ -157,20 +187,19 @@
       },
       "targetOutcome": "TRIGGERED then challenge UPHELD for existing substance",
       "bountyWei": "10",
-      "challengeSeconds": 900,
+      "challengeSeconds": 1800,
       "challenge": {
         "ground": "ALREADY_EXISTED",
         "baselinePassage": "4.2 Licenses to Your Content. Solely for the purposes of operating or improving the Services and Software, you grant us a non-exclusive, worldwide, royalty-free sublicensable, license, to use, reproduce, publicly display, distribute, modify, create derivative works based on, publicly perform, and translate the Content. For example, we may sublicense our right to the Content to our service providers or to other users to allow the Services and Software to operate as intended, such as enabling you to share photos with others. Separately, section 4.6 (Feedback) below covers any Feedback that you provide to us.",
         "argument": "The baseline already grants the license to reproduce content for operating the services. The later wording restates that existing permission."
       },
       "sourceCaseId": "challenge-upheld",
-      "watchId": "sw_challenge-upheld-timing-recovery",
-      "claimId": "sc_challenge-upheld-timing-recovery",
-      "challengeId": "sh_challenge-upheld-timing-recovery",
-      "runLabel": "re-run after a timing failure"
+      "watchId": "sw_challenge-upheld",
+      "claimId": "sc_challenge-upheld",
+      "challengeId": "sh_challenge-upheld"
     },
     {
-      "id": "challenge-rejected-timing-recovery",
+      "id": "challenge-rejected",
       "status": "PLANNED_NOT_RUN",
       "historicalReplay": true,
       "baseline": {
@@ -193,49 +222,70 @@
       },
       "targetOutcome": "TRIGGERED then WRONG_DOCUMENT challenge REJECTED",
       "bountyWei": "10",
-      "challengeSeconds": 900,
+      "challengeSeconds": 1800,
       "challenge": {
         "ground": "WRONG_DOCUMENT",
         "baselinePassage": "",
         "argument": "Please verify whether these are the same English Zoom Terms document rather than a different document or locale."
       },
       "sourceCaseId": "challenge-rejected",
-      "watchId": "sw_challenge-rejected-timing-recovery",
-      "claimId": "sc_challenge-rejected-timing-recovery",
-      "challengeId": "sh_challenge-rejected-timing-recovery",
-      "runLabel": "re-run after a timing failure"
+      "watchId": "sw_challenge-rejected",
+      "claimId": "sc_challenge-rejected",
+      "challengeId": "sh_challenge-rejected"
+    },
+    {
+      "id": "zoom-ai-training",
+      "status": "PLANNED_NOT_RUN",
+      "historicalReplay": true,
+      "baseline": {
+        "timestamp": "20230301000542",
+        "original": "https://explore.zoom.us/en/terms/",
+        "url": "https://web.archive.org/web/20230301000542id_/https://explore.zoom.us/en/terms/",
+        "digest": "931cbdd73c8b58d3f7161932ca07b0c15508286162a567fa579c6ae1750e2bca"
+      },
+      "later": {
+        "timestamp": "20230809192857",
+        "original": "https://explore.zoom.us/en/terms/",
+        "url": "https://web.archive.org/web/20230809192857id_/https://explore.zoom.us/en/terms/",
+        "digest": "bee19ed3465546693d3a9837c1c7d0b9d4e914db614b8a5cef01056a8abf68f5"
+      },
+      "concern": "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning.",
+      "passage": "You consent to Zoom&rsquo;s access, use, collection, creation, modification, distribution, processing, sharing, maintenance, and storage of Service Generated Data for any purpose, to the extent and in the manner permitted under applicable Law, including for the purpose of product and service development, marketing, analytics, quality assurance, machine learning or artificial intelligence (including for the purposes of training and tuning of algorithms and models), training, testing, improvement of the Services, Software, or Zoom&rsquo;s other products, services, and software, or any combination thereof, and as otherwise provided in this Agreement.",
+      "offlinePreflight": {
+        "laterPresence": true,
+        "baselineAbsence": true
+      },
+      "targetOutcome": "TRIGGERED; settle and verify native bounty credit",
+      "bountyWei": "10",
+      "challengeSeconds": 1800,
+      "sourceCaseId": "zoom-ai-training",
+      "watchId": "sw_zoom-ai-training",
+      "claimId": "sc_zoom-ai-training",
+      "challengeId": "sh_zoom-ai-training"
     }
   ],
   "liveWatches": [
     {
-      "id": "live_x_script",
+      "id": "live_zoom",
+      "company": "Zoom",
+      "url": "https://explore.zoom.us/en/terms/",
+      "concern": "Tell me if Zoom permits customer meeting audio, video, chat, or transcripts to be used to train artificial intelligence or machine learning models.",
+      "bountyWei": "100"
+    },
+    {
+      "id": "live_x",
       "company": "X",
       "url": "https://twitter.com/en/privacy",
-      "concern": "Tell me if X permits the contents of private direct messages to be used to train artificial intelligence or machine learning models without an explicit opt-in from the sender.",
+      "concern": "Tell me if X permits the contents of private direct messages to be used to train artificial intelligence or machine learning models.",
       "bountyWei": "100"
     },
     {
-      "id": "live_adobe_script",
-      "company": "Adobe",
-      "url": "https://www.adobe.com/legal/terms.html",
-      "concern": "Tell me if Adobe permits uploaded cloud content to be used to train generative artificial intelligence models without separate explicit consent from the user.",
-      "bountyWei": "100"
-    },
-    {
-      "id": "live_github_script",
+      "id": "live_github",
       "company": "GitHub",
       "url": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
-      "concern": "Tell me if GitHub permits using the contents of private repositories at rest to train generative artificial intelligence models without explicit consent from the repository owner.",
-      "bountyWei": "100",
-      "substitutesFor": "live_adobe_script"
+      "concern": "Tell me if GitHub permits the contents of private repositories to be used to train generative artificial intelligence models.",
+      "bountyWei": "100"
     }
   ],
-  "createdAt": "2026-11-14T20:56:54.675Z",
-  "amendments": [
-    {
-      "recordedAt": "2026-11-15T05:56:56.506Z",
-      "reason": "Adobe current watch finalized VOID because immutable baseline evidence was unavailable; preserve it without rerun. GitHub is a distinct policy and concern for the third funded current watch.",
-      "verifiedCandidateSnapshot": "https://web.archive.org/web/20261115040436id_/https://docs.github.com/en/site-policy/github-terms/github-terms-of-service"
-    }
-  ]
+  "createdAt": "2026-11-15T08:24:29.331Z"
 }

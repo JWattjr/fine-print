@@ -6,7 +6,7 @@ export function RunnerFunding({ address, savedHash }: { address: string; savedHa
   const [hash, setHash] = useState(savedHash);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
-  return <section className="form-stack"><p>Dedicated test account · StudioNet 61999</p><p className="mono">{address}</p><p>One native transfer of <strong>1,000 wei</strong>. Contract deposits remain capped at 1,110 wei across the entire project. This transfer funds the runner and is not an escrow deposit.</p>
+  return <section className="form-stack"><p>Dedicated test account · StudioNet 61999</p><p className="mono">{address}</p><p>One native transfer of <strong>1,000 wei</strong>. Contract deposits remain capped at 1,000 wei across the entire project. This transfer funds the runner and is not an escrow deposit.</p>
     <button className="primary-button" disabled={busy || !!hash} onClick={async () => {
       setBusy(true); setError('');
       try {

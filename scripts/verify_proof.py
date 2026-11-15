@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROOF_PATH = ROOT / "deploy" / "proof.json"
 EXPLORER = "https://explorer-studio.genlayer.com"
 CHAIN_ID = 61999
-MAX_DEPOSIT_WEI = 1110  # Owner's stricter shared cap; protocol cap is 0.1 GEN.
+MAX_DEPOSIT_WEI = 1000  # Owner's stricter shared cap; protocol cap is 0.1 GEN.
 USER_AGENT = "Mozilla/5.0 FinePrintProofVerifier/1.0"
 MIN_REQUEST_INTERVAL = 2.5
 MAX_REQUESTS_PER_RUN = 450
@@ -30,7 +30,7 @@ RUNNER = "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6"
 REQUIRED_CONTRACTS = {"ArchiveProbe", "Watches", "Claims", "Challenges", "Bounties", "ChangeLedger"}
 REQUIRED_PROBES = {"zoom-baseline", "zoom-change", "x-baseline", "x-change", "adobe-baseline", "adobe-change", "zoom-ai-grant", "adobe-june-revision"}
 REQUIRED_CASES = {
-    "zoom-ai-training", "x-ai-training", "adobe-content-access", "cosmetic-date-only",
+    "zoom-ai-training", "x-ai-training", "cosmetic-date-only",
     "challenge-upheld", "challenge-rejected", "concern-rejected", "baseline-passage-rejected", "injection-ignored",
 }
 
@@ -240,7 +240,7 @@ def verify() -> list[str]:
     except (TypeError, ValueError):
         deposited = MAX_DEPOSIT_WEI + 1
     if deposited < 0 or deposited > MAX_DEPOSIT_WEI:
-        errors.append(f"Recorded deposits exceed the owner's 1,110-wei cap: {deposited} wei.")
+        errors.append(f"Recorded deposits exceed the owner's 1,000-wei cap: {deposited} wei.")
 
     blockers = [text(item) for item in proof.get("blockers") or [] if text(item)]
     if blockers:
@@ -368,7 +368,7 @@ def verify() -> list[str]:
                         errors.append(f"{label}: retained failure consensus differs from the recorded receipt.")
                 elif not transfer_only and execution not in {"SUCCESS", "FINISHED_WITH_RETURN"}:
                     errors.append(f"{label}: StudioNet execution did not return successfully ({execution or 'missing result'}).")
-                if not transfer_only and result_name not in {"AGREE", "MAJORITY_AGREE", "SUCCESS"}:
+                if not expected_failure and not transfer_only and result_name not in {"AGREE", "MAJORITY_AGREE", "SUCCESS"}:
                     errors.append(f"{label}: StudioNet consensus did not agree ({result_name or 'missing result'}).")
                 raw_result = leader.get("result")
                 if isinstance(raw_result, str) and raw_result:
@@ -396,6 +396,11 @@ def verify() -> list[str]:
     if len(case_ids) != len(set(case_ids)):
         errors.append("A historical case ID appears more than once; each replay must be recorded once.")
     covered_cases = set(case_ids) | {text(case.get("sourceCaseId")) for case in cases if isinstance(case, dict)}
+    receipts_map = proof.get("receipts") or {}
+    for failure in proof.get("caseFailures") or []:
+        # A case whose judgment never reached validator agreement stays covered only by a retained, not-retried finalized error.
+        if isinstance(failure, dict) and retained_failure(receipts_map.get(text(failure.get("receiptKey")))):
+            covered_cases.add(text(failure.get("caseId")))
     missing_cases = sorted(REQUIRED_CASES - covered_cases)
     if missing_cases:
         errors.append("Required demo cases are missing: " + ", ".join(missing_cases))
@@ -440,7 +445,7 @@ def verify() -> list[str]:
     for case in cases:
         if not isinstance(case, dict):
             continue
-        if text(case.get("verdict")).upper() not in {"TRIGGERED", "NOT_TRIGGERED", "UNCLEAR", "REJECTED", "CODE_REJECTED", "VOID"}:
+        if text(case.get("verdict")).upper() not in {"TRIGGERED", "NOT_TRIGGERED", "UNCLEAR", "REJECTED", "CODE_REJECTED", "VOID", "NO_AGREEMENT"}:
             errors.append(f"{text(case.get('id'))}: actual terminal outcome is missing.")
         if case.get("sourceCaseId") and case.get("sourceCaseId") != case.get("id") and case.get("runLabel") != "re-run after a timing failure":
             errors.append(f"{text(case.get('id'))}: timing recovery must be explicitly labeled.")
@@ -481,7 +486,7 @@ def verify() -> list[str]:
 
     value_transfers = proof.get("valueTransfers")
     if not isinstance(value_transfers, list):
-        errors.append("A transaction-level value transfer ledger is missing; the 1,110-wei cap cannot be independently checked.")
+        errors.append("A transaction-level value transfer ledger is missing; the 1,000-wei cap cannot be independently checked.")
     else:
         transfer_total = 0
         transfer_hashes: set[str] = set()

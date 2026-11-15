@@ -155,3 +155,33 @@ def test_unfunded_deadline_has_void_path(watches, direct_vm):
     direct_vm.warp("2026-11-14T01:00:00Z")
     contract.expire_unfunded("watch-1")
     assert json.loads(contract.get_watch("watch-1"))["status"] == "VOID"
+
+
+ZOOM = "Tell me if Zoom permits service-generated usage or telemetry data to be used for machine learning or artificial intelligence model training or tuning."
+BAD = ["The policy states that service-generated data may NOT be used for AI training.",
+       "The policy contains no provision addressing AI training on telemetry data.",
+       "The policy is silent about AI training on telemetry data.",
+       "The policy fails to restrict AI training on telemetry data.",
+       "AI training on telemetry data is absent from the policy text.",
+       "The policy does not forbid AI training on telemetry data."]
+GOOD = "The passage grants Zoom a right to use service-generated data for AI model training."
+
+
+@pytest.mark.parametrize("bad", BAD + ["No provision addresses AI training on telemetry data."])
+def test_guard_rejects_each_forbidden_marker(watches, direct_vm, bad):
+    contract, state, calls, _, _ = watches
+    state["answer"] = {"decision": "ACCEPT", "criteria": [bad], "reason": "x"}
+    compile_watch(contract, concern=ZOOM)
+    finalize(contract, direct_vm)
+    record = json.loads(contract.get_watch("watch-1"))
+    assert record["status"] == "REJECTED" and record["criteria"] == [] and record["reason"]
+    assert calls == []
+
+
+def test_zoom_concern_keeps_only_affirmative_criteria(watches, direct_vm):
+    contract, state, _, _, _ = watches
+    state["answer"] = {"decision": "ACCEPT", "criteria": [GOOD, BAD[0], BAD[1]], "reason": "x"}
+    compile_watch(contract, concern=ZOOM)
+    finalize(contract, direct_vm)
+    record = json.loads(contract.get_watch("watch-1"))
+    assert record["status"] == "COMPILED" and record["criteria"] == [GOOD]

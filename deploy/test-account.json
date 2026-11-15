@@ -3,5 +3,5 @@
   "chainId": 61999,
   "network": "StudioNet",
   "fundingLimitWei": "1000",
-  "contractDepositCapWei": "1110"
+  "contractDepositCapWei": "1000"
 }

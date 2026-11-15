@@ -1,2 +1,5 @@
 # Preserve deployed source fingerprints across Windows checkouts.
 contracts/*.py text eol=lf
+# The frozen v2 deployment used CRLF bytes for these two sources.
+contracts/claims.py -text whitespace=cr-at-eol
+contracts/watches.py -text whitespace=cr-at-eol

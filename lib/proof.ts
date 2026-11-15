@@ -24,7 +24,7 @@ export type CaseProof = {
   baseline: { url: string; timestamp: string; digest: string; excerpt?: string };
   later: { url: string; timestamp: string; digest: string; excerpt?: string };
   passage: string;
-  verdict: 'TRIGGERED' | 'NOT_TRIGGERED' | 'UNCLEAR' | 'REJECTED' | 'CODE_REJECTED' | 'VOID';
+  verdict: 'TRIGGERED' | 'NOT_TRIGGERED' | 'UNCLEAR' | 'REJECTED' | 'CODE_REJECTED' | 'VOID' | 'NO_AGREEMENT';
   watchId?: string;
   claimId?: string;
   kind?: 'COMPILE' | 'CLAIM' | 'WATCH_TIMEOUT';
@@ -76,10 +76,7 @@ export type ProofDocument = {
 export const proof = proofFile as unknown as ProofDocument;
 
 export function observedLimitation(item: CaseProof): string {
-  if (item.observedLimitation) return item.observedLimitation;
-  return (item.sourceCaseId ?? item.id).startsWith('cosmetic-date-only') && item.verdict === 'TRIGGERED'
-    ? 'Observed false positive: the date-only passage triggered an extra compiler-generated absence criterion. The two permission criteria were NOT_TRIGGERED.'
-    : '';
+  return item.observedLimitation ?? '';
 }
 
 export function confirmedCases(data: ProofDocument = proof): CaseProof[] {

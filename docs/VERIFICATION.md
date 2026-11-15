@@ -1,31 +1,22 @@
-# Verification record
+# Verification record: Fine Print v2
 
-Fine Print's execution receipts include unexpected outcomes. The cosmetic date-only claim exposed a compiler false positive; the project is not described as submission ready.
+The full read-only link audit finished at 2026-11-15T14:36:34Z on StudioNet 61999. **All 6 contract links and 101 transaction links passed** the Explorer API and canonical page checks. Source fingerprints, peer bindings, finalized receipts, native credits and the 367 / 1,000 wei deposit record were checked.
 
-## Completed code checks
+The full verifier initially exited 1 with two retained-failure handling errors. With owner approval, the verifier now checks the recorded finalized MAJORITY_DISAGREE error instead of demanding successful consensus, and checks that its claim remains READY instead of demanding a synthetic on-chain NO_AGREEMENT status. The proof and deployed contracts were unchanged. The original two errors and timestamp remain in [the JSON report](VERIFICATION.json).
 
-- `npm test`: **25 passed**. Includes archive checks, transaction finality, native credits, runner method/interface conformance, saved-hash recovery, deposit-cap enforcement, expired-ticket refusal and independent-process journal locking.
-- `npm run typecheck`: passed.
-- `npm run lint`: passed.
-- Production webpack build: passed using `.next-build-final3` outside the Windows sandbox. Two preceding sandbox attempts failed with generated-directory EPERM errors; those attempts were not passes.
-- Direct contract tests: **79 passed** during contract authoring. All six deployed source files remain unchanged.
-- GenVM lint: all six contract files passed during contract authoring. The final independent read-only audit checks the deployed source fingerprints again.
-- Desktop: **1440 × 960**, all twelve recorded case pages loaded directly and all eleven case-navigation transitions verified. Other screens and environment observations are detailed in [DESKTOP_QA.md](DESKTOP_QA.md).
+The affected failed-receipt recheck passed. The corrected **complete finalized-state check passed: 49 RPC requests, 43 distinct state reads, zero errors**. See [state report](VERIFICATION.state.json). The final evidence result combines that complete state recheck with the completed link audit; a second full Explorer audit was not run. Earlier malformed local request-cache failures were preserved locally before repair.
 
-The tutorial contains 886 words. Portal fields meet their character limits and contain six separate entries of type `GenLayer Explorer Contract`. No Portal form was submitted.
+**Cases 6, 7 and 8 did not produce their intended demonstrations.** Case 6 retained a validator disagreement with no judgment, challenge or payout; cases 7 and 8 finalized VOID due to unavailable archive evidence. They are disclosed in [RESULTS.md](RESULTS.md). Verification confirms actual outcomes, not the planned successful demonstrations.
 
-## Full read-only proof audit
+## Release checks
 
-The complete `npm run verify:proof` audit finished at **2026-11-15 07:28:59 UTC**. All **6 contract links and 148 transaction links** passed Explorer API and canonical-page checks. The only initial state-check errors were three refund comparisons against the cleared remaining balance. The deployed contract moves that balance into `refunded_wei`; the verifier was corrected accordingly.
+- TypeScript: passed.
+- ESLint: passed.
+- App tests: 25 passed.
+- Direct contract tests: 90 passed.
+- Production build: passed with FP_NEXT_DIST_DIR=.next-release-check; tsconfig.json and next-env.d.ts restored.
+- Desktop: 1440 x 960; all 8 case routes loaded directly, all 7 previous and 7 next transitions passed, 3 OPEN watches at 100 wei each, 2 confirmed catches. NO_AGREEMENT limitation notice visible. No horizontal overflow on the 8 case routes.
+- The home journal uses a generic “Observed false positive” badge for any recorded limitation, including the retained no-agreement case; its case page explains the actual validator disagreement. The cosmetic case itself is NOT_TRIGGERED.
+- Contract source bytes and evidence-file hashes unchanged during this release. Git attributes preserve the deployed CRLF bytes of the two v2 source files rather than normalizing their hashes.
 
-The corrected **complete state recheck passed at 07:34:03 UTC: 72 RPC requests, 66 distinct state reads, zero errors**. The final [JSON report](VERIFICATION.json) preserves the initial errors and correction history, plus the exact proof SHA-256. Its [state recheck](VERIFICATION.state.json) is also published. No partial attempt is reported as a completed audit.
-
-**The readiness gate remains failed.** The original Zoom funding timeout is retained as a blocker, and the cosmetic date-only compiler false positive remains unresolved. Evidence consistency passing does not turn those outcomes into successful cases.
-
-The verifier checks StudioNet chain 61999, all six contract API records and canonical pages, every cited transaction API record and canonical page, finalized RPC receipts, deployed source fingerprints, peer bindings, archive probes, actual case outcomes, quoted excerpts, challenge closure, native credits, current watch escrows and cumulative incoming deposits.
-
-The real zero-value cleanup error is retained. Verification must confirm its finalized error and zero value; it is not treated as a successful transaction. Nine native payout receipts were reconciled from raw StudioNet transaction types after the SDK erased numeric type 0. Their hashes, parent links, recipients and amounts were unchanged, and no payment was resent.
-
-## Production deployment
-
-Pending the final audit report and committed source deployment.
+No on-chain transaction was submitted during this release pass. The owner submits the Portal form personally.

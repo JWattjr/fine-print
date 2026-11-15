@@ -25,22 +25,20 @@ await writeFile(lockPath, JSON.stringify({ pid: process.pid }), { flag: 'wx' });
 async function preparePlan() {
   if (existsSync(planPath)) return JSON.parse(await readFile(planPath, 'utf8'));
   const originals = JSON.parse(await readFile('deploy/case-plan.json', 'utf8')).cases as Row[];
+  const v1 = JSON.parse(await readFile('deploy/v1/runner-plan.json', 'utf8')).cases as Row[];
   const find = (id: string) => originals.find(p => p.id === id)!;
-  const watch = await r.read('Watches','get_watch',['rw_challenge-rejected']);
-  const claim = await r.read('Claims','get_claim',['rc_challenge-rejected']);
-  const baseline = String(watch.baseline_text).replace(/\s+/g,' ').trim();
-  const later = String(claim.snapshot_text).replace(/\s+/g,' ').trim();
-  const common = baseline.split(/(?<=[.!?])\s+/).find(s => s.length >= 50 && s.length <= 500 && later.includes(s));
-  if (!common) throw new Error('No exact shared baseline passage was found.');
-  const make = (id: string, recovery = false) => ({ ...find(id), id: recovery ? id + '-timing-recovery' : id, sourceCaseId: id, bountyWei:'10', challengeSeconds: 900, watchId:'sw_' + (recovery ? id + '-timing-recovery' : id), claimId:'sc_' + (recovery ? id + '-timing-recovery' : id), challengeId:'sh_' + (recovery ? id + '-timing-recovery' : id), ...(recovery ? { runLabel:'re-run after a timing failure' } : {}) });
-  const cosmetic = { ...make('cosmetic-date-only',true), watchId:'sw_shared_zoom_setup', reuseWatch:true };
-  const setup = { ...cosmetic, reuseWatch:false };
-  const code = { ...make('baseline-passage-rejected'), watchId:setup.watchId, claimId:'sc_baseline-passage-rejected', reuseWatch:true, setup, concern:watch.concern, baseline:{url:watch.baseline_url,timestamp:watch.baseline_timestamp,original:watch.url,digest:watch.baseline_digest}, later:find('challenge-rejected').later, passage:common, targetOutcome:'CODE_REJECTED; no LLM judgment and no claim bond' };
-  const plan = { account:r.account.address, chainId:61999, depositCapWei:'1110', cases:[code,cosmetic,make('injection-ignored'),make('challenge-upheld',true),make('challenge-rejected',true)], liveWatches:[
-    {id:'live_x_script',company:'X',url:'https://twitter.com/en/privacy',concern:'Tell me if X permits the contents of private direct messages to be used to train artificial intelligence or machine learning models without an explicit opt-in from the sender.',bountyWei:'100'},
-    {id:'live_adobe_script',company:'Adobe',url:'https://www.adobe.com/legal/terms.html',concern:'Tell me if Adobe permits uploaded cloud content to be used to train generative artificial intelligence models without separate explicit consent from the user.',bountyWei:'100'}
-  ], createdAt:new Date().toISOString() };
-  await atomic(planPath,plan); return plan;
+  const mk = (id: string, over: Row = {}) => ({ ...find(id), id, sourceCaseId: id, bountyWei: '10', challengeSeconds: 1800, watchId: 'sw_' + id, claimId: 'sc_' + id, challengeId: 'sh_' + id, ...over });
+  const zoom = find('zoom-ai-training');
+  const shared = { id: 'shared-zoom-setup', watchId: 'sw_shared_zoom', baseline: zoom.baseline, concern: zoom.concern, bountyWei: '10', challengeSeconds: 1800 };
+  const code = mk('baseline-passage-rejected', { concern: zoom.concern, baseline: zoom.baseline, later: zoom.later, passage: v1[0].passage, watchId: shared.watchId, reuseWatch: true, setup: shared, targetOutcome: 'CODE_REJECTED; no LLM judgment and no claim bond' });
+  const cosmetic = mk('cosmetic-date-only', { watchId: shared.watchId, reuseWatch: true, targetOutcome: 'NOT_TRIGGERED; claim bond forfeited' });
+  const live = (id: string, company: string, url: string, concern: string) => ({ id, company, url, concern, bountyWei: '100' });
+  const plan = { account: r.account.address, chainId: 61999, depositCapWei: '1000', set: 'v2', cases: [mk('x-ai-training'), mk('concern-rejected'), code, cosmetic, mk('injection-ignored'), mk('challenge-upheld'), mk('challenge-rejected'), mk('zoom-ai-training')], liveWatches: [
+    live('live_zoom', 'Zoom', 'https://explore.zoom.us/en/terms/', 'Tell me if Zoom permits customer meeting audio, video, chat, or transcripts to be used to train artificial intelligence or machine learning models.'),
+    live('live_x', 'X', 'https://twitter.com/en/privacy', 'Tell me if X permits the contents of private direct messages to be used to train artificial intelligence or machine learning models.'),
+    live('live_github', 'GitHub', 'https://docs.github.com/en/site-policy/github-terms/github-terms-of-service', 'Tell me if GitHub permits the contents of private repositories to be used to train generative artificial intelligence models.')
+  ], createdAt: new Date().toISOString() };
+  await atomic(planPath, plan); return plan;
 }
 async function fund(prefix: string, kind: string, id: string, amount: string, historical = true) {
   const ticket = 'st_' + id; const deposit = 'sd_' + id;
@@ -130,12 +128,7 @@ async function runCase(p: Row) {
   if(challenge.ruling==='UPHELD')claim=await r.waitState('Claims','get_claim',[p.claimId],row=>final(row)&&row.voided===true);
   await record(p,watch,claim,challenge); // Durable actual verdict even while closure waits.
   if(claim.status==='TRIGGERED'&&challenge.ruling!=='UPHELD'){
-    const delay=Math.max(0,Number(claim.challenge_deadline)*1000-Date.now()+2000);
-    if(delay){console.log(JSON.stringify({event:'challenge-window-wait',case:p.id,until:new Date(Date.now()+delay).toISOString()}));await sleep(delay);}
-    await r.step(key+':seal','Challenges','seal_claim',[p.claimId],'get_claim_summary',[p.claimId],row=>final(row)&&row.sealed===true&&row.pending===0);
-    await r.step(key+':settle','Bounties','settle',[p.claimId],'get_settlement',[p.claimId],row=>row.status==='AWAITING_PULL'||row.status==='PAID');
-    await pull(key+':bounty','bounty:'+p.claimId);
-    await pull(key+':hunter-refund','hunter-bond:'+p.claimId);
+    // Settlement waits for the challenge window in settlePending, so windows overlap across cases.
   } else if(claimRefundCredit(claim,challenge)){
     await pull(key+':refund',claimRefundCredit(claim,challenge)!);
   } else if(claim.status==='NOT_TRIGGERED'){
@@ -198,6 +191,21 @@ async function closeUpheld(p:Row){
   if(!closure.sealed)await r.step('script:'+p.id+':seal','Challenges','seal_claim',[p.claimId],'get_claim_summary',[p.claimId],row=>final(row)&&row.sealed===true&&row.pending===0);
   await record(p,await r.read('Watches','get_watch',[p.watchId]),claim,await r.read('Challenges','get_challenge',[p.challengeId]));
 }
+async function settlePending(p:Row){
+  const recorded=(await proof()).cases?.find((c:Row)=>c.id===p.id);
+  if(!recorded||recorded.verdict!=='TRIGGERED'||recorded.challenge?.ruling==='UPHELD'||recorded.payout?.creditVerified===true)return;
+  currentCase=p.id;const key='script:'+p.id;
+  const claim=await r.read('Claims','get_claim',[p.claimId]);
+  const watch=await r.read('Watches','get_watch',[p.watchId]);
+  const challenge=recorded.challenge?await r.read('Challenges','get_challenge',[p.challengeId]):{};
+  const delay=Math.max(0,Number(claim.challenge_deadline)*1000-Date.now()+2000);
+  if(delay){console.log(JSON.stringify({event:'challenge-window-wait',case:p.id,until:new Date(Date.now()+delay).toISOString()}));await sleep(delay);}
+  await r.step(key+':seal','Challenges','seal_claim',[p.claimId],'get_claim_summary',[p.claimId],row=>final(row)&&row.sealed===true&&row.pending===0);
+  await r.step(key+':settle','Bounties','settle',[p.claimId],'get_settlement',[p.claimId],row=>row.status==='AWAITING_PULL'||row.status==='PAID');
+  await pull(key+':bounty','bounty:'+p.claimId);
+  await pull(key+':hunter-refund','hunter-bond:'+p.claimId);
+  await record(p,watch,await r.read('Claims','get_claim',[p.claimId]),challenge);
+}
 try {
   const funding=object((await proof()).runnerFunding);
   if(funding.hash&&funding.status!=='FINALIZED'){
@@ -210,8 +218,9 @@ try {
   const plan=await preparePlan();
   if(plan.account.toLowerCase()!==r.account.address.toLowerCase()||plan.chainId!==61999)throw new Error('The saved plan belongs to a different test account or network.');
   if(command==='plan'||command==='status') console.log(JSON.stringify({account:r.account.address,cases:plan.cases.map((p:Row)=>p.id),liveWatches:plan.liveWatches.map((p:Row)=>p.id),depositedWei:(await proof()).depositedWei}));
-  else if(command==='all') {for(const p of plan.cases)await once(p,false);for(const p of plan.liveWatches)await once(p,true);await cleanupOriginals();for(const p of plan.cases)await closeUpheld(p);}
+  else if(command==='all') {for(const p of plan.cases)await once(p,false);for(const p of plan.liveWatches)await once(p,true);for(const p of plan.cases)await closeUpheld(p);for(const p of plan.cases)await settlePending(p);}
   else if(command==='cleanup')await cleanupOriginals();
+  else if(command==='settle')for(const p of plan.cases)await settlePending(p);
   else if(command==='close-windows')for(const p of plan.cases)await closeUpheld(p);
   else {
     const p=plan.cases.find((v:Row)=>v.id===command||v.sourceCaseId===command);

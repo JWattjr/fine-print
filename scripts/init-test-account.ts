@@ -11,6 +11,6 @@ if (!key) throw new Error('Dedicated account key is missing; existing .env was p
 let account: ReturnType<typeof createAccount>;
 try { account = createAccount(key); }
 catch { throw new Error('The dedicated account key is invalid. It was not logged.'); }
-const publicInfo = { address: account.address, chainId: 61999, network: 'StudioNet', fundingLimitWei: '1000', contractDepositCapWei: '1110' };
+const publicInfo = { address: account.address, chainId: 61999, network: 'StudioNet', fundingLimitWei: '1000', contractDepositCapWei: '1000' };
 await writeFile('deploy/test-account.json', JSON.stringify(publicInfo, null, 2) + '\n');
 console.log(JSON.stringify(publicInfo));

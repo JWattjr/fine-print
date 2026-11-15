@@ -2,9 +2,9 @@
 
 Public app: https://fine-print-ten.vercel.app/ · Source: https://github.com/JWattjr/fine-print
 
-Execution status: the requested scripted runs and current-watch funding are complete. Actual results and receipts are in [docs/RESULTS.md](docs/RESULTS.md). The cosmetic case exposes a compiler false positive, so the app is not described as submission ready.
+Execution status: the v2 contract set is deployed and the scripted runs and current-watch funding are complete. Actual results and receipts are in [docs/RESULTS.md](docs/RESULTS.md). v1 is superseded (cosmetic false positive) and kept for reference in [`deploy/v1/`](deploy/v1/proof.json).
 
-The scripted baseline-passage case finalized CODE_REJECTED with no model judgment or claim bond. The cosmetic timing recovery finalized TRIGGERED unexpectedly: its two permission criteria were NOT_TRIGGERED, but the compiler added an absence criterion that triggered on the date-only passage. This is a recorded false positive and a product limitation. The deployed contracts and prompts have not been edited or redeployed. See [the resumable runner](docs/RUNNER.md) for account handling, fixed IDs, request budgets, the shared 1,110-wei cap and receipt recovery.
+v2 fixes the v1 cosmetic false positive at the source: affirmative single-passage criteria, a code guard against negation and absence criteria, and a 40-character quote floor for TRIGGERED. The date-only case now finalizes NOT_TRIGGERED with the bond forfeited. Not every demonstration landed: the ALREADY_EXISTED/UPHELD case ended in a validator disagreement (retained, not retried), and both Zoom 2023 judgments finalized VOID because validators could not fetch the archive. See [the runner guide](docs/RUNNER.md).
 
 Fine Print is an archive-backed policy change bounty desk. A sponsor freezes a specific concern against a Wayback baseline. Hunters submit a later archived passage. GenLayer validators judge whether the passage meets the frozen checks, while deterministic contract code controls funding, bonds, deadlines, refunds and payouts.
 
@@ -20,7 +20,7 @@ The public app reads its displayed receipts from [`deploy/proof.json`](deploy/pr
 - Pinned runner: `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`
 - Evidence: exact successful Wayback CDX rows and immutable `id_` snapshots only
 
-The deployment journal stores transaction hashes before polling. A pending or accepted result remains pending in the interface. The app reads state again after finality before displaying a durable result. The transaction level value ledger is checked against the owner's stricter cumulative cap of 1,110 wei.
+The deployment journal stores transaction hashes before polling. A pending or accepted result remains pending in the interface. The app reads state again after finality before displaying a durable result. The transaction level value ledger is checked against the owner's stricter cumulative cap of 1,000 wei.
 
 ## Architecture
 
@@ -76,7 +76,7 @@ Final evidence audit: all six contract links and 148 transaction links verified.
 1. Verify Wayback CDX rows and immutable snapshots with ArchiveProbe on StudioNet, including both snapshots for Zoom, X and Adobe.
 2. Deploy Watches, Claims, Challenges, Bounties and ChangeLedger with the pinned runner. Save each transaction hash immediately and wait for finality.
 3. Replay each requested historical case once. Read the contract state after each transaction; retain the actual validator verdict, challenge ruling and settlement result.
-4. Create 3–4 funded production watches with explicit expiry. Record every incoming contract deposit and keep the cumulative total at or below the owner's 1,110-wei cap.
+4. Create 3–4 funded production watches with explicit expiry. Record every incoming contract deposit and keep the cumulative total at or below the owner's 1,000-wei cap.
 5. Run the proof verifier. Open every emitted Explorer contract link and confirm the address and StudioNet contract record.
 6. Deploy the app and publish the source repository. Prepare Portal fields and separate Explorer Contract evidence entries for review; do not submit them automatically.
 
@@ -84,23 +84,19 @@ See [`docs/TUTORIAL.md`](docs/TUTORIAL.md) for the user walkthrough and [`docs/D
 
 <!-- BEGIN ACTUAL RESULTS -->
 
-## Actual results
+## Actual results (v2)
 
-| Case | Actual finalized result | Evidence |
-| --- | --- | --- |
-| x-ai-training | TRIGGERED · 100 wei paid | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0x253fee4fc990efd38d2290203ace981ebadc956d06db36de55c06a9d3a8c275e) |
-| concern-rejected | REJECTED | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0x1ede355bae8d9e320279f6e9e087b6d894564425d7beee09b6a3a896435c864b) |
-| adobe-content-access | VOID | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0xbb6b3990e9f27624f31c68280fc6362784c0cc16c34921b40ab0b1d8d60817f8) |
-| baseline-passage-rejected | CODE_REJECTED | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0xfc56d44d1ff527f1849498fabd3dddb292fa40664c1f809a14da5a00596c8172) |
-| cosmetic-date-only-timing-recovery · re-run after a timing failure | TRIGGERED · 10 wei paid | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0x06d23da7abc6fa10979fc5610c5373247575d727889d08f055fbd8f0b2ae2a8a) |
-| injection-ignored | TRIGGERED · challenge REJECTED · 10 wei paid | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0x726dd642d4fcceba512b5ec3dd87b84be2292638876bb4bf5e001e9a2b61247e) |
-| challenge-upheld-timing-recovery · re-run after a timing failure | VOID · challenge UPHELD | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0xa1f51ff6be8968e04fe955adf6e30e1cbb934db441bd3c80f71ff486a2605a69) |
-| challenge-rejected-timing-recovery · re-run after a timing failure | TRIGGERED · challenge REJECTED · 10 wei paid | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0x9ef569b90b193f2f067432e031026d1c03691eb6660c88f2b67bae6b47bda356) |
-| zoom-ai-training | VOID | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0x4730a747fe3e378e9725eee251b607b80aeb4246fd017d0324f4cb6bf7cabeb0) |
-| cosmetic-date-only | VOID | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0xc4662e470cfe3ef25c332e2340a853a9c59af59fcf04384eeef3d4ad6121f2be) |
-| challenge-upheld | VOID | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0x6e894800defe61cac6beb17311cf4b08ce4fa273251115c9aa8fbcd2f4886fc7) |
-| challenge-rejected | VOID | [Finalized receipt](https://explorer-studio.genlayer.com/tx/0x3c74ce1f89110cbfc3d4460ad18726bad89a17caa34c144f0b0704b67aa8ec12) |
+| # | Case | Actual finalized result | Evidence |
+| --- | --- | --- | --- |
+| 1 | x-ai-training | TRIGGERED · 10 wei paid, native credit verified | [Receipt](https://explorer-studio.genlayer.com/tx/0x56ad8f3673c0dafdcec1d6d75a6b25fd2dc3d7f794ae6708fffed86728b23643) |
+| 2 | concern-rejected | REJECTED | [Receipt](https://explorer-studio.genlayer.com/tx/0x047bb4913cdb0b13c100c46fb0938cc5ee5efc83cccebdd3ef5ed5b434ae11f7) |
+| 3 | baseline-passage-rejected | CODE_REJECTED | [Receipt](https://explorer-studio.genlayer.com/tx/0xa6a07f946450d3fae594f7c96b9a50984724d960701fe366351d4603fd200482) |
+| 4 | cosmetic-date-only | NOT_TRIGGERED · claim bond forfeited | [Receipt](https://explorer-studio.genlayer.com/tx/0x92118106af0fad1b65d5ce47421b0eb7af6840c92833d65113c67a183a7da467) |
+| 5 | injection-ignored | TRIGGERED · challenge REJECTED · 10 wei paid, native credit verified | [Receipt](https://explorer-studio.genlayer.com/tx/0x7e8d4c1b3aef5e8bd19ec51354bc95381bc5b0bc5c94aecf62d9b1c75831ffad) |
+| 6 | challenge-upheld | RETAINED FAILURE: judge_claim finalized FINISHED_WITH_ERROR (MAJORITY_DISAGREE); validators did not agree. Not retried; no verdict recorded. | [Receipt](https://explorer-studio.genlayer.com/tx/0x0e8544e160a0fbd448bc8074898e1dbd83a08b346efc2d2013e8eaaf240414de) |
+| 7 | challenge-rejected | VOID · "Archive evidence unavailable; refund required." | [Receipt](https://explorer-studio.genlayer.com/tx/0x780b717783543b8b7e3d8d156744b34f63f20ce17fc096c7cf65eabe0fd43acb) |
+| 8 | zoom-ai-training | VOID · "Archive evidence unavailable; refund required." | [Receipt](https://explorer-studio.genlayer.com/tx/0x974928d73ef36ca8fbc1e6d5b145f267cb79cdfb8ae336d508146f7cb86c922e) |
 
-**Contract deposits: 848 / 1,110 wei.** Current funded watches: 3. Direct contract evidence and watch expiry dates are listed in [the complete results](docs/RESULTS.md).
+**Contract deposits: 367 / 1,000 wei.** Current funded watches: 3. Contracts: [ArchiveProbe](https://explorer-studio.genlayer.com/address/0x3af4ed87c46bcb30f296ab190da90f157b205694), [Watches](https://explorer-studio.genlayer.com/address/0xacd153a9ce2a2a762c0a719fd34ffff468d87baa), [Claims](https://explorer-studio.genlayer.com/address/0x608052285ce346ecfe5eafb8d94a3c0f4c3cb07a), [Challenges](https://explorer-studio.genlayer.com/address/0xb7fcf75f7462198c0f3aa4dbcb7f9067c7781838), [Bounties](https://explorer-studio.genlayer.com/address/0xc8fd789dccf626ccc93318987a59c160d79738d4), [ChangeLedger](https://explorer-studio.genlayer.com/address/0x969c8e8094df9174e75f60b7db76c3aa23954fb3). Full detail in [the complete results](docs/RESULTS.md).
 
 <!-- END ACTUAL RESULTS -->

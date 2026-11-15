@@ -153,7 +153,7 @@ export class Runner {
         if(contract!=='Bounties'||method!=='deposit')throw new Error('Only reviewed Bounties deposits may attach value.');
         const accounting = await this.read('Bounties', 'get_accounting');
         const local = BigInt((await proof()).depositedWei);
-        if (BigInt(accounting.total_deposited_wei) + value > 1110n || local + value > 1110n) throw new Error('Owner-approved 1,110-wei deposit cap would be exceeded.');
+        if (BigInt(accounting.total_deposited_wei) + value > 1000n || local + value > 1000n) throw new Error('Owner-approved 1,000-wei deposit cap would be exceeded.');
         const balance = BigInt(await this.rpc('eth_getBalance', [this.account.address, 'latest']));
         if (balance < value) throw new Error('Dedicated account needs its approved funding transfer.');
         const ticket=await this.read('Bounties','get_ticket',[args[1]]);

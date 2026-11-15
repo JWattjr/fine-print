@@ -52,9 +52,11 @@ def claims(monkeypatch, direct_vm, direct_deploy, direct_alice):
     def prompt(text, **kwargs):
         assert "untrusted document or participant text" in text
         state["model_calls"] += 1
-        quote = "train AI models" if state["model_calls"] % 2 else "your content"
+        quote = PASSAGE if state["model_calls"] % 2 else PASSAGE[:-1]
         if not state["different_quotes"]:
-            quote = "train AI models"
+            quote = PASSAGE
+        if state.get("quote"):
+            quote = state["quote"]
         if state["bad_quote"]:
             quote = "this quote was invented"
         verdict = state["own_verdict"] if state["model_calls"] % 2 == 0 and state["own_verdict"] else state["verdict"]
@@ -179,3 +181,30 @@ def test_claim_id_and_active_watch_lock_prevent_double_claims(claims, direct_vm)
         contract.prepare_claim("claim-1", "watch-1", "https://web.archive.org/web/" + NEW + "id_/" + URL, PASSAGE)
     with direct_vm.expect_revert("another claim is active"):
         contract.prepare_claim("claim-2", "watch-1", "https://web.archive.org/web/" + NEW + "id_/" + URL, PASSAGE)
+
+
+DATE = "Effective Date: August 11, 2023"
+
+
+def judged(claims, direct_vm, passage, verdict, quote=None):
+    contract, state, _, _ = claims
+    state["new_html"] = OLD_HTML.replace(b"</html>", ("<p>" + passage + "</p></html>").encode())
+    state["verdict"], state["quote"] = verdict, quote
+    prepare(claims, direct_vm, passage)
+    contract.judge_claim("claim-1")
+    finalize(contract, direct_vm)
+    return json.loads(contract.get_claim("claim-1"))["status"]
+
+
+def test_date_only_passage_is_not_triggered(claims, direct_vm):
+    assert judged(claims, direct_vm, DATE, "NOT_TRIGGERED", DATE) == "NOT_TRIGGERED"
+
+
+def test_triggered_with_short_quote_is_downgraded(claims, direct_vm):
+    # a TRIGGERED verdict on a 31-char date quote must not pay out
+    assert judged(claims, direct_vm, DATE, "TRIGGERED", DATE) == "NOT_TRIGGERED"
+
+
+def test_x_positive_with_long_passage_quote_is_triggered(claims, direct_vm):
+    x = "We may use the information we collect and publicly available information to help train our machine learning or artificial intelligence models for the purposes outlined in this policy."
+    assert judged(claims, direct_vm, x, "TRIGGERED", x) == "TRIGGERED"
